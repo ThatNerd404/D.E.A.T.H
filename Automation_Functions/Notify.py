@@ -1,4 +1,3 @@
-
 # Notify.py - Module to send and check emails easier 
 # aka adding a notification feature to programs
 
