@@ -21,3 +21,5 @@ if __name__ == "__main__":
     quote , author = inspire.Inspiration() #?turns tuple into string
     print(f"Quote: {quote}")
     print(f"Author: {author}")
+
+#works fine can't find anything exactly to add

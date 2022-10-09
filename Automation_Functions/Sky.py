@@ -21,7 +21,7 @@ class Sky:
         temperature = data["main"]["temp"]
         temp = round(1.8*(temperature-273) + 32.)
         #? equation to turn it from kelvin to fahrenheit and round 
-        return weather,temp 
+        return weather, temp 
         
 #? How to use |
 #?           \_/
@@ -30,3 +30,5 @@ if __name__ == "__main__":
     weather,temp = S.get_weather()
     print(f"Weather: {weather}")
     print(f"Temperature: {temp}")
+
+#works perfectly fine problaly going to add the "feels like" data
