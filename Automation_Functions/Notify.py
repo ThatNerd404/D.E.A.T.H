@@ -9,7 +9,7 @@ import email
 
 #* TODO:Login to email
 #* TODO:Send Emails
-#* TODO:Check emails
+# TODO:Check emails
 
 
 class Notify:
@@ -42,6 +42,7 @@ class Notify:
 
 
         _, msgnums = mailserver.search(None, "UNSEEN",) #?Returns a only unseen emails
+        num_emails = len(msgnums)
         for msgnum in msgnums[0].split():
             _, data = mailserver.fetch(msgnum,"(RFC822)")#? weird code means the whole message
 
@@ -50,18 +51,21 @@ class Notify:
             To = message.get("From")
             Date =  message.get("Date")
             Subject = message.get("Subject")
-            Content = message.get("Content")
+            if message.get("Content") == None: #? So I don't get nonetype
+               Content = "No Content"
+            else: 
+                Content = message.get("Content")
             m = []
+            
             for part in message.walk():
                 if part.get_content_type() == "text/plain":
                     m += part.get_payload()
-
             msg = "".join(m)
 
-            return From , To , Date , Subject , Content , msg #? Returns a tuple 
-   
         mailserver.close()
-        mailserver.logout()
+        mailserver.logout() #? Logout and close
+        return From , To , Date , Subject , Content , msg , num_emails #? Returns a tuple when I call variables has to be in this order
+        #!  when I call variables has to be in this order ^
         
         
         #?Will use imap to  check emails
@@ -70,14 +74,13 @@ class Notify:
 #? |   is run not in the file which imports
 #? |
 #?\_/
-
 if __name__ == '__main__': 
     #? How to use |
     #?           \_/
     N = Notify('bcotterman06@gmail.com')#? sets where I want the message to go
     N.msg('hi' , 'so hewwo')
-    From , To , Date , Subject , Content,msg = N.checkmail() #? changes tuple to useable values and bring values into use for main code 
-    print(From, To , Date , Subject, Content, msg)
+    From , To , Date , Subject , Content,msg, num_emails  = N.checkmail() #? changes tuple to useable values and bring values into use for main code 
+    print(f"Number of emails: {num_emails}\n{From} {To}\n{Date}\n{Subject}\n{Content}\n{msg}")
     
 #? Create object and put paramenter in () dont use self.paramenter
 #! YOU DUNCE!!! 
