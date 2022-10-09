@@ -1,5 +1,5 @@
 # Inspire.py - module to grab inspiration quotes from an api  
-
+# aka starting the day right
 import requests
 
 class Inspire:
