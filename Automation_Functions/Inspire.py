@@ -12,7 +12,7 @@ class Inspire:
         quote = res_dict['quote'] 
         author = res_dict['person'] #? stores the value as a string
 
-        return quote , author #?returns tuple
+        return quote , author #?returns tuple remember has to be in this order
 
 #? How to use |
 #?           \_/

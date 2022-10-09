@@ -88,3 +88,5 @@ if __name__ == '__main__':
 # need to be able to take all from, to , date and other data and store them in a dict and store all the from and to stuff in lists 
 # its a project for tommorow don't stress about it this is supposed to be fun and if it isn't being fun just do  a solid 15 and then get off
 # programming has been fun tho i do enjoy it I wouldn't stress so much if I didn't care
+# instead of a key for from and to and so forth
+#* how about a key for every email then a list with the from to and so forth

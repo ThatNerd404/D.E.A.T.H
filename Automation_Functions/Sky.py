@@ -21,7 +21,7 @@ class Sky:
         temperature = data["main"]["temp"]
         temp = round(1.8*(temperature-273) + 32.)
         #? equation to turn it from kelvin to fahrenheit and round 
-        return weather, temp 
+        return weather, temp #? Returns tuple and has to be this order when using function
         
 #? How to use |
 #?           \_/
