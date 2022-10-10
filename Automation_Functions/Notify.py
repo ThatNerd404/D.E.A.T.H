@@ -90,3 +90,5 @@ if __name__ == '__main__':
 # programming has been fun tho i do enjoy it I wouldn't stress so much if I didn't care
 # instead of a key for from and to and so forth
 #* how about a key for every email then a list with the from to and so forth
+#*or  maybe a nested dictonary to hold data 
+#* might use a amount value on the function to be able to change how many emails I grab or just grab all unseen emails

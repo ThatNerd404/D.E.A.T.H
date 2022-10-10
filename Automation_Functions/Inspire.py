@@ -1,7 +1,6 @@
 # Inspire.py - module to grab inspiration quotes from an api  
 # aka starting the day right
 import requests
-
 class Inspire:
     def __init__(self):
         pass
@@ -9,6 +8,7 @@ class Inspire:
     def Inspiration(self):
         responce  = requests.get("https://motivational-quote-api.herokuapp.com/quotes/random")
         res_dict = responce.json() #? returns dictonary
+
         quote = res_dict['quote'] 
         author = res_dict['person'] #? stores the value as a string
 
