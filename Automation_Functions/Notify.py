@@ -32,7 +32,7 @@ class Notify:
 
         mailserver.sendmail('bcotterman06@gmail.com', self.recevier , words.as_string())
         
-    def checkmail(self):
+    def check_mail(self):
         imaplib._MAXLINE = 100000
 
 
@@ -85,7 +85,7 @@ if __name__ == '__main__':
     Me.msg('whats up ' , 'playa')
     Me.msg('hey' , 'how you doing')
     
-    emale , num_emails  = Me.checkmail() #? changes tuple to useable values and bring values into use for main code 
+    emale , num_emails  = Me.check_mail() #? changes tuple to useable values and bring values into use for main code 
     #? |
     #?\_/ Loop to print all new emails and all the stuff in it 
     for i in range(0,num_emails):
