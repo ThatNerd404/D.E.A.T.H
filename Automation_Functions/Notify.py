@@ -80,11 +80,11 @@ class Notify:
 if __name__ == '__main__': 
     #? How to use |
     #?           \_/
-    Me = Notify('bcotterman06@gmail.com')#? sets where I want the message to go
+    Me = Notify('bcotterman06@gmail.com')#? sets where I want the message to go and creates notify object
     Me.msg('hi' , 'so hewwo')
     Me.msg('whats up ' , 'playa')
     Me.msg('hey' , 'how you doing')
-   
+    
     emale , num_emails  = Me.checkmail() #? changes tuple to useable values and bring values into use for main code 
     #? |
     #?\_/ Loop to print all new emails and all the stuff in it 
