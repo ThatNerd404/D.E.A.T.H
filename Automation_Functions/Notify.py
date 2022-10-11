@@ -9,7 +9,7 @@ import email
 
 #* TODO:Login to email
 #* TODO:Send Emails
-# TODO:Check emails
+#* TODO:Check emails
 
 
 class Notify:
@@ -40,12 +40,13 @@ class Notify:
         mailserver.login('bcotterman06@gmail.com','dwmwyupcqtcrbzar')
         mailserver.select("Inbox")
 
+        emale = []
 
+        
         _, msgnums = mailserver.search(None, "UNSEEN",) #?Returns a only unseen emails
-        num_emails = len(msgnums)
         for msgnum in msgnums[0].split():
             _, data = mailserver.fetch(msgnum,"(RFC822)")#? weird code means the whole message
-
+            
             message = email.message_from_bytes(data[0][1])
             From = message.get("From")
             To = message.get("From")
@@ -62,9 +63,11 @@ class Notify:
                     m += part.get_payload()
             msg = "".join(m)
 
+            emale.append({'From':From,'To':To, 'Date':Date,'Subject':Subject,'Content':Content,"Message":msg}) #? a list of dicts so i can store data with keys and use indexing
         mailserver.close()
         mailserver.logout() #? Logout and close
-        return From , To , Date , Subject , Content , msg , num_emails #? Returns a tuple when I call variables has to be in this order
+        num_emails = len(emale) #? fixed num_emails 
+        return emale , num_emails #? Returns a tuple when I call variables has to be in this order
         #!  when I call variables has to be in this order ^
         
         
@@ -77,11 +80,19 @@ class Notify:
 if __name__ == '__main__': 
     #? How to use |
     #?           \_/
-    N = Notify('bcotterman06@gmail.com')#? sets where I want the message to go
-    N.msg('hi' , 'so hewwo')
-    From , To , Date , Subject , Content,msg, num_emails  = N.checkmail() #? changes tuple to useable values and bring values into use for main code 
-    print(f"Number of emails: {num_emails}\n{From} {To}\n{Date}\n{Subject}\n{Content}\n{msg}")
+    Me = Notify('bcotterman06@gmail.com')#? sets where I want the message to go
+    Me.msg('hi' , 'so hewwo')
+    Me.msg('whats up ' , 'playa')
+    Me.msg('hey' , 'how you doing')
+   
+    emale , num_emails  = Me.checkmail() #? changes tuple to useable values and bring values into use for main code 
+    #? |
+    #?\_/ Loop to print all new emails and all the stuff in it 
+    for i in range(0,num_emails):
+        print(f"{emale[i]['From']} {emale[i]['To']}\n{emale[i]['Date']}\n{emale[i]['Subject']}\n{emale[i]['Message']}\n")
+        i += 1
     
+
 #? Create object and put paramenter in () dont use self.paramenter
 #! YOU DUNCE!!! 
 # need to figure out how to store multiple emails  
@@ -89,6 +100,3 @@ if __name__ == '__main__':
 # its a project for tommorow don't stress about it this is supposed to be fun and if it isn't being fun just do  a solid 15 and then get off
 # programming has been fun tho i do enjoy it I wouldn't stress so much if I didn't care
 # instead of a key for from and to and so forth
-#* how about a key for every email then a list with the from to and so forth
-#*or  maybe a nested dictonary to hold data 
-#* might use a amount value on the function to be able to change how many emails I grab or just grab all unseen emails
