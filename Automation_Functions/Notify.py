@@ -49,7 +49,7 @@ class Notify:
             
             message = email.message_from_bytes(data[0][1])
             From = message.get("From")
-            To = message.get("From")
+            To = message.get("To")
             Date =  message.get("Date")
             Subject = message.get("Subject")
             if message.get("Content") == None: #? So I don't get nonetype
@@ -67,6 +67,8 @@ class Notify:
         mailserver.close()
         mailserver.logout() #? Logout and close
         num_emails = len(emale) #? fixed num_emails 
+        if num_emails == 0:
+            emale = "No emails available"
         return emale , num_emails #? Returns a tuple when I call variables has to be in this order
         #!  when I call variables has to be in this order ^
         
@@ -81,17 +83,19 @@ if __name__ == '__main__':
     #? How to use |
     #?           \_/
     Me = Notify('bcotterman06@gmail.com')#? sets where I want the message to go and creates notify object
-    Me.msg('hi' , 'so hewwo')
-    Me.msg('whats up ' , 'playa')
-    Me.msg('hey' , 'how you doing')
+    #Me.msg('hi' , 'so hewwo')
+    #Me.msg("whats up " ," playa")
+    #Me.msg("hey" , "how you doin'")
     
     emale , num_emails  = Me.check_mail() #? changes tuple to useable values and bring values into use for main code 
     #? |
     #?\_/ Loop to print all new emails and all the stuff in it 
+    print(f'Number of emails: {num_emails}')
     for i in range(0,num_emails):
         print(f"Number of emails: {num_emails}\n{emale[i]['From']} {emale[i]['To']}\n{emale[i]['Date']}\n{emale[i]['Subject']}\n{emale[i]['Message']}\n")
         i += 1
-    
+    if num_emails == 0:
+        print(emale)
 
 #? Create object and put paramenter in () dont use self.paramenter
 #! YOU DUNCE!!! 

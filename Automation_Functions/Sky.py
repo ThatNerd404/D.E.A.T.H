@@ -19,16 +19,20 @@ class Sky:
         #print(data)
         weather = data["weather"][0]["main"]
         temperature = data["main"]["temp"]
+        fl = data["main"]["feels_like"]
+        feels_like =  round(1.8*(fl-273) + 32.)
         temp = round(1.8*(temperature-273) + 32.)
         #? equation to turn it from kelvin to fahrenheit and round 
-        return weather, temp #? Returns tuple and has to be this order when using function
+        return weather, temp , feels_like #? Returns tuple and has to be this order when using function
         
 #? How to use |
 #?           \_/
 if __name__ == "__main__":
     S = Sky()
-    weather,temp = S.get_weather()
+    weather,temp,feels_like = S.get_weather()
     print(f"Weather: {weather}")
     print(f"Temperature: {temp}")
+    print(f"feels like: {feels_like}")
+    
 
 #works perfectly fine problaly going to add the "feels like" data
