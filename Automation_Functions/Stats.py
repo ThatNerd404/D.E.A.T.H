@@ -9,8 +9,8 @@ class Stats:
         pass
     def check_stats(self):
         my_system = platform.uname()
- 
-        System =  my_system.system #? Get different system info
+        # System info
+        System =  my_system.system 
         Node =  my_system.node
         Release = my_system.release
         Version = my_system.version
