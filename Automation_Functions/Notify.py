@@ -92,7 +92,7 @@ if __name__ == '__main__':
     #?\_/ Loop to print all new emails and all the stuff in it 
     print(f'Number of emails: {num_emails}')
     for i in range(0,num_emails):
-        print(f"Number of emails: {num_emails}\n{emale[i]['From']} {emale[i]['To']}\n{emale[i]['Date']}\n{emale[i]['Subject']}\n{emale[i]['Message']}\n")
+        print(f"{emale[i]['From']} {emale[i]['To']}\n{emale[i]['Date']}\n{emale[i]['Subject']}\n{emale[i]['Message']}\n")
         i += 1
     if num_emails == 0:
         print(emale)
