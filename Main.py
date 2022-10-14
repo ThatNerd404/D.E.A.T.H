@@ -24,3 +24,5 @@ if __name__ == "__main__":
     app()
 #finished with the classes now I am going to watch tech with tim then turtle code then read  pyqt5 article then read real python articles to work on pyqt5
 # don't get stressed you just started and this is your research stage chill out my nigga 
+# just learn what you need and return when you need to relearn 
+# make blueprint in powerpoint then base it off of that
