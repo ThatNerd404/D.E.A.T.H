@@ -13,10 +13,12 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         self.setupUi(self)
 
 
+
 def app():
     app = QApplication(sys.argv)
     win = Mainwindow()
     win.show()
     sys.exit(app.exec_())
+
 if __name__ == "__main__":
     app()
