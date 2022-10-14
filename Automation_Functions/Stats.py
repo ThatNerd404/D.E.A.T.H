@@ -55,7 +55,7 @@ if __name__ == '__main__':
     print(f"Minimum Frequency: {Frequency['min_freq']}")
     print(f"Current Frequency: {Frequency['current_freq']}")
     for i in range(0,len(cpu_usage)):
-        print(f"Core {i} usage: {cpu_usage[i]}%")
+        print(f"Core {i + 1} usage: {cpu_usage[i]}%")
     print(f"Total core usage: {total_usage}")
     print(f"Battery left: {battery['battery_left']}%")
     print(f"Battery plugged in: {battery['battery_plugged']}")
