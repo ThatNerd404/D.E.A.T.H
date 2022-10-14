@@ -22,3 +22,5 @@ def app():
 
 if __name__ == "__main__":
     app()
+#finished with the classes now I am going to watch tech with tim then turtle code then read  pyqt5 article then read real python articles 
+# i will make sure to not get to stressed out 
