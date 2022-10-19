@@ -12,11 +12,12 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         super(Mainwindow,self).__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-        self.ui.Thatbutton.clicked.connect(self.clicked) # dont add () if you dont add stuff in it 
-    
+        self.ui.Thatbutton.setText("Exit")
+        self.ui.Thatbutton.clicked.connect(self.close) # dont add () if you dont add stuff in it 
+        
     def clicked(self):
         print("clicked")
-
+    
 
 def app():
     app = QApplication(sys.argv)
@@ -29,6 +30,6 @@ if __name__ == "__main__":
 #finished with the classes now I am going to watch tech with tim then turtle code then read  pyqt5 article then read real python articles to work on pyqt5
 # don't get stressed you just started and this is your research stage chill out my nigga 
 # just learn what you need and return when you need to relearn 
-# prolly just gonna sketch blueprint 
-# i need more research but i am pretty close so far
+# Finished with title bar and it is fire!!!!
+
 
