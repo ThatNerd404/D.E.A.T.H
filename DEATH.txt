@@ -1,0 +1,63 @@
+Big Project!!!:
+I want to make an automatic task hud thing which whenever i ask it or whenever i boot up my computer it will give me useful information like
+the time
+random quote
+system stats(ram usage, speed, etc.)
+the weather
+the temperature
+my top five emails
+other useful info...
+it will also perform alot of other mundane tasks for me
+like running bleachbit
+
+Remember:
+Make sure to read up on OOP (classes and stuff)
+brush up on my webscrapping 
+weather api on bookmark bar  
+watch video and check how he check system stats
+(pyqt5 has a time date thing so...)
+learn about job scheduling and
+asycn / multithreadin to run my programs automatically
+first finish all the gui then add the functions 
+
+Make:
+a system to run my favorite stuff like firefox and vscode 
+Package with classes for all the functions I want:
+system stats DONE
+gmail DONE
+weather DONE
+a quote DONE
+Gui that looks cool:
+use qt designer
+Maybe autorun bleachbit
+Main code to put it all to together:
+import package and gui and get her done!
+
+Also i will turn all of my projects to exe files so i can run them anywhere
+and make icon and shortcut cause im cool like that
+Notes:
+MAKE BLUEPRINT IN POWERPOINT SO YOU KNOW WHAT YOU WANT 
+
+when trying to run other programs put
+subprocess.Popen(r'python project/you/want')
+remember DRY
+Don't Repeat Yourself!
+
+remember when changing ui file to py use this command:
+    pyuic5 fileuwanttochange.ui -o newnameforfile.py 
+
+Pyqt5 already has something to make threads called qthreads 
+and they also have qtime and qtdate i will check to make sure i dont need to make a thread for qtime or if it does it already
+
+remember lambda is used so that you can add a parameter to functions 
+tldr: add lambda: self.function(parameter) when you have a lot of code in a connect function 
+
+GUI will have:
+custom frame with yellow icons 
+will have menu bar with refresh function and crtl + R shortcut
+will have tooltips for all the buttons for switching the page like email etc.
+a black and yellow color palette
+a sidebar for switching to the pages using a stacked widget
+display system data with charts
+color i like is #FAB005 yellow
+Name is Development Environmet Automation & Task Handler aka D.E.A.T.H 

@@ -10,8 +10,12 @@ from Gui.QT_test import Ui_MainWindow
 class Mainwindow(QMainWindow,Ui_MainWindow):
     def __init__(self):
         super(Mainwindow,self).__init__()
-        self.setupUi(self)
-
+        self.ui = Ui_MainWindow()
+        self.ui.setupUi(self)
+        self.ui.Thatbutton.clicked.connect(self.clicked) # dont add () if you dont add stuff in it 
+    
+    def clicked(self):
+        print("clicked")
 
 
 def app():
