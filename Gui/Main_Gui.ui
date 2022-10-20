@@ -263,6 +263,9 @@ font-color: White;</string>
        <height>531</height>
       </rect>
      </property>
+     <property name="toolTipDuration">
+      <number>-1</number>
+     </property>
      <property name="styleSheet">
       <string notr="true">background-color: rgb(27,27,27)</string>
      </property>
@@ -323,6 +326,12 @@ font-color: White;</string>
          </property>
          <item>
           <widget class="QPushButton" name="Email_Button">
+           <property name="toolTip">
+            <string>Emails</string>
+           </property>
+           <property name="toolTipDuration">
+            <number>-1</number>
+           </property>
            <property name="text">
             <string/>
            </property>
@@ -343,6 +352,12 @@ font-color: White;</string>
          </item>
          <item>
           <widget class="QPushButton" name="Weather_Button">
+           <property name="toolTip">
+            <string>Weather</string>
+           </property>
+           <property name="toolTipDuration">
+            <number>-1</number>
+           </property>
            <property name="text">
             <string/>
            </property>
@@ -363,6 +378,12 @@ font-color: White;</string>
          </item>
          <item>
           <widget class="QPushButton" name="System_Button">
+           <property name="toolTip">
+            <string>System Information</string>
+           </property>
+           <property name="toolTipDuration">
+            <number>-1</number>
+           </property>
            <property name="text">
             <string/>
            </property>
@@ -383,6 +404,12 @@ font-color: White;</string>
          </item>
          <item>
           <widget class="QPushButton" name="Time_Button">
+           <property name="toolTip">
+            <string>Time &amp; Reminders</string>
+           </property>
+           <property name="toolTipDuration">
+            <number>-1</number>
+           </property>
            <property name="text">
             <string/>
            </property>
@@ -403,6 +430,12 @@ font-color: White;</string>
          </item>
          <item>
           <widget class="QPushButton" name="Quote_Button">
+           <property name="toolTip">
+            <string>Quotes</string>
+           </property>
+           <property name="toolTipDuration">
+            <number>-1</number>
+           </property>
            <property name="text">
             <string/>
            </property>
