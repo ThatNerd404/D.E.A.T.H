@@ -55,7 +55,7 @@ tldr: add lambda: self.function(parameter) when you have a lot of code in a conn
 GUI will have:
 custom frame with yellow icons 
 will have refresh function for getting new quotes
-will say email not availabl
+will say email not available 
 will have tooltips for all the buttons for switching the page like email etc.
 a black and yellow color palette
 a sidebar for switching to the pages using a stacked widget
