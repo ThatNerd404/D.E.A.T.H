@@ -12,8 +12,9 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         super(Mainwindow,self).__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-        self.ui.Thatbutton.setText("Exit")
-        self.ui.Thatbutton.clicked.connect(self.close) # dont add () if you dont add stuff in it 
+        
+        
+        #self.ui.Close_Button.clicked.connect(self.close) # dont add () if you dont add stuff in it 
         
     def clicked(self):
         print("clicked")
