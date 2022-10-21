@@ -251,7 +251,40 @@ font-color: White;</string>
      <property name="currentIndex">
       <number>0</number>
      </property>
-     <widget class="QWidget" name="Home_Page"/>
+     <widget class="QWidget" name="Home_Page">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(24,24,24)</string>
+      </property>
+      <widget class="QFrame" name="Home_Title">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>0</y>
+         <width>661</width>
+         <height>81</height>
+        </rect>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QLabel" name="label">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>47</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+      </widget>
+     </widget>
      <widget class="QWidget" name="page_2"/>
     </widget>
     <widget class="QFrame" name="Side_Bar">
@@ -325,6 +358,32 @@ font-color: White;</string>
           <number>0</number>
          </property>
          <item>
+          <widget class="QPushButton" name="Home_Button">
+           <property name="toolTip">
+            <string>Home</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>icons8-home-page-32.png</normaloff>icons8-home-page-32.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>32</width>
+             <height>32</height>
+            </size>
+           </property>
+           <property name="shortcut">
+            <string>Ctrl+H</string>
+           </property>
+           <property name="flat">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
           <widget class="QPushButton" name="Email_Button">
            <property name="toolTip">
             <string>Emails</string>
@@ -344,6 +403,15 @@ font-color: White;</string>
              <width>32</width>
              <height>32</height>
             </size>
+           </property>
+           <property name="shortcut">
+            <string>Ctrl+E</string>
+           </property>
+           <property name="autoDefault">
+            <bool>false</bool>
+           </property>
+           <property name="default">
+            <bool>false</bool>
            </property>
            <property name="flat">
             <bool>true</bool>
@@ -371,6 +439,9 @@ font-color: White;</string>
              <height>32</height>
             </size>
            </property>
+           <property name="shortcut">
+            <string>Ctrl+W</string>
+           </property>
            <property name="flat">
             <bool>true</bool>
            </property>
@@ -396,6 +467,9 @@ font-color: White;</string>
              <width>32</width>
              <height>32</height>
             </size>
+           </property>
+           <property name="shortcut">
+            <string>Ctrl+S</string>
            </property>
            <property name="flat">
             <bool>true</bool>
@@ -423,6 +497,9 @@ font-color: White;</string>
              <height>32</height>
             </size>
            </property>
+           <property name="shortcut">
+            <string>Ctrl+R</string>
+           </property>
            <property name="flat">
             <bool>true</bool>
            </property>
@@ -448,6 +525,9 @@ font-color: White;</string>
              <width>32</width>
              <height>32</height>
             </size>
+           </property>
+           <property name="shortcut">
+            <string>Ctrl+Q</string>
            </property>
            <property name="flat">
             <bool>true</bool>
