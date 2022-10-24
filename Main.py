@@ -1,7 +1,7 @@
 # Main file for connecting function to the gui
 
 import PyQt5
-from PyQt5 import QtWidgets 
+from PyQt5 import QtWidgets ,QtCore
 from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget,QPushButton
 from PyQt5.QtGui import QPalette, QColor
 import sys
@@ -12,9 +12,10 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         super(Mainwindow,self).__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-        
-        
-        #self.ui.Close_Button.clicked.connect(self.close) # dont add () if you dont add stuff in it 
+        flags = QtCore.Qt.WindowFlags(QtCore.Qt.FramelessWindowHint)
+        self.setWindowFlags(flags)
+        self.ui.Thatbutton.setText("Exit")
+        self.ui.Thatbutton.clicked.connect(lambda: self.close()) # dont add () if you dont add stuff in it 
         
     def clicked(self):
         print("clicked")

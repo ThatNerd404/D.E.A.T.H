@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
+    <width>803</width>
     <height>600</height>
    </rect>
   </property>
@@ -30,7 +30,9 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(20,20,20)</string>
+     <string notr="true">QPushButton{background-color: rgb(20,20,20)}
+QFrame{background-color: rgb(20,20,20)}
+QPushButton:hover{background-color:rgba(250,176,5,0.05)}</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::WinPanel</enum>
@@ -258,10 +260,10 @@ font-color: White;</string>
       <widget class="QFrame" name="Home_Title">
        <property name="geometry">
         <rect>
-         <x>10</x>
+         <x>0</x>
          <y>0</y>
-         <width>661</width>
-         <height>81</height>
+         <width>681</width>
+         <height>71</height>
         </rect>
        </property>
        <property name="frameShape">
@@ -270,17 +272,21 @@ font-color: White;</string>
        <property name="frameShadow">
         <enum>QFrame::Raised</enum>
        </property>
-       <widget class="QLabel" name="label">
+       <widget class="QLabel" name="title">
         <property name="geometry">
          <rect>
-          <x>10</x>
-          <y>10</y>
-          <width>47</width>
-          <height>16</height>
+          <x>80</x>
+          <y>20</y>
+          <width>111</width>
+          <height>41</height>
          </rect>
         </property>
+        <property name="styleSheet">
+         <string notr="true">
+font: 28pt &quot;Palatino Linotype&quot;;</string>
+        </property>
         <property name="text">
-         <string>TextLabel</string>
+         <string>Home:</string>
         </property>
        </widget>
       </widget>
@@ -300,7 +306,9 @@ font-color: White;</string>
       <number>-1</number>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(27,27,27)</string>
+      <string notr="true">QFrame{background-color: rgb(27,27,27)}
+QPushButton{border-radius:5px; background-color: rgb(27,27,27)}
+QPushButton:hover{background-color:rgba(250,176,5,0.05)}</string>
      </property>
      <property name="frameShape">
       <enum>QFrame::StyledPanel</enum>
@@ -378,6 +386,9 @@ font-color: White;</string>
            <property name="shortcut">
             <string>Ctrl+H</string>
            </property>
+           <property name="default">
+            <bool>true</bool>
+           </property>
            <property name="flat">
             <bool>true</bool>
            </property>
@@ -411,7 +422,7 @@ font-color: White;</string>
             <bool>false</bool>
            </property>
            <property name="default">
-            <bool>false</bool>
+            <bool>true</bool>
            </property>
            <property name="flat">
             <bool>true</bool>
@@ -442,6 +453,9 @@ font-color: White;</string>
            <property name="shortcut">
             <string>Ctrl+W</string>
            </property>
+           <property name="default">
+            <bool>true</bool>
+           </property>
            <property name="flat">
             <bool>true</bool>
            </property>
@@ -470,6 +484,9 @@ font-color: White;</string>
            </property>
            <property name="shortcut">
             <string>Ctrl+S</string>
+           </property>
+           <property name="default">
+            <bool>true</bool>
            </property>
            <property name="flat">
             <bool>true</bool>
@@ -500,6 +517,9 @@ font-color: White;</string>
            <property name="shortcut">
             <string>Ctrl+R</string>
            </property>
+           <property name="default">
+            <bool>true</bool>
+           </property>
            <property name="flat">
             <bool>true</bool>
            </property>
@@ -528,6 +548,9 @@ font-color: White;</string>
            </property>
            <property name="shortcut">
             <string>Ctrl+Q</string>
+           </property>
+           <property name="default">
+            <bool>true</bool>
            </property>
            <property name="flat">
             <bool>true</bool>

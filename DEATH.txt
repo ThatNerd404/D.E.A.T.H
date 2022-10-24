@@ -56,7 +56,7 @@ GUI will have:
 custom frame with yellow icons 
 will have refresh function for getting new quotes
 Shortcut key commands for all buttons
-will say email not available 
+will say email not available when i don't have all 5 emails
 will have tooltips for all the buttons for switching the page like email etc.
 Home will have journal with text box and saving data in encrypted txt file 
 Home will also have a fun fact 
@@ -65,3 +65,5 @@ a sidebar for switching to the pages using a stacked widget
 display system data with charts
 color i like is #FAB005 yellow
 Name is Development Environmet Automation & Task Handler aka D.E.A.T.H 
+Possibly add sound effects
+need to add hover effects to buttons
