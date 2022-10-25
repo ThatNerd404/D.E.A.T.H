@@ -58,7 +58,8 @@ will have refresh function for getting new quotes
 Shortcut key commands for all buttons
 will say email not available when i don't have all 5 emails
 will have tooltips for all the buttons for switching the page like email etc.
-Home will have journal with text box and saving data in encrypted txt file 
+Home will have workouts with edit button to change them and save to a txt file
+Might improve with a journal later
 Home will also have a fun fact 
 a black and yellow color palette
 a sidebar for switching to the pages using a stacked widget

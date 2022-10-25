@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>803</width>
-    <height>600</height>
+    <width>801</width>
+    <height>598</height>
    </rect>
   </property>
   <property name="maximumSize">
@@ -31,7 +31,7 @@
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{background-color: rgb(20,20,20)}
-QFrame{background-color: rgb(20,20,20)}
+QFrame{background-color: rgb(20,20,20) }
 QPushButton:hover{background-color:rgba(250,176,5,0.05)}</string>
     </property>
     <property name="frameShape">
@@ -228,12 +228,12 @@ font-color: White;</string>
      <rect>
       <x>0</x>
       <y>70</y>
-      <width>801</width>
+      <width>811</width>
       <height>531</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: blue</string>
+     <string notr="true"/>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -263,8 +263,13 @@ font-color: White;</string>
          <x>0</x>
          <y>0</y>
          <width>681</width>
-         <height>71</height>
+         <height>81</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">#Home_Title{border-width:1px;
+border-style:solid;
+border-color: rgb(250,176,5)}</string>
        </property>
        <property name="frameShape">
         <enum>QFrame::StyledPanel</enum>
@@ -272,26 +277,106 @@ font-color: White;</string>
        <property name="frameShadow">
         <enum>QFrame::Raised</enum>
        </property>
-       <widget class="QLabel" name="title">
-        <property name="geometry">
-         <rect>
-          <x>80</x>
-          <y>20</y>
-          <width>111</width>
-          <height>41</height>
-         </rect>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <property name="spacing">
+         <number>0</number>
         </property>
-        <property name="styleSheet">
-         <string notr="true">
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item alignment="Qt::AlignHCenter">
+         <widget class="QLabel" name="title">
+          <property name="maximumSize">
+           <size>
+            <width>125</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
 font: 28pt &quot;Palatino Linotype&quot;;</string>
+          </property>
+          <property name="text">
+           <string>Home</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QFrame" name="Workouts_section">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>90</y>
+         <width>331</width>
+         <height>401</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_4">
+        <property name="spacing">
+         <number>0</number>
         </property>
-        <property name="text">
-         <string>Home:</string>
+        <property name="leftMargin">
+         <number>0</number>
         </property>
-       </widget>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item alignment="Qt::AlignHCenter|Qt::AlignTop">
+         <widget class="QLabel" name="Workouts_title">
+          <property name="maximumSize">
+           <size>
+            <width>150</width>
+            <height>75</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">font: 24pt &quot;Palatino Linotype&quot;;</string>
+          </property>
+          <property name="text">
+           <string>Workouts:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="Workout_Items">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </widget>
      </widget>
-     <widget class="QWidget" name="page_2"/>
+     <widget class="QWidget" name="page_2">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(24,24,24)</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QFrame" name="Side_Bar">
      <property name="geometry">
@@ -307,7 +392,14 @@ font: 28pt &quot;Palatino Linotype&quot;;</string>
      </property>
      <property name="styleSheet">
       <string notr="true">QFrame{background-color: rgb(27,27,27)}
+
+#Side_Bar{
+border-color:rgb(250,176,5);
+border-width:1px;
+border-style:solid;}
+
 QPushButton{border-radius:5px; background-color: rgb(27,27,27)}
+
 QPushButton:hover{background-color:rgba(250,176,5,0.05)}</string>
      </property>
      <property name="frameShape">
