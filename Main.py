@@ -15,8 +15,9 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         flags = QtCore.Qt.WindowFlags(QtCore.Qt.FramelessWindowHint)
         self.setWindowFlags(flags)
         self.ui.Thatbutton.clicked.connect(lambda: self.close()) # dont add () if you dont add stuff in it 
-        #inspire = Quote, Author = Inspire.Inspiration(self) <-- How I will set variable data to labels aka dont forget self
+        #inspire = Quote, Author = Inspire.Inspiration(self) #<-- How I will set variable data to labels aka dont forget self
         #self.ui.Thatbutton.setText(Quote)
+        
     def clicked(self):
         print("clicked")
     
@@ -24,7 +25,7 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
 def app():
     app = QApplication(sys.argv)
     win = Mainwindow()
-    win.show()
+    win.show()#show Maxumized to show it full screen
     sys.exit(app.exec_())
 
 if __name__ == "__main__":
@@ -33,5 +34,9 @@ if __name__ == "__main__":
 # don't get stressed you just started and this is your research stage chill out my nigga 
 # just learn what you need and return when you need to relearn 
 # Finished with title bar and it is fire!!!!
+# Nav buttons:
+#close: self.close
+#minimize: self.ShowMimized
+
 
 

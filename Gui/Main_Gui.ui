@@ -317,8 +317,8 @@ font: 28pt &quot;Palatino Linotype&quot;;</string>
         <rect>
          <x>0</x>
          <y>90</y>
-         <width>331</width>
-         <height>401</height>
+         <width>341</width>
+         <height>381</height>
         </rect>
        </property>
        <property name="styleSheet">
@@ -331,21 +331,6 @@ font: 28pt &quot;Palatino Linotype&quot;;</string>
         <enum>QFrame::Raised</enum>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_4">
-        <property name="spacing">
-         <number>0</number>
-        </property>
-        <property name="leftMargin">
-         <number>0</number>
-        </property>
-        <property name="topMargin">
-         <number>0</number>
-        </property>
-        <property name="rightMargin">
-         <number>0</number>
-        </property>
-        <property name="bottomMargin">
-         <number>0</number>
-        </property>
         <item alignment="Qt::AlignHCenter|Qt::AlignTop">
          <widget class="QLabel" name="Workouts_title">
           <property name="maximumSize">
@@ -363,9 +348,9 @@ font: 28pt &quot;Palatino Linotype&quot;;</string>
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="Workout_Items">
+         <widget class="QLabel" name="label">
           <property name="text">
-           <string/>
+           <string>Hello world</string>
           </property>
          </widget>
         </item>
