@@ -5,7 +5,7 @@ from PyQt5 import QtWidgets ,QtCore
 from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget,QPushButton
 from PyQt5.QtGui import QPalette, QColor
 import sys
-from Gui.QT_test import Ui_MainWindow
+from Gui.Main_Gui import Ui_MainWindow
 from Automation_Functions.Inspire import Inspire
 class Mainwindow(QMainWindow,Ui_MainWindow):
     def __init__(self):
@@ -14,7 +14,8 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         self.ui.setupUi(self)
         flags = QtCore.Qt.WindowFlags(QtCore.Qt.FramelessWindowHint)
         self.setWindowFlags(flags)
-        self.ui.Thatbutton.clicked.connect(lambda: self.close()) # dont add () if you dont add stuff in it 
+        self.ui.Close_Button.clicked.connect(lambda: self.close()) # dont add () if you dont add stuff in it 
+        self.ui.Minimize_Button.clicked.connect(lambda: self.showMinimized())
         #inspire = Quote, Author = Inspire.Inspiration(self) #<-- How I will set variable data to labels aka dont forget self
         #self.ui.Thatbutton.setText(Quote)
         

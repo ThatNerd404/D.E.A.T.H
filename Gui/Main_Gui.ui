@@ -102,8 +102,7 @@ QPushButton:hover{background-color:rgba(250,176,5,0.05)}</string>
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">font: 75 36pt &quot;Palatino Linotype&quot;;
-font-color:rgb(255, 255, 255)</string>
+         <string notr="true">font: 75 36pt &quot;Palatino Linotype&quot;</string>
         </property>
         <property name="text">
          <string>D.E.A.T.H.</string>
@@ -119,8 +118,7 @@ font-color:rgb(255, 255, 255)</string>
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">font: 11pt &quot;Palatino Linotype&quot;;
-font-color: White;</string>
+         <string notr="true">font: 11pt &quot;Palatino Linotype&quot;</string>
         </property>
         <property name="text">
          <string>Developer Environment Automation &amp; Task Handler</string>
@@ -250,12 +248,15 @@ font-color: White;</string>
        <height>531</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
      <property name="currentIndex">
       <number>0</number>
      </property>
      <widget class="QWidget" name="Home_Page">
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(24,24,24)</string>
+       <string notr="true">background-color: rgb(15,15,15)</string>
       </property>
       <widget class="QFrame" name="Home_Title">
        <property name="geometry">
@@ -312,13 +313,34 @@ font: 28pt &quot;Palatino Linotype&quot;;</string>
         </item>
        </layout>
       </widget>
+      <widget class="QFrame" name="Home_Content">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>90</y>
+         <width>671</width>
+         <height>441</height>
+        </rect>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="Time_Reminders_Page">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(15,15,15)</string>
+      </property>
       <widget class="QFrame" name="Workouts_section">
        <property name="geometry">
         <rect>
-         <x>0</x>
-         <y>90</y>
+         <x>80</x>
+         <y>60</y>
          <width>341</width>
-         <height>381</height>
+         <height>371</height>
         </rect>
        </property>
        <property name="styleSheet">
@@ -331,36 +353,80 @@ font: 28pt &quot;Palatino Linotype&quot;;</string>
         <enum>QFrame::Raised</enum>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_4">
-        <item alignment="Qt::AlignHCenter|Qt::AlignTop">
-         <widget class="QLabel" name="Workouts_title">
+        <item alignment="Qt::AlignHCenter">
+         <widget class="QFrame" name="Workouts_Title">
           <property name="maximumSize">
            <size>
-            <width>150</width>
-            <height>75</height>
+            <width>180</width>
+            <height>100</height>
            </size>
           </property>
-          <property name="styleSheet">
-           <string notr="true">font: 24pt &quot;Palatino Linotype&quot;;</string>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
           </property>
-          <property name="text">
-           <string>Workouts:</string>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
           </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_3">
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QLabel" name="Dumbell_icon">
+             <property name="maximumSize">
+              <size>
+               <width>32</width>
+               <height>32</height>
+              </size>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="pixmap">
+              <pixmap>icons8-dumbbell-32.png</pixmap>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="Workout_label">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>50</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">font: 24pt &quot;Palatino Linotype&quot;;</string>
+             </property>
+             <property name="text">
+              <string>Workouts</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </widget>
         </item>
         <item>
          <widget class="QLabel" name="label">
           <property name="text">
-           <string>Hello world</string>
+           <string/>
           </property>
          </widget>
         </item>
        </layout>
       </widget>
-     </widget>
-     <widget class="QWidget" name="page_2">
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(24,24,24)</string>
-      </property>
      </widget>
     </widget>
     <widget class="QFrame" name="Side_Bar">
