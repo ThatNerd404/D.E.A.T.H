@@ -44,7 +44,7 @@ remember DRY
 Don't Repeat Yourself!
 
 remember when changing ui file to py use this command:
-    pyuic5 fileuwanttochange.ui -o newnameforfile.py 
+    pyuic5 directory/fileuwanttochange.ui -o directory/newnameforfile.py 
 
 Pyqt5 already has something to make threads called qthreads 
 and they also have qtime and qtdate i will check to make sure i dont need to make a thread for qtime or if it does it already
