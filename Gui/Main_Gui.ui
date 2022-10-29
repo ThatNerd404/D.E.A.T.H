@@ -29,6 +29,9 @@
    <property name="autoFillBackground">
     <bool>false</bool>
    </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
    <layout class="QVBoxLayout" name="verticalLayout_5">
     <property name="spacing">
      <number>0</number>
@@ -267,9 +270,6 @@ QPushButton:hover{background-color:rgba(250,176,5,0.05)}</string>
         <width>16777215</width>
         <height>16777215</height>
        </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true"/>
       </property>
       <property name="frameShape">
        <enum>QFrame::NoFrame</enum>
@@ -653,6 +653,11 @@ font: 28pt &quot;Palatino Linotype&quot;;</string>
            </item>
            <item>
             <widget class="QFrame" name="Home_Content">
+             <property name="styleSheet">
+              <string notr="true">#Home_Content{border-color:rgb(250,176,5);
+border-width:1px;
+border-style:solid;}</string>
+             </property>
              <property name="frameShape">
               <enum>QFrame::StyledPanel</enum>
              </property>
