@@ -15,6 +15,7 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         super(Mainwindow,self).__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+        self.ui.Pages.setCurrentWidget(self.ui.Home_Page)
         flags = QtCore.Qt.WindowFlags(QtCore.Qt.FramelessWindowHint)
         self.setWindowFlags(flags)
         #? Setting buttons functions 
