@@ -15,10 +15,9 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         super(Mainwindow,self).__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-        #self.ui.Main_Content.setFixedSize(self.sizeHint())
-
         flags = QtCore.Qt.WindowFlags(QtCore.Qt.FramelessWindowHint)
         self.setWindowFlags(flags)
+        #? Setting buttons functions 
         self.ui.Home_Button.clicked.connect(lambda: self.ui.Pages.setCurrentWidget(self.ui.Home_Page))
         self.ui.Time_Button.clicked.connect(lambda: self.ui.Pages.setCurrentWidget(self.ui.Time_Reminders_Page))
         self.ui.Close_Button.clicked.connect(lambda: self.close()) # dont add () if you dont add stuff in it 
