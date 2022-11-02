@@ -61,7 +61,7 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
 def app():
     app = QApplication(sys.argv)
     win = Mainwindow()
-    win.show()#show Maxumized to show it full screen
+    win.showMaximized()#show Maxumized to show it full screen
     sys.exit(app.exec_())
 
 if __name__ == "__main__":

@@ -365,7 +365,8 @@ class Ui_MainWindow(object):
         self.Workouts_text_edit = QtWidgets.QTextEdit(self.Workouts_section)
         self.Workouts_text_edit.setStyleSheet("#Workouts_text_edit{border-color:rgb(250,176,5);\n"
 "border-width:1px;\n"
-"border-style:solid;}\n"
+"border-style:solid;\n"
+"}\n"
 "")
         self.Workouts_text_edit.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.Workouts_text_edit.setObjectName("Workouts_text_edit")
@@ -382,7 +383,7 @@ class Ui_MainWindow(object):
         self.Notes_Section.setFrameShadow(QtWidgets.QFrame.Plain)
         self.Notes_Section.setObjectName("Notes_Section")
         self.verticalLayout_11 = QtWidgets.QVBoxLayout(self.Notes_Section)
-        self.verticalLayout_11.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_11.setContentsMargins(35, 0, 35, 0)
         self.verticalLayout_11.setSpacing(0)
         self.verticalLayout_11.setObjectName("verticalLayout_11")
         self.Notes_Title = QtWidgets.QFrame(self.Notes_Section)
@@ -415,7 +416,7 @@ class Ui_MainWindow(object):
 "")
         self.Notes_text_edit.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.Notes_text_edit.setObjectName("Notes_text_edit")
-        self.verticalLayout_11.addWidget(self.Notes_text_edit, 0, QtCore.Qt.AlignHCenter)
+        self.verticalLayout_11.addWidget(self.Notes_text_edit)
         self.Notes_Save_Button = QtWidgets.QPushButton(self.Notes_Section)
         self.Notes_Save_Button.setMaximumSize(QtCore.QSize(75, 16777215))
         self.Notes_Save_Button.setObjectName("Notes_Save_Button")
@@ -467,7 +468,7 @@ class Ui_MainWindow(object):
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">- 3 x 10 russian twists</p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">- 2 x 20 weighted squats</p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">- 2 x 5 chin ups</p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">- 2 x 20 bicep curls</p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">- 2 x 15 renegade rows (each arm)</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
         self.Workout_Save_Button.setText(_translate("MainWindow", "Save"))
         self.Notes_Label.setText(_translate("MainWindow", "Notes"))

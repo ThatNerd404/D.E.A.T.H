@@ -1079,13 +1079,13 @@ p, li { white-space: pre-wrap; }
                      <number>0</number>
                     </property>
                     <property name="leftMargin">
-                     <number>0</number>
+                     <number>35</number>
                     </property>
                     <property name="topMargin">
                      <number>0</number>
                     </property>
                     <property name="rightMargin">
-                     <number>0</number>
+                     <number>35</number>
                     </property>
                     <property name="bottomMargin">
                      <number>0</number>
@@ -1161,7 +1161,7 @@ p, li { white-space: pre-wrap; }
                       </layout>
                      </widget>
                     </item>
-                    <item alignment="Qt::AlignHCenter">
+                    <item>
                      <widget class="QTextEdit" name="Notes_text_edit">
                       <property name="enabled">
                        <bool>true</bool>
