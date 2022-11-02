@@ -21,8 +21,8 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         flags = QtCore.Qt.WindowFlags(QtCore.Qt.FramelessWindowHint)
         self.setWindowFlags(flags)#? getting rid of frame
 
-        workouts_data = self.loadInput("Workouts_Save_File.txt")
-        notes_data = self.loadInput("Notes_Save_File.txt") #? Grab data from save files
+        workouts_data = self.loadInput("Save_Folder/Workouts_Save_File.txt")
+        notes_data = self.loadInput("Save_Folder/Notes_Save_File.txt") #? Grab data from save files
         self.ui.Workouts_text_edit.setText(workouts_data)
         self.ui.Notes_text_edit.setText(notes_data)
         #? Setting buttons functions 
@@ -32,8 +32,8 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         self.ui.Close_Button.clicked.connect(lambda: self.close()) # dont add () if you dont add stuff in it 
         self.ui.Maximize_Button.clicked.connect(lambda: self.restore_or_maximized())
         self.ui.Minimize_Button.clicked.connect(lambda: self.showMinimized())
-        self.ui.Workout_Save_Button.clicked.connect(lambda: self.saveInput(self.ui.Workouts_text_edit,"Workouts_Save_File.txt"))
-        self.ui.Notes_Save_Button.clicked.connect(lambda: self.saveInput(self.ui.Notes_text_edit,"Notes_Save_File.txt"))
+        self.ui.Workout_Save_Button.clicked.connect(lambda: self.saveInput(self.ui.Workouts_text_edit,"Save_Folder/Workouts_Save_File.txt"))
+        self.ui.Notes_Save_Button.clicked.connect(lambda: self.saveInput(self.ui.Notes_text_edit,"Save_Folder/Notes_Save_File.txt"))
 
         #inspire = Quote, Author = Inspire.Inspiration(self) #<-- How I will set variable data to labels aka dont forget self
         #self.ui.Thatbutton.setText(Quote)
