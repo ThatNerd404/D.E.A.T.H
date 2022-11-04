@@ -36,7 +36,7 @@ import package and gui and get her done!
 Also i will turn all of my projects to exe files so i can run them anywhere
 and make icon and shortcut cause im cool like that
 Notes:
-MAKE BLUEPRINT IN POWERPOINT SO YOU KNOW WHAT YOU WANT 
+
 
 when trying to run other programs put
 subprocess.Popen(r'python project/you/want')
