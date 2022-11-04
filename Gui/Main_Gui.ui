@@ -601,7 +601,7 @@ QPushButton:hover{background-color:rgba(250,176,5,0.05)}</string>
              <property name="maximumSize">
               <size>
                <width>16777215</width>
-               <height>75</height>
+               <height>52</height>
               </size>
              </property>
              <property name="styleSheet">
@@ -615,7 +615,7 @@ border-style:solid;}</string>
              <property name="frameShadow">
               <enum>QFrame::Raised</enum>
              </property>
-             <layout class="QVBoxLayout" name="verticalLayout_3">
+             <layout class="QHBoxLayout" name="horizontalLayout_8">
               <property name="spacing">
                <number>0</number>
               </property>
@@ -631,11 +631,11 @@ border-style:solid;}</string>
               <property name="bottomMargin">
                <number>0</number>
               </property>
-              <item alignment="Qt::AlignHCenter">
+              <item>
                <widget class="QLabel" name="title">
                 <property name="maximumSize">
                  <size>
-                  <width>125</width>
+                  <width>100</width>
                   <height>16777215</height>
                  </size>
                 </property>
@@ -794,7 +794,7 @@ font: 10pt &quot;Palatino Linotype&quot;;</string>
              <property name="maximumSize">
               <size>
                <width>16777215</width>
-               <height>75</height>
+               <height>52</height>
               </size>
              </property>
              <property name="styleSheet">

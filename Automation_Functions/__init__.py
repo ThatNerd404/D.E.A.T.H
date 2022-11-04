@@ -4,4 +4,5 @@ from .Notify import Notify
 from .Sky import Sky
 from .Inspire import Inspire
 from .Stats import Stats
+from .Chrono import Chrono
 # import won't work if run from here but when run from other files it works fine
