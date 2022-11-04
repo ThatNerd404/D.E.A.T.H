@@ -1,9 +1,7 @@
 # Main file for connecting function to the gui
 
-import PyQt5
-from PyQt5 import QtWidgets ,QtCore
-from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget,QPushButton , QFileDialog
-from PyQt5.QtGui import QPalette, QColor
+from PyQt5 import QtCore
+from PyQt5.QtWidgets import QApplication, QMainWindow
 import sys
 from Gui.Main_Gui import Ui_MainWindow
 from Automation_Functions.Chrono import Chrono
