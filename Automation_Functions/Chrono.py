@@ -12,13 +12,13 @@ class Chrono:
 
     def Get_Date(self):
         current_date = QDate.currentDate() #? the current date
-        Date = current_date.toString(Qt.DefaultLocaleLongDate) #? Getting the long specfic date
-        return Date
+        Pretty_Date = current_date.toString(Qt.DefaultLocaleLongDate) #? Getting the long specfic date
+        return Pretty_Date
 
     def Get_Time(self):
         current_time = QTime.currentTime()
-        Time = current_time.toString("hh:mm AP")#? hours and minutes in am pm format
-        return Time
+        Pretty_Time = current_time.toString("hh:mm AP")#? hours and minutes in am pm format
+        return Pretty_Time
 
     def Days_Till_Xmas(self):
         current_date = QDate.currentDate() #? Getting the current date

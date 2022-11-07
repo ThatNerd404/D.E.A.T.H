@@ -6,7 +6,7 @@ class Sky:
     def __init__(self):
         pass
 
-    def get_weather(self):
+    def Fetch_Weather_Data(self):
 
         API_KEY  = "218977d47345c7b68bba837d21cb2d47"
         BASE_URL = "http://api.openweathermap.org/data/2.5/weather"
@@ -29,7 +29,7 @@ class Sky:
 #?           \_/
 if __name__ == "__main__":
     S = Sky()
-    weather,temp,feels_like = S.get_weather()
+    weather,temp,feels_like = S.Fetch_Weather_Data()
     print(f"Weather: {weather}")
     print(f"Temperature: {temp}")
     print(f"feels like: {feels_like}")
