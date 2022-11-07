@@ -15,15 +15,15 @@ class Sky:
         request_url = f"{BASE_URL}?appid={API_KEY}&q={city}"
         response = requests.get(request_url)
         
-        data = response.json()
+        weather_data = response.json()
         #print(data)
-        weather = data["weather"][0]["main"]
-        temperature = data["main"]["temp"]
-        fl = data["main"]["feels_like"]
+        weather = weather_data["weather"][0]["main"]
+        temp = weather_data["main"]["temp"]
+        fl = weather_data["main"]["feels_like"]
         feels_like =  round(1.8*(fl-273) + 32.)
-        temp = round(1.8*(temperature-273) + 32.)
+        temperature = round(1.8*(temp-273) + 32.)
         #? equation to turn it from kelvin to fahrenheit and round 
-        return weather, temp , feels_like #? Returns tuple and has to be this order when using function
+        return weather, temperature, feels_like #? Returns tuple and has to be this order when using function
         
 #? How to use |
 #?           \_/

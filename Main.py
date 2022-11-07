@@ -39,8 +39,8 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         #self.ui.Thatbutton.setText(Quote)
     def loadInput(self,file):
         with open(file,"r") as f:
-            data = f.read()
-        return data 
+            save_data = f.read()
+        return save_data 
         
     def saveInput(self,widget,file): 
         contents = widget.toPlainText() 

@@ -7,9 +7,6 @@ from email.mime.text import MIMEText
 import imaplib
 import email
 
-#* TODO:Login to email
-#* TODO:Send Emails
-#* TODO:Check emails
 
 
 class Notify:
@@ -17,7 +14,7 @@ class Notify:
     def __init__(self,recevier):
         self.recevier = recevier 
 
-    def msg(self, subject , message):
+    def Send_Email(self, subject , message):
         mailserver = smtplib.SMTP('smtp.gmail.com', 587)
         mailserver.ehlo()
         mailserver.starttls()
@@ -32,7 +29,7 @@ class Notify:
 
         mailserver.sendmail('bcotterman06@gmail.com', self.recevier , words.as_string())
         
-    def check_mail(self):
+    def Check_Mail(self):
         imaplib._MAXLINE = 100000
 
 
@@ -56,6 +53,7 @@ class Notify:
                Content = "No Content"
             else: 
                 Content = message.get("Content")
+                
             m = []
             
             for part in message.walk():
@@ -83,19 +81,20 @@ if __name__ == '__main__':
     #? How to use |
     #?           \_/
     Me = Notify('bcotterman06@gmail.com')#? sets where I want the message to go and creates notify object
-    #Me.msg('hi' , 'so hewwo')
-    #Me.msg("whats up " ," playa")
-    #Me.msg("hey" , "how you doin'")
+    #Me.Send_Email('hi' , 'so hewwo')
+    #Me.Send_Email("whats up " ," playa")
+    #Me.Send_Email("hey" , "how you doin'")
     
-    emale , num_emails  = Me.check_mail() #? changes tuple to useable values and bring values into use for main code 
+    emale , num_emails  = Me.Check_Mail() #? changes tuple to useable values and bring values into use for main code 
     #? |
     #?\_/ Loop to print all new emails and all the stuff in it 
-    print(f'Number of emails: {num_emails}')
-    for i in range(0,num_emails):
-        print(f"{emale[i]['From']} {emale[i]['To']}\n{emale[i]['Date']}\n{emale[i]['Subject']}\n{emale[i]['Message']}\n")
-        i += 1
     if num_emails == 0:
         print(emale)
+    else:
+        for i in range(0,num_emails):
+            print(f"{emale[i]['From']} {emale[i]['To']}\n{emale[i]['Date']}\n{emale[i]['Subject']}\n")
+            i += 1
+    
 
 #? Create object and put paramenter in () dont use self.paramenter
 #! YOU DUNCE!!! 

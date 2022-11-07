@@ -1,3 +1,8 @@
+# Chrono.py - module to fetch Date and Time in a pretty, readable format
+# aka what time is it? 
+
+
+
 from PyQt5.QtCore import QDate , QTime ,Qt
 
 
@@ -15,7 +20,7 @@ class Chrono:
         Time = current_time.toString("hh:mm AP")#? hours and minutes in am pm format
         return Time
 
-    def Days_till_xmas(self):
+    def Days_Till_Xmas(self):
         current_date = QDate.currentDate() #? Getting the current date
         current_year = current_date.year() #? Grabbing year
         christmas = QDate(current_year,12,25) #? current year and then christmas

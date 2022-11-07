@@ -7,7 +7,7 @@ import psutil
 class Stats:
     def __init__(self):
         pass
-    def check_stats(self):
+    def Check_Stats(self):
         my_system = platform.uname()
         # System info
         System =  my_system.system 
@@ -24,14 +24,14 @@ class Stats:
         'Physical_Cores':Physical_cores,'Total_Cores':Total_cores}
         
         cpufreq = psutil.cpu_freq()
-        maxfreq = f'{cpufreq.max:.2f}Mhz'
-        minfreq = f"{cpufreq.min:.2f}Mhz"
-        currentfreq = f"{cpufreq.current:.2f}Mhz"
+        maxfreqMhz = f'{cpufreq.max:.2f}Mhz'
+        minfreqMhz = f"{cpufreq.min:.2f}Mhz"
+        currentfreqMhz = f"{cpufreq.current:.2f}Mhz"
 
-        Frequency = {"max_freq":maxfreq,"min_freq":minfreq,"current_freq": currentfreq}
+        Frequency = {"max_freq":maxfreqMhz,"min_freq":minfreqMhz,"current_freq": currentfreqMhz}
         # CPU usage
         cpu_usage = []
-        for  i , percentage in enumerate(psutil.cpu_percent(percpu=True, interval=1)):
+        for  _ , percentage in enumerate(psutil.cpu_percent(percpu=True, interval=1)):
             cpu_usage.append(percentage)
         total_usage = f"{psutil.cpu_percent()}%"
         bat = psutil.sensors_battery()
@@ -42,7 +42,7 @@ class Stats:
        
 if __name__ == '__main__':
     S = Stats()
-    system_info,Frequency ,battery,cpu_usage, total_usage = S.check_stats()
+    system_info,Frequency ,battery,cpu_usage, total_usage = S.Check_Stats()
     print(f"System: {system_info['System']}")
     print(f"Node Name: {system_info['Node']}")
     print(f"Relase: {system_info['Release']}")
