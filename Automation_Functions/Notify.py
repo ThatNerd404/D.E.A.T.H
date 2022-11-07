@@ -37,7 +37,7 @@ class Notify:
         mailserver.login('bcotterman06@gmail.com','dwmwyupcqtcrbzar')
         mailserver.select("Inbox")
 
-        emale = []
+        email_data = []
 
         
         _, msgnums = mailserver.search(None, "UNSEEN",) #?Returns a only unseen emails
@@ -61,13 +61,13 @@ class Notify:
                     m += part.get_payload()
             msg = "".join(m)
 
-            emale.append({'From':From,'To':To, 'Date':Date,'Subject':Subject,'Content':Content,"Message":msg}) #? a list of dicts so i can store data with keys and use indexing
+            email_data.append({'From':From,'To':To, 'Date':Date,'Subject':Subject,'Content':Content,"Message":msg}) #? a list of dicts so i can store data with keys and use indexing
         mailserver.close()
         mailserver.logout() #? Logout and close
-        num_emails = len(emale) #? fixed num_emails 
+        num_emails = len(email_data) #? fixed num_emails 
         if num_emails == 0:
-            emale = "No emails available"
-        return emale , num_emails #? Returns a tuple when I call variables has to be in this order
+            email_data = "No emails available"
+        return email_data , num_emails #? Returns a tuple when I call variables has to be in this order
         #!  when I call variables has to be in this order ^
         
         
@@ -78,21 +78,19 @@ class Notify:
 #? |
 #?\_/
 if __name__ == '__main__': 
-    #? How to use |
-    #?           \_/
-    Me = Notify('bcotterman06@gmail.com')#? sets where I want the message to go and creates notify object
-    #Me.Send_Email('hi' , 'so hewwo')
-    #Me.Send_Email("whats up " ," playa")
-    #Me.Send_Email("hey" , "how you doin'")
+    #? sets where I want the message to go and creates notify object
+    Me = Notify('bcotterman06@gmail.com')
+    #Me.Send_Email(Subject , Message) 
     
-    emale , num_emails  = Me.Fetch_Inbox() #? changes tuple to useable values and bring values into use for main code 
+    #? changes tuple to useable values and bring values into use for main code 
+    email_data , num_emails  = Me.Fetch_Inbox() 
     #? |
     #?\_/ Loop to print all new emails and all the stuff in it 
     if num_emails == 0:
-        print(emale)
+        print(email_data)
     else:
         for i in range(0,num_emails):
-            print(f"{emale[i]['From']} {emale[i]['To']}\n{emale[i]['Date']}\n{emale[i]['Subject']}\n")
+            print(f"{email_data[i]['From']} {email_data[i]['To']}\n{email_data[i]['Date']}\n{email_data[i]['Subject']}\n")
             i += 1
     
 

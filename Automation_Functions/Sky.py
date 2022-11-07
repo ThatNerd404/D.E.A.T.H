@@ -16,7 +16,7 @@ class Sky:
         response = requests.get(request_url)
         
         weather_data = response.json()
-        #print(data)
+        #print(weather_data)
         weather = weather_data["weather"][0]["main"]
         temp = weather_data["main"]["temp"]
         fl = weather_data["main"]["feels_like"]

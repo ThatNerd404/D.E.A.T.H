@@ -13,20 +13,20 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         super(Mainwindow,self).__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self) 
-        #? starting widget
         self.ui.Pages.setCurrentWidget(self.ui.Home_Page)
-         #? setting start widget page
+        
+        #? getting rid of frame
         flags = QtCore.Qt.WindowFlags(QtCore.Qt.FramelessWindowHint)
-        self.setWindowFlags(flags)#? getting rid of frame
+        self.setWindowFlags(flags)
 
         workouts_data = self.loadInput("Save_Folder/Workouts_Save_File.txt")
         notes_data = self.loadInput("Save_Folder/Notes_Save_File.txt") #? Grab data from save files
+
         #? Setting text for different labels 
         self.ui.Workouts_text_edit.setText(workouts_data)
         self.ui.Notes_text_edit.setText(notes_data)
         
         #? Setting buttons functions 
-
         self.ui.Home_Button.clicked.connect(lambda: self.ui.Pages.setCurrentWidget(self.ui.Home_Page))
         self.ui.Time_Button.clicked.connect(lambda: self.ui.Pages.setCurrentWidget(self.ui.Time_Reminders_Page))
         self.ui.Close_Button.clicked.connect(lambda: self.close()) # dont add () if you dont add stuff in it 

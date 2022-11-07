@@ -20,7 +20,7 @@ class Stats:
         Physical_cores =  psutil.cpu_count(logical=False)
         Total_cores = psutil.cpu_count(logical=True)
 
-        system_info = {'System':System,'Node':Node,'Release':Release,'Version':Version,'Machine':Machine,'Processor':Processor,
+        System_Info = {'System':System,'Node':Node,'Release':Release,'Version':Version,'Machine':Machine,'Processor':Processor,
         'Physical_Cores':Physical_cores,'Total_Cores':Total_cores}
         
         cpufreq = psutil.cpu_freq()
@@ -38,19 +38,19 @@ class Stats:
         battery_left = bat.percent
         battery_plugged = bat.power_plugged
         battery = {"battery_left":battery_left,"battery_plugged":battery_plugged}
-        return system_info, Frequency, battery,cpu_usage, total_usage
+        return System_Info, Frequency, battery,cpu_usage, total_usage
        
 if __name__ == '__main__':
     S = Stats()
-    system_info,Frequency ,battery,cpu_usage, total_usage = S.Check_Stats()
-    print(f"System: {system_info['System']}")
-    print(f"Node Name: {system_info['Node']}")
-    print(f"Relase: {system_info['Release']}")
-    print(f"Version: {system_info['Version']}")
-    print(f"Machine: {system_info['Machine']}")
-    print(f"Processor: {system_info['Processor']}")
-    print(f"Physical Cores: {system_info['Physical_Cores']}")
-    print(f"Total Cores: {system_info['Total_Cores']}")
+    System_Info,Frequency ,battery,cpu_usage, total_usage = S.Check_Stats()
+    print(f"System: {System_Info['System']}")
+    print(f"Node Name: {System_Info['Node']}")
+    print(f"Relase: {System_Info['Release']}")
+    print(f"Version: {System_Info['Version']}")
+    print(f"Machine: {System_Info['Machine']}")
+    print(f"Processor: {System_Info['Processor']}")
+    print(f"Physical Cores: {System_Info['Physical_Cores']}")
+    print(f"Total Cores: {System_Info['Total_Cores']}")
     print(f"Max Frequency: {Frequency['max_freq']}")
     print(f"Minimum Frequency: {Frequency['min_freq']}")
     print(f"Current Frequency: {Frequency['current_freq']}")
