@@ -17,10 +17,10 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         self.ui.Pages.setCurrentWidget(self.ui.Home_Page)
         
         #? Grabbing variables from lib
-        Chrone = Chrono()
-        Date_Text = Chrone.Get_Date()
-        Time_Text = Chrone.Get_Time()
-        Xmas_Countdown_Text = Chrone.Days_Till_Xmas()
+        Cron = Chrono()
+        Date_Text = Cron.Get_Date()
+        Time_Text = Cron.Get_Time()
+        Xmas_Countdown_Text = Cron.Days_Till_Xmas()
 
 
         #? getting rid of frame
@@ -47,7 +47,7 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         self.ui.Workout_Save_Button.clicked.connect(lambda: self.Save_Gui_Input(self.ui.Workouts_text_edit,"Save_Folder/Workouts_Save_File.txt"))
         self.ui.Notes_Save_Button.clicked.connect(lambda: self.Save_Gui_Input(self.ui.Notes_text_edit,"Save_Folder/Notes_Save_File.txt"))
 
-    # get rid of this function because you just use a long if else statement
+    #TODO: get rid of this function because you just use a long if else statement
     def Set_Weather_Pic(self):
         #QlabelWidget.setPixmap(QPixmap('your.jpg'))
         pass
