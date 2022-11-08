@@ -1221,13 +1221,13 @@ border-style:solid;}
                   <number>0</number>
                  </property>
                  <property name="topMargin">
-                  <number>0</number>
+                  <number>9</number>
                  </property>
                  <property name="rightMargin">
-                  <number>0</number>
+                  <number>9</number>
                  </property>
                  <property name="bottomMargin">
-                  <number>0</number>
+                  <number>9</number>
                  </property>
                  <item alignment="Qt::AlignRight">
                   <widget class="QFrame" name="DateTimeXmas_Labels">
@@ -1235,7 +1235,9 @@ border-style:solid;}
                     <string notr="true">#DateTimeXmas_Labels
 {border-color:rgb(250,176,5);
 border-width:1px;
-border-style:solid;}</string>
+border-style:solid;
+border-radius:5px;
+padding: 1px}</string>
                    </property>
                    <property name="frameShape">
                     <enum>QFrame::NoFrame</enum>
@@ -1262,21 +1264,21 @@ border-style:solid;}</string>
                     <item>
                      <widget class="QLabel" name="Date_Label">
                       <property name="text">
-                       <string>Friday, November 9th, 2022</string>
+                       <string/>
                       </property>
                      </widget>
                     </item>
                     <item alignment="Qt::AlignHCenter">
                      <widget class="QLabel" name="Time_Label">
                       <property name="text">
-                       <string>3:00 AM</string>
+                       <string/>
                       </property>
                      </widget>
                     </item>
                     <item alignment="Qt::AlignHCenter">
                      <widget class="QLabel" name="Xmas_Countdown_Label">
                       <property name="text">
-                       <string>332 Days 'Till Christmas!</string>
+                       <string/>
                       </property>
                      </widget>
                     </item>

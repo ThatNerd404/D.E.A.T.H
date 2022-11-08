@@ -15,17 +15,28 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         self.ui.setupUi(self) 
         self.ui.Pages.setCurrentWidget(self.ui.Home_Page)
         
+        #? Grabbing variables from lib
+        Chrone = Chrono()
+        Date_Text = Chrone.Get_Date()
+        Time_Text = Chrone.Get_Time()
+        Xmas_Countdown_Text = Chrone.Days_Till_Xmas()
+
+
         #? getting rid of frame
         flags = QtCore.Qt.WindowFlags(QtCore.Qt.FramelessWindowHint)
         self.setWindowFlags(flags)
-
+        
+        #? Grab data from save files
         workouts_data = self.loadInput("Save_Folder/Workouts_Save_File.txt")
-        notes_data = self.loadInput("Save_Folder/Notes_Save_File.txt") #? Grab data from save files
+        notes_data = self.loadInput("Save_Folder/Notes_Save_File.txt") 
 
         #? Setting text for different labels 
         self.ui.Workouts_text_edit.setText(workouts_data)
         self.ui.Notes_text_edit.setText(notes_data)
-        
+        self.ui.Date_Label.setText(Date_Text)
+        self.ui.Time_Label.setText(Time_Text)
+        self.ui.Xmas_Countdown_Label.setText(f"{Xmas_Countdown_Text} Days 'Till Christmas!")
+
         #? Setting buttons functions 
         self.ui.Home_Button.clicked.connect(lambda: self.ui.Pages.setCurrentWidget(self.ui.Home_Page))
         self.ui.Time_Button.clicked.connect(lambda: self.ui.Pages.setCurrentWidget(self.ui.Time_Reminders_Page))
@@ -35,8 +46,7 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         self.ui.Workout_Save_Button.clicked.connect(lambda: self.saveInput(self.ui.Workouts_text_edit,"Save_Folder/Workouts_Save_File.txt"))
         self.ui.Notes_Save_Button.clicked.connect(lambda: self.saveInput(self.ui.Notes_text_edit,"Save_Folder/Notes_Save_File.txt"))
 
-        #inspire = Quote, Author = Inspire.Inspiration(self) #*<-- How I will set variable data to labels aka dont forget self
-        #self.ui.Thatbutton.setText(Quote)
+       
     def loadInput(self,file):
         with open(file,"r") as f:
             save_data = f.read()
