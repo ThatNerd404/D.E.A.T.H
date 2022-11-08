@@ -1,8 +1,9 @@
-# Main file for connecting function to the gui
+# Main.py - Handles the functionality to the gui and grabbing the information
+# nessasary to display the gui fully and correctly
 
+import sys
 from PyQt5 import QtCore
 from PyQt5.QtWidgets import QApplication, QMainWindow
-import sys
 from Gui.Main_Gui import Ui_MainWindow
 from Automation_Functions.Chrono import Chrono
 
@@ -27,8 +28,8 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         self.setWindowFlags(flags)
         
         #? Grab data from save files
-        workouts_data = self.loadInput("Save_Folder/Workouts_Save_File.txt")
-        notes_data = self.loadInput("Save_Folder/Notes_Save_File.txt") 
+        workouts_data = self.Load_File_Input("Save_Folder/Workouts_Save_File.txt")
+        notes_data = self.Load_File_Input("Save_Folder/Notes_Save_File.txt") 
 
         #? Setting text for different labels 
         self.ui.Workouts_text_edit.setText(workouts_data)
@@ -43,21 +44,25 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         self.ui.Close_Button.clicked.connect(lambda: self.close()) # dont add () if you dont add stuff in it 
         self.ui.Maximize_Button.clicked.connect(lambda: self.restore_or_maximized())
         self.ui.Minimize_Button.clicked.connect(lambda: self.showMinimized())
-        self.ui.Workout_Save_Button.clicked.connect(lambda: self.saveInput(self.ui.Workouts_text_edit,"Save_Folder/Workouts_Save_File.txt"))
-        self.ui.Notes_Save_Button.clicked.connect(lambda: self.saveInput(self.ui.Notes_text_edit,"Save_Folder/Notes_Save_File.txt"))
+        self.ui.Workout_Save_Button.clicked.connect(lambda: self.Save_Gui_Input(self.ui.Workouts_text_edit,"Save_Folder/Workouts_Save_File.txt"))
+        self.ui.Notes_Save_Button.clicked.connect(lambda: self.Save_Gui_Input(self.ui.Notes_text_edit,"Save_Folder/Notes_Save_File.txt"))
 
-       
-    def loadInput(self,file):
+    # get rid of this function because you just use a long if else statement
+    def Set_Weather_Pic(self):
+        #QlabelWidget.setPixmap(QPixmap('your.jpg'))
+        pass
+
+    def Load_File_Input(self,file):
         with open(file,"r") as f:
             save_data = f.read()
         return save_data 
         
-    def saveInput(self,widget,file): 
+    def Save_Gui_Input(self,widget,file): 
         contents = widget.toPlainText() 
         with open(file,"w") as f:
                 f.write(contents)
         
-    def restore_or_maximized(self):
+    def Restore_or_Maximized(self):
         global WINDOW_SIZE
         win_status = WINDOW_SIZE
         if win_status == 0:
@@ -71,18 +76,12 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
 def app():
     app = QApplication(sys.argv)
     win = Mainwindow()
-    win.showMaximized()#show Maxumized to show it full screen
+    win.showMaximized()
     sys.exit(app.exec_())
 
 if __name__ == "__main__":
     app()
-#finished with the classes now I am going to watch tech with tim then turtle code then read  pyqt5 article then read real python articles to work on pyqt5
-# don't get stressed you just started and this is your research stage chill out my nigga 
-# just learn what you need and return when you need to relearn 
-# Finished with title bar and it is fire!!!!
-# Nav buttons:
-#close: self.close
-#minimize: self.ShowMimized
+
 
 
 
