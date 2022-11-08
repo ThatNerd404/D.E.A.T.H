@@ -41,7 +41,7 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         #? Setting buttons functions 
         self.ui.Home_Button.clicked.connect(lambda: self.ui.Pages.setCurrentWidget(self.ui.Home_Page))
         self.ui.Time_Button.clicked.connect(lambda: self.ui.Pages.setCurrentWidget(self.ui.Time_Reminders_Page))
-        self.ui.Close_Button.clicked.connect(lambda: self.close()) # dont add () if you dont add stuff in it 
+        self.ui.Close_Button.clicked.connect(lambda: self.close())
         self.ui.Maximize_Button.clicked.connect(lambda: self.restore_or_maximized())
         self.ui.Minimize_Button.clicked.connect(lambda: self.showMinimized())
         self.ui.Workout_Save_Button.clicked.connect(lambda: self.Save_Gui_Input(self.ui.Workouts_text_edit,"Save_Folder/Workouts_Save_File.txt"))
