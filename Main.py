@@ -42,7 +42,7 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         self.ui.Home_Button.clicked.connect(lambda: self.ui.Pages.setCurrentWidget(self.ui.Home_Page))
         self.ui.Time_Button.clicked.connect(lambda: self.ui.Pages.setCurrentWidget(self.ui.Time_Reminders_Page))
         self.ui.Close_Button.clicked.connect(lambda: self.close())
-        self.ui.Maximize_Button.clicked.connect(lambda: self.restore_or_maximized())
+        self.ui.Maximize_Button.clicked.connect(lambda: self.Restore_or_Maximized())
         self.ui.Minimize_Button.clicked.connect(lambda: self.showMinimized())
         self.ui.Workout_Save_Button.clicked.connect(lambda: self.Save_Gui_Input(self.ui.Workouts_text_edit,"Save_Folder/Workouts_Save_File.txt"))
         self.ui.Notes_Save_Button.clicked.connect(lambda: self.Save_Gui_Input(self.ui.Notes_text_edit,"Save_Folder/Notes_Save_File.txt"))
