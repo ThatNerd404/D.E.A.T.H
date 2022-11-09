@@ -9,10 +9,11 @@ class Inspire:
 
     def Fetch_Inspiration(self):
         
-        #? returns dictonary
+        #? returns json data from api 
         responce  = requests.get("https://motivational-quote-api.herokuapp.com/quotes/random")
         res_dict = responce.json()
-        #? stores the value as a string
+
+        #? grabs value from json data
         quote = res_dict['quote'] 
         author = res_dict['person'] 
 
@@ -22,7 +23,6 @@ class Inspire:
 
 if __name__ == "__main__":
     inspire = Inspire()
-    #?turns tuple into string
     quote , author = inspire.Fetch_Inspiration()
     print(f"Quote: {quote}")
     print(f"Author: {author}")

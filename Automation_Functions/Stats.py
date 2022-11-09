@@ -1,5 +1,6 @@
 # Stats.py - Shows my system stats like ram, cpu , etc.
 # aka how fast is my computer today
+
 import platform
 import psutil
 
@@ -7,42 +8,49 @@ import psutil
 class Stats:
     def __init__(self):
         pass
-    def Check_Stats(self):
+
+    def Check_System_Info(self):
+        
         my_system = platform.uname()
-        # System info
+        
+        #? Fetching basic system info
         System =  my_system.system 
         Node =  my_system.node
         Release = my_system.release
         Version = my_system.version
         Machine = my_system.machine
         Processor = my_system.processor
-        
         Physical_cores =  psutil.cpu_count(logical=False)
         Total_cores = psutil.cpu_count(logical=True)
 
         System_Info = {'System':System,'Node':Node,'Release':Release,'Version':Version,'Machine':Machine,'Processor':Processor,
         'Physical_Cores':Physical_cores,'Total_Cores':Total_cores}
         
+        #? Storing frequency in dict
         cpufreq = psutil.cpu_freq()
         maxfreqMhz = f'{cpufreq.max:.2f}Mhz'
         minfreqMhz = f"{cpufreq.min:.2f}Mhz"
         currentfreqMhz = f"{cpufreq.current:.2f}Mhz"
 
         Frequency = {"max_freq":maxfreqMhz,"min_freq":minfreqMhz,"current_freq": currentfreqMhz}
-        # CPU usage
+        
+        #? Storing CPU usage in list
         cpu_usage = []
         for  _ , percentage in enumerate(psutil.cpu_percent(percpu=True, interval=1)):
             cpu_usage.append(percentage)
         total_usage = f"{psutil.cpu_percent()}%"
+
+        #? Storing battery information in dict
         bat = psutil.sensors_battery()
         battery_left = bat.percent
         battery_plugged = bat.power_plugged
         battery = {"battery_left":battery_left,"battery_plugged":battery_plugged}
-        return System_Info, Frequency, battery,cpu_usage, total_usage
+        
+        return System_Info, Frequency, battery, total_usage, cpu_usage
        
 if __name__ == '__main__':
     S = Stats()
-    System_Info,Frequency ,battery,cpu_usage, total_usage = S.Check_Stats()
+    System_Info, Frequency, battery, total_usage, cpu_usage = S.Check_System_Info()
     print(f"System: {System_Info['System']}")
     print(f"Node Name: {System_Info['Node']}")
     print(f"Relase: {System_Info['Release']}")
