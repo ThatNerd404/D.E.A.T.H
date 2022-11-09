@@ -7,6 +7,7 @@ from PyQt5.QtWidgets import QApplication, QMainWindow
 from Gui.Main_Gui import Ui_MainWindow
 from Automation_Functions.Chrono import Chrono
 
+# The Starting window size
 WINDOW_SIZE = 0
 
 class Mainwindow(QMainWindow,Ui_MainWindow):
