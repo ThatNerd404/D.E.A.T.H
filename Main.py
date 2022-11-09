@@ -1,11 +1,12 @@
-# Main.py - Handles the functionality to the gui and grabbing the information
-# nessasary to display the gui fully and correctly
+# Main.py - Handles the functionality to the gui and grabbing the information nessasary to display the gui fully and correctly
 
 import sys
+
 from PyQt5 import QtCore
 from PyQt5.QtWidgets import QApplication, QMainWindow
-from Gui.Main_Gui import Ui_MainWindow
+
 from Automation_Functions.Chrono import Chrono
+from Gui.Main_Gui import Ui_MainWindow
 
 # The Starting window size
 WINDOW_SIZE = 0
@@ -17,7 +18,7 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         self.ui.setupUi(self) 
         self.ui.Pages.setCurrentWidget(self.ui.Home_Page)
         
-        #? Grabbing variables from lib
+        #? Grabbing needed data from module to display on gui
         Cron = Chrono()
         Date_Text = Cron.Get_Date()
         Time_Text = Cron.Get_Time()
@@ -28,7 +29,7 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         flags = QtCore.Qt.WindowFlags(QtCore.Qt.FramelessWindowHint)
         self.setWindowFlags(flags)
         
-        #? Grab data from save files
+        #? Grab text from save files
         workouts_data = self.Load_File_Input("Save_Folder/Workouts_Save_File.txt")
         notes_data = self.Load_File_Input("Save_Folder/Notes_Save_File.txt") 
 
@@ -54,11 +55,13 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         #QlabelWidget.setPixmap(QPixmap('your.jpg'))
         pass
 
+    #? Save all text from file to save_data variable
     def Load_File_Input(self,file):
         with open(file,"r") as f:
             save_data = f.read()
         return save_data 
-        
+
+    #? write text from widget to file     
     def Save_Gui_Input(self,widget,file): 
         contents = widget.toPlainText() 
         with open(file,"w") as f:
