@@ -574,7 +574,7 @@ QPushButton:hover{background-color:rgba(250,176,5,0.05)}</string>
           <string notr="true"/>
          </property>
          <property name="currentIndex">
-          <number>1</number>
+          <number>2</number>
          </property>
          <widget class="QWidget" name="Home_Page">
           <property name="styleSheet">
@@ -1289,6 +1289,94 @@ padding: 1px}</string>
                </widget>
               </item>
              </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="Weather_Page">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(15,15,15)</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_12">
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QFrame" name="Weather_Title">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>52</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">#Weather_Title{border-color:rgb(250,176,5);
+border-width:1px;
+border-style:solid;}
+</string>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::NoFrame</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_10">
+              <property name="spacing">
+               <number>0</number>
+              </property>
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item alignment="Qt::AlignHCenter">
+               <widget class="QLabel" name="Weather_Desc">
+                <property name="styleSheet">
+                 <string notr="true">color:rgb(250,176,5);
+font: 28pt &quot;Palatino Linotype&quot;;</string>
+                </property>
+                <property name="text">
+                 <string>Weather</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="Weather_Content">
+             <property name="styleSheet">
+              <string notr="true">#Weather_Content{border-color:rgb(250,176,5);
+border-width:1px;
+border-style:solid;}
+</string>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::NoFrame</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
             </widget>
            </item>
           </layout>

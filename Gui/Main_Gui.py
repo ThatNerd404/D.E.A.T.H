@@ -463,12 +463,48 @@ class Ui_MainWindow(object):
         self.verticalLayout_10.addWidget(self.Time_Footer)
         self.verticalLayout_9.addWidget(self.Time_Content)
         self.Pages.addWidget(self.Time_Reminders_Page)
+        self.Weather_Page = QtWidgets.QWidget()
+        self.Weather_Page.setStyleSheet("background-color: rgb(15,15,15)")
+        self.Weather_Page.setObjectName("Weather_Page")
+        self.verticalLayout_12 = QtWidgets.QVBoxLayout(self.Weather_Page)
+        self.verticalLayout_12.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_12.setSpacing(0)
+        self.verticalLayout_12.setObjectName("verticalLayout_12")
+        self.Weather_Title = QtWidgets.QFrame(self.Weather_Page)
+        self.Weather_Title.setMaximumSize(QtCore.QSize(16777215, 52))
+        self.Weather_Title.setStyleSheet("#Weather_Title{border-color:rgb(250,176,5);\n"
+"border-width:1px;\n"
+"border-style:solid;}\n"
+"")
+        self.Weather_Title.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.Weather_Title.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.Weather_Title.setObjectName("Weather_Title")
+        self.horizontalLayout_10 = QtWidgets.QHBoxLayout(self.Weather_Title)
+        self.horizontalLayout_10.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_10.setSpacing(0)
+        self.horizontalLayout_10.setObjectName("horizontalLayout_10")
+        self.Weather_Desc = QtWidgets.QLabel(self.Weather_Title)
+        self.Weather_Desc.setStyleSheet("color:rgb(250,176,5);\n"
+"font: 28pt \"Palatino Linotype\";")
+        self.Weather_Desc.setObjectName("Weather_Desc")
+        self.horizontalLayout_10.addWidget(self.Weather_Desc, 0, QtCore.Qt.AlignHCenter)
+        self.verticalLayout_12.addWidget(self.Weather_Title)
+        self.Weather_Content = QtWidgets.QFrame(self.Weather_Page)
+        self.Weather_Content.setStyleSheet("#Weather_Content{border-color:rgb(250,176,5);\n"
+"border-width:1px;\n"
+"border-style:solid;}\n"
+"")
+        self.Weather_Content.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.Weather_Content.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.Weather_Content.setObjectName("Weather_Content")
+        self.verticalLayout_12.addWidget(self.Weather_Content)
+        self.Pages.addWidget(self.Weather_Page)
         self.horizontalLayout_4.addWidget(self.Pages)
         self.verticalLayout_5.addWidget(self.Main_Content)
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.Pages.setCurrentIndex(1)
+        self.Pages.setCurrentIndex(2)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -505,3 +541,4 @@ class Ui_MainWindow(object):
         self.Workout_Save_Button.setText(_translate("MainWindow", "Save"))
         self.Notes_Label.setText(_translate("MainWindow", "Notes"))
         self.Notes_Save_Button.setText(_translate("MainWindow", "Save"))
+        self.Weather_Desc.setText(_translate("MainWindow", "Weather"))
