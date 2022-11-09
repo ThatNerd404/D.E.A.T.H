@@ -27,14 +27,14 @@ class Chrono:
         current_date = QDate.currentDate()
         current_year = current_date.year() 
         christmas = QDate(current_year,12,25) 
-        Days_Till_Xmas = current_date.daysTo(christmas) 
-        return str(Days_Till_Xmas)
+        Days_Till_Xmas = str(current_date.daysTo(christmas))
+        return Days_Till_Xmas
 
 if __name__ == "__main__":
     C = Chrono()
     current_date = C.Get_Date()
     current_time = C.Get_Time()
-    Days_Till_Xmas = C.Days_till_xmas()
+    Days_Till_Xmas = C.Days_Till_Xmas()
     print(current_date)
     print(current_time)
     print(Days_Till_Xmas)
