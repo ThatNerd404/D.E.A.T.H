@@ -6,7 +6,6 @@ from PyQt5 import QtCore
 from PyQt5.QtWidgets import QApplication, QMainWindow
 
 from Automation_Functions.Chrono import Chrono
-from Automation_Functions.Sky import Sky
 from Gui.Main_Gui import Ui_MainWindow
 
 # The Starting window size
@@ -21,10 +20,11 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         
         #? Grabbing needed data from module to display on gui
         Cron = Chrono()
-        Date_Text, Time_Text, Xmas_Countdown_Text = Cron.Fetch_DateTime_Info()
-        
         S = Sky()
-        Weather_Text, Temperature_Text, Feels_Like_Text = S.Fetch_Weather_Data()
+        Date_Text = Cron.Get_Date()
+        Time_Text = Cron.Get_Time()
+        Xmas_Countdown_Text = Cron.Days_Till_Xmas()
+
 
         #? getting rid of frame
         flags = QtCore.Qt.WindowFlags(QtCore.Qt.FramelessWindowHint)

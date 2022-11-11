@@ -531,7 +531,7 @@ QPushButton:hover{background-color:rgba(250,176,5,0.05)}</string>
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="Inspiration_Button">
+              <widget class="QPushButton" name="Quote_Button">
                <property name="toolTip">
                 <string>Quotes</string>
                </property>
@@ -543,7 +543,7 @@ QPushButton:hover{background-color:rgba(250,176,5,0.05)}</string>
                </property>
                <property name="icon">
                 <iconset>
-                 <normaloff>icons8-idea-32.png</normaloff>icons8-idea-32.png</iconset>
+                 <normaloff>icons8-quote-32.png</normaloff>icons8-quote-32.png</iconset>
                </property>
                <property name="iconSize">
                 <size>
@@ -1369,9 +1369,7 @@ font: 28pt &quot;Palatino Linotype&quot;;</string>
               <string notr="true">#Weather_Content{border-color:rgb(250,176,5);
 border-width:1px;
 border-style:solid;}
-
-QLabel{color:rgb(250,176,5);
-font: 10pt&quot;Palatino Linotype&quot;;}</string>
+</string>
              </property>
              <property name="frameShape">
               <enum>QFrame::NoFrame</enum>
@@ -1379,122 +1377,6 @@ font: 10pt&quot;Palatino Linotype&quot;;}</string>
              <property name="frameShadow">
               <enum>QFrame::Raised</enum>
              </property>
-             <layout class="QHBoxLayout" name="horizontalLayout_11">
-              <property name="spacing">
-               <number>0</number>
-              </property>
-              <property name="leftMargin">
-               <number>0</number>
-              </property>
-              <property name="topMargin">
-               <number>0</number>
-              </property>
-              <property name="rightMargin">
-               <number>0</number>
-              </property>
-              <property name="bottomMargin">
-               <number>0</number>
-              </property>
-              <item>
-               <widget class="QFrame" name="Weather_Information_Section">
-                <property name="styleSheet">
-                 <string notr="true">font: 14pt;</string>
-                </property>
-                <property name="frameShape">
-                 <enum>QFrame::StyledPanel</enum>
-                </property>
-                <property name="frameShadow">
-                 <enum>QFrame::Raised</enum>
-                </property>
-                <layout class="QVBoxLayout" name="verticalLayout_13">
-                 <property name="spacing">
-                  <number>0</number>
-                 </property>
-                 <property name="leftMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="topMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="rightMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="bottomMargin">
-                  <number>0</number>
-                 </property>
-                 <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-                  <widget class="QLabel" name="Weather_Status_Pic">
-                   <property name="text">
-                    <string/>
-                   </property>
-                  </widget>
-                 </item>
-                 <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-                  <widget class="QLabel" name="Weather_Label">
-                   <property name="text">
-                    <string>Weather: Raining Cats and Dogs</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-                  <widget class="QLabel" name="Temperature_Label">
-                   <property name="text">
-                    <string>Temperature: 300 degrees farenheight</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-                  <widget class="QLabel" name="Feels_Like_Label">
-                   <property name="text">
-                    <string>Feels like: 1000 degrees</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </widget>
-              </item>
-              <item>
-               <widget class="QFrame" name="Weather_General_Consensus_Section">
-                <property name="frameShape">
-                 <enum>QFrame::StyledPanel</enum>
-                </property>
-                <property name="frameShadow">
-                 <enum>QFrame::Raised</enum>
-                </property>
-                <layout class="QVBoxLayout" name="verticalLayout_14">
-                 <property name="spacing">
-                  <number>0</number>
-                 </property>
-                 <item alignment="Qt::AlignHCenter">
-                  <widget class="QLabel" name="General_Consensus_Title">
-                   <property name="styleSheet">
-                    <string notr="true">font: 24pt &quot;Palatino Linotype&quot;;</string>
-                   </property>
-                   <property name="text">
-                    <string>General Consensus:</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLabel" name="General_Consensus_Content">
-                   <property name="minimumSize">
-                    <size>
-                     <width>0</width>
-                     <height>300</height>
-                    </size>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">font: 14pt;</string>
-                   </property>
-                   <property name="text">
-                    <string/>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </widget>
-              </item>
-             </layout>
             </widget>
            </item>
           </layout>
