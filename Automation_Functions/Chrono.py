@@ -7,34 +7,28 @@ class Chrono:
     def __init__(self):
         pass
 
-    def Get_Date(self):
+    def Fetch_DateTime_Info(self):
         
         #? Getting the current date in a nice format
         current_date = QDate.currentDate() 
         Pretty_Date = current_date.toString(Qt.DefaultLocaleLongDate) 
-        return Pretty_Date
-
-    def Get_Time(self):
         
         #? Getting the current time in a nice format
         current_time = QTime.currentTime()
         Pretty_Time = current_time.toString("hh:mm AP")
-        return Pretty_Time
-
-    def Days_Till_Xmas(self):
-
+        
         #? Using the current year to see how many days until christmas
-        current_date = QDate.currentDate()
         current_year = current_date.year() 
         christmas = QDate(current_year,12,25) 
         Days_Till_Xmas = str(current_date.daysTo(christmas))
-        return Days_Till_Xmas
+
+        return Pretty_Date, Pretty_Time, Days_Till_Xmas
 
 if __name__ == "__main__":
     C = Chrono()
-    current_date = C.Get_Date()
-    current_time = C.Get_Time()
-    Days_Till_Xmas = C.Days_Till_Xmas()
+
+    #? Remember has to be in this order to get right info in right variables
+    current_date, current_time, Days_Till_Xmas = C.Fetch_DateTime_Info()
     print(current_date)
     print(current_time)
     print(Days_Till_Xmas)
