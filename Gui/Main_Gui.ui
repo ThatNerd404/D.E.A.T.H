@@ -543,7 +543,7 @@ QPushButton:hover{background-color:rgba(250,176,5,0.05)}</string>
                </property>
                <property name="icon">
                 <iconset>
-                 <normaloff>icons8-quote-32.png</normaloff>icons8-quote-32.png</iconset>
+                 <normaloff>icons8-idea-32.png</normaloff>icons8-idea-32.png</iconset>
                </property>
                <property name="iconSize">
                 <size>
@@ -1295,7 +1295,9 @@ padding: 1px}</string>
          </widget>
          <widget class="QWidget" name="Weather_Page">
           <property name="styleSheet">
-           <string notr="true">background-color: rgb(15,15,15)</string>
+           <string notr="true">background-color: rgb(15,15,15);
+color:rgb(250,176,5);
+font: 12pt &quot;Palatino Linotype&quot;;</string>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_12">
            <property name="spacing">
@@ -1377,6 +1379,152 @@ border-style:solid;}
              <property name="frameShadow">
               <enum>QFrame::Raised</enum>
              </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_11">
+              <property name="spacing">
+               <number>0</number>
+              </property>
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QFrame" name="Weather_Basic_Info">
+                <property name="minimumSize">
+                 <size>
+                  <width>339</width>
+                  <height>396</height>
+                 </size>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_13">
+                 <property name="spacing">
+                  <number>0</number>
+                 </property>
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <item alignment="Qt::AlignHCenter">
+                  <widget class="QLabel" name="Weather_Status_Pic">
+                   <property name="text">
+                    <string>TextLabel</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="Weather_Label">
+                   <property name="text">
+                    <string>TextLabel</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="Temperature_Label">
+                   <property name="text">
+                    <string>TextLabel</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="Feels_Like_Label">
+                   <property name="text">
+                    <string>TextLabel</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QFrame" name="Weather_General_Consensus">
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_14">
+                 <property name="spacing">
+                  <number>0</number>
+                 </property>
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>5</number>
+                 </property>
+                 <item alignment="Qt::AlignHCenter">
+                  <widget class="QLabel" name="General_Consensus_Title">
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>50</height>
+                    </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">font: 24pt &quot;Palatino Linotype&quot;;</string>
+                   </property>
+                   <property name="text">
+                    <string>General Consensus:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="General_Consensus_Desc">
+                   <property name="minimumSize">
+                    <size>
+                     <width>325</width>
+                     <height>325</height>
+                    </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">#General_Consensus_Desc{font: 18pt &quot;Palatino Linotype&quot;;
+border-color:rgb(250,176,5);
+border-width:1px;
+border-style:solid;}</string>
+                   </property>
+                   <property name="frameShape">
+                    <enum>QFrame::NoFrame</enum>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
             </widget>
            </item>
           </layout>
