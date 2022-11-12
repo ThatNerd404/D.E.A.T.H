@@ -533,7 +533,7 @@ QPushButton:hover{background-color:rgba(250,176,5,0.05)}</string>
              <item>
               <widget class="QPushButton" name="Quote_Button">
                <property name="toolTip">
-                <string>Quotes</string>
+                <string>Inspiration</string>
                </property>
                <property name="toolTipDuration">
                 <number>-1</number>
@@ -1428,28 +1428,28 @@ border-style:solid;}
                  <item alignment="Qt::AlignHCenter">
                   <widget class="QLabel" name="Weather_Status_Pic">
                    <property name="text">
-                    <string>TextLabel</string>
+                    <string/>
                    </property>
                   </widget>
                  </item>
                  <item>
                   <widget class="QLabel" name="Weather_Label">
                    <property name="text">
-                    <string>TextLabel</string>
+                    <string>Weather: Cloudy</string>
                    </property>
                   </widget>
                  </item>
                  <item>
                   <widget class="QLabel" name="Temperature_Label">
                    <property name="text">
-                    <string>TextLabel</string>
+                    <string>Temperature: 3000 degrees</string>
                    </property>
                   </widget>
                  </item>
                  <item>
                   <widget class="QLabel" name="Feels_Like_Label">
                    <property name="text">
-                    <string>TextLabel</string>
+                    <string>Feels Like: 3 million degrees</string>
                    </property>
                   </widget>
                  </item>
@@ -1478,10 +1478,10 @@ border-style:solid;}
                   <number>0</number>
                  </property>
                  <property name="rightMargin">
-                  <number>0</number>
+                  <number>15</number>
                  </property>
                  <property name="bottomMargin">
-                  <number>5</number>
+                  <number>15</number>
                  </property>
                  <item alignment="Qt::AlignHCenter">
                   <widget class="QLabel" name="General_Consensus_Title">
