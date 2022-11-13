@@ -1427,26 +1427,38 @@ border-style:solid;}
                  </property>
                  <item alignment="Qt::AlignHCenter">
                   <widget class="QLabel" name="Weather_Status_Pic">
+                   <property name="minimumSize">
+                    <size>
+                     <width>64</width>
+                     <height>64</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>64</width>
+                     <height>64</height>
+                    </size>
+                   </property>
                    <property name="text">
                     <string/>
                    </property>
                   </widget>
                  </item>
-                 <item>
+                 <item alignment="Qt::AlignHCenter">
                   <widget class="QLabel" name="Weather_Label">
                    <property name="text">
                     <string>Weather: Cloudy</string>
                    </property>
                   </widget>
                  </item>
-                 <item>
+                 <item alignment="Qt::AlignHCenter">
                   <widget class="QLabel" name="Temperature_Label">
                    <property name="text">
                     <string>Temperature: 3000 degrees</string>
                    </property>
                   </widget>
                  </item>
-                 <item>
+                 <item alignment="Qt::AlignHCenter">
                   <widget class="QLabel" name="Feels_Like_Label">
                    <property name="text">
                     <string>Feels Like: 3 million degrees</string>
