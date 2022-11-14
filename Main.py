@@ -30,16 +30,16 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
 
         S = Sky()
         Weather_Text, Temperature_Text, Feels_Like_Text = S.Fetch_Weather_Data()
-
-        #? getting rid of frame
-        flags = QtCore.Qt.WindowFlags(QtCore.Qt.FramelessWindowHint)
-        self.setWindowFlags(flags)
+        
+        #? Putting data in correct data structures
+        WeatherPicDict = {'Clear': 'Gui/icons8-sun-96.png', 'Clouds': 'Gui/icons8-clouds-96.png', "Rain": 'Gui/icons8-rainy-weather-96.png' }
+        
         
         #? Grab text from save files
         workouts_data = self.Load_File_Input("Save_Folder/Workouts_Save_File.txt")
         notes_data = self.Load_File_Input("Save_Folder/Notes_Save_File.txt") 
 
-        #? Setting text for different labels 
+        #? Setting text/Pic for different labels 
         self.ui.Workouts_text_edit.setText(workouts_data)
         self.ui.Notes_text_edit.setText(notes_data)
 
@@ -51,12 +51,10 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         self.ui.Temperature_Label.setText(f"Temperature: {Temperature_Text}")
         self.ui.Feels_Like_Label.setText(f"Feels Like: {Feels_Like_Text}")
 
-        if Weather_Text == "Clear":
-            self.ui.Weather_Status_Pic.setPixmap(QPixmap('Gui/icons8-clouds-64.png'))
-
-        elif Weather_Text == "Clouds":
-            self.ui.Weather_Status_Pic.setPixmap(QPixmap('Gui/icons8-sun-64.png'))
+        # use nested dict to include the general consensus 
+        self.ui.Weather_Status_Pic.setPixmap(QPixmap(WeatherPicDict[Weather_Text]))
         
+        self.ui.General_Consensus_Desc.setText(f"Based on the weather you should: \nBased on the temperature you should: ")
         #? Setting buttons functions 
         self.ui.Home_Button.clicked.connect(lambda: self.ui.Pages.setCurrentWidget(self.ui.Home_Page))
         self.ui.Time_Button.clicked.connect(lambda: self.ui.Pages.setCurrentWidget(self.ui.Time_Reminders_Page))
@@ -97,8 +95,13 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
 def app():
     app = QApplication(sys.argv)
     win = Mainwindow()
+    
+    #? Adjusting window settings
     win.setWindowTitle("D.E.A.T.H - Developer Environment Automation & Task Handler")
     win.setWindowIcon(QIcon('Gui/icons8-headstone-100.png'))
+    flags = QtCore.Qt.WindowFlags(QtCore.Qt.FramelessWindowHint)
+    win.setWindowFlags(flags)
+    
     win.show()
     sys.exit(app.exec_())
 

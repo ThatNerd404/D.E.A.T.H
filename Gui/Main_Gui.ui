@@ -1417,7 +1417,7 @@ border-style:solid;}
                   <number>0</number>
                  </property>
                  <property name="topMargin">
-                  <number>0</number>
+                  <number>10</number>
                  </property>
                  <property name="rightMargin">
                   <number>0</number>
@@ -1429,14 +1429,14 @@ border-style:solid;}
                   <widget class="QLabel" name="Weather_Status_Pic">
                    <property name="minimumSize">
                     <size>
-                     <width>64</width>
-                     <height>64</height>
+                     <width>96</width>
+                     <height>96</height>
                     </size>
                    </property>
                    <property name="maximumSize">
                     <size>
-                     <width>64</width>
-                     <height>64</height>
+                     <width>96</width>
+                     <height>96</height>
                     </size>
                    </property>
                    <property name="text">
@@ -1444,21 +1444,21 @@ border-style:solid;}
                    </property>
                   </widget>
                  </item>
-                 <item alignment="Qt::AlignHCenter">
+                 <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
                   <widget class="QLabel" name="Weather_Label">
                    <property name="text">
                     <string>Weather: Cloudy</string>
                    </property>
                   </widget>
                  </item>
-                 <item alignment="Qt::AlignHCenter">
+                 <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
                   <widget class="QLabel" name="Temperature_Label">
                    <property name="text">
                     <string>Temperature: 3000 degrees</string>
                    </property>
                   </widget>
                  </item>
-                 <item alignment="Qt::AlignHCenter">
+                 <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
                   <widget class="QLabel" name="Feels_Like_Label">
                    <property name="text">
                     <string>Feels Like: 3 million degrees</string>
@@ -1530,6 +1530,15 @@ border-style:solid;}</string>
                    </property>
                    <property name="text">
                     <string/>
+                   </property>
+                   <property name="textFormat">
+                    <enum>Qt::AutoText</enum>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+                   </property>
+                   <property name="wordWrap">
+                    <bool>true</bool>
                    </property>
                   </widget>
                  </item>
