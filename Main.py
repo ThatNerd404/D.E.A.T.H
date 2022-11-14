@@ -32,14 +32,27 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         Weather_Text, Temperature_Text, Feels_Like_Text = S.Fetch_Weather_Data()
         
         #? Putting data in correct data structures
-        WeatherPicDict = {'Clear': 'Gui/icons8-sun-96.png', 'Clouds': 'Gui/icons8-clouds-96.png', "Rain": 'Gui/icons8-rainy-weather-96.png' }
+        #TODO add an item for every type of weather
+        WeatherInfoDict = {  'Clear': {'img':'Gui/icons8-sun-96.png', 'Consensus': "Where what you want the weather isn't a problem."},
+                            'Clouds': {'img':'Gui/icons8-clouds-96.png', 'Consensus': 'Pack a coat just in case the weather might turn for the worse.'}, 
+                            'Rain': {'img':'Gui/icons8-rainy-weather-96.png', 'Consensus': 'Wear a coat the weather is bad.'} }
         
+        if Temperature_Text >= 95:
+            Temp_Consensus = "Wear VERY light clothing, the weathers sweltering."
+        elif Temperature_Text >= 80:
+            Temp_Consensus = "Wear light clothing, It's hot."     
+        elif Temperature_Text <= 60:
+            Temp_Consensus = "Wear heavier clothing, It's cold."
+        elif Temperature_Text <= 40:
+            Temp_Consensus = "Wear VERY heavy clothing, It's freezing."
+        else:
+            Temp_Consensus = "Wear what you want, The weather's fair."
         
         #? Grab text from save files
         workouts_data = self.Load_File_Input("Save_Folder/Workouts_Save_File.txt")
         notes_data = self.Load_File_Input("Save_Folder/Notes_Save_File.txt") 
 
-        #? Setting text/Pic for different labels 
+        #? Setting text/pic for different labels 
         self.ui.Workouts_text_edit.setText(workouts_data)
         self.ui.Notes_text_edit.setText(notes_data)
 
@@ -51,10 +64,11 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         self.ui.Temperature_Label.setText(f"Temperature: {Temperature_Text}")
         self.ui.Feels_Like_Label.setText(f"Feels Like: {Feels_Like_Text}")
 
-        # use nested dict to include the general consensus 
-        self.ui.Weather_Status_Pic.setPixmap(QPixmap(WeatherPicDict[Weather_Text]))
+        self.ui.Weather_Status_Pic.setPixmap(QPixmap(WeatherInfoDict[Weather_Text]['img']))
+        self.ui.General_Consensus_Desc.setText(f"""Based on the weather you should: 
+{WeatherInfoDict[Weather_Text]['Consensus']} \nBased on the temperature you should:
+{Temp_Consensus} """)
         
-        self.ui.General_Consensus_Desc.setText(f"Based on the weather you should: \nBased on the temperature you should: ")
         #? Setting buttons functions 
         self.ui.Home_Button.clicked.connect(lambda: self.ui.Pages.setCurrentWidget(self.ui.Home_Page))
         self.ui.Time_Button.clicked.connect(lambda: self.ui.Pages.setCurrentWidget(self.ui.Time_Reminders_Page))
