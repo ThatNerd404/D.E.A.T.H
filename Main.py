@@ -3,14 +3,14 @@
 import sys
 
 from PyQt5 import QtCore
-from PyQt5.QtGui import QPixmap, QIcon 
+from PyQt5.QtGui import QIcon, QPixmap
 from PyQt5.QtWidgets import QApplication, QMainWindow
 
 from Automation_Functions.Chrono import Chrono
 from Automation_Functions.Sky import Sky
 from Gui.Main_Gui import Ui_MainWindow
 
-# The Starting window size
+#? The Starting window size
 WINDOW_SIZE = 0
 
 class Mainwindow(QMainWindow,Ui_MainWindow):
@@ -37,20 +37,25 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
                             'Clouds': {'img':'Gui/icons8-clouds-96.png', 'Consensus': 'Pack a coat just in case the weather might turn for the worse.'}, 
                             'Rain': {'img':'Gui/icons8-rainy-weather-96.png', 'Consensus': 'Wear a coat the weather is bad.'} }
         
+        #* The order of the elif statements matter. 
+        # EX: if the <= 60 is first it will always return 60 even if its below 40
         if Temperature_Text >= 95:
             Temp_Consensus = "Wear VERY light clothing, the weathers sweltering."
+        
         elif Temperature_Text >= 80:
             Temp_Consensus = "Wear light clothing, It's hot."     
+        
+        elif Temperature_Text <= 45:
+            Temp_Consensus = "Wear VERY heavy clothing, It's freezing."
+
         elif Temperature_Text <= 60:
             Temp_Consensus = "Wear heavier clothing, It's cold."
-        elif Temperature_Text <= 40:
-            Temp_Consensus = "Wear VERY heavy clothing, It's freezing."
         else:
             Temp_Consensus = "Wear what you want, The weather's fair."
         
         #? Grab text from save files
-        workouts_data = self.Load_File_Input("Save_Folder/Workouts_Save_File.txt")
-        notes_data = self.Load_File_Input("Save_Folder/Notes_Save_File.txt") 
+        workouts_data = self.Load_File_Text("Save_Folder/Workouts_Save_File.txt")
+        notes_data = self.Load_File_Text("Save_Folder/Notes_Save_File.txt") 
 
         #? Setting text/pic for different labels 
         self.ui.Workouts_text_edit.setText(workouts_data)
@@ -84,7 +89,7 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         
 
     #? Save all text from file to save_data variable
-    def Load_File_Input(self,file):
+    def Load_File_Text(self,file):
         with open(file,"r") as f:
             save_data = f.read()
         return save_data 

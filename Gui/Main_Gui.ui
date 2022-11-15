@@ -1395,11 +1395,11 @@ border-style:solid;}
               <property name="bottomMargin">
                <number>0</number>
               </property>
-              <item>
-               <widget class="QFrame" name="Weather_Basic_Info">
+              <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+               <widget class="QFrame" name="Weather_Basic_Info_Section">
                 <property name="minimumSize">
                  <size>
-                  <width>339</width>
+                  <width>336</width>
                   <height>396</height>
                  </size>
                 </property>
@@ -1409,7 +1409,7 @@ border-style:solid;}
                 <property name="frameShadow">
                  <enum>QFrame::Raised</enum>
                 </property>
-                <layout class="QVBoxLayout" name="verticalLayout_13">
+                <layout class="QVBoxLayout" name="verticalLayout_15">
                  <property name="spacing">
                   <number>0</number>
                  </property>
@@ -1417,52 +1417,101 @@ border-style:solid;}
                   <number>0</number>
                  </property>
                  <property name="topMargin">
-                  <number>10</number>
+                  <number>0</number>
                  </property>
                  <property name="rightMargin">
                   <number>0</number>
                  </property>
                  <property name="bottomMargin">
-                  <number>0</number>
+                  <number>15</number>
                  </property>
                  <item alignment="Qt::AlignHCenter">
-                  <widget class="QLabel" name="Weather_Status_Pic">
+                  <widget class="QLabel" name="Basic_Info_Title">
+                   <property name="styleSheet">
+                    <string notr="true">font: 24pt &quot;Palatino Linotype&quot;;</string>
+                   </property>
+                   <property name="text">
+                    <string>Basic Infomation:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item alignment="Qt::AlignHCenter">
+                  <widget class="QFrame" name="Weather_Basic_Info">
                    <property name="minimumSize">
                     <size>
-                     <width>96</width>
-                     <height>96</height>
+                     <width>191</width>
+                     <height>334</height>
                     </size>
                    </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>96</width>
-                     <height>96</height>
-                    </size>
+                   <property name="styleSheet">
+                    <string notr="true">#Weather_Basic_Info{font: 18pt &quot;Palatino Linotype&quot;;
+border-color:rgb(250,176,5);
+border-width:1px;
+border-style:solid;}</string>
                    </property>
-                   <property name="text">
-                    <string/>
+                   <property name="frameShape">
+                    <enum>QFrame::StyledPanel</enum>
                    </property>
-                  </widget>
-                 </item>
-                 <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-                  <widget class="QLabel" name="Weather_Label">
-                   <property name="text">
-                    <string>Weather: Cloudy</string>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
                    </property>
-                  </widget>
-                 </item>
-                 <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-                  <widget class="QLabel" name="Temperature_Label">
-                   <property name="text">
-                    <string>Temperature: 3000 degrees</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-                  <widget class="QLabel" name="Feels_Like_Label">
-                   <property name="text">
-                    <string>Feels Like: 3 million degrees</string>
-                   </property>
+                   <layout class="QVBoxLayout" name="verticalLayout_13">
+                    <property name="spacing">
+                     <number>50</number>
+                    </property>
+                    <property name="leftMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>10</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>10</number>
+                    </property>
+                    <item alignment="Qt::AlignHCenter">
+                     <widget class="QLabel" name="Weather_Status_Pic">
+                      <property name="minimumSize">
+                       <size>
+                        <width>96</width>
+                        <height>96</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>96</width>
+                        <height>96</height>
+                       </size>
+                      </property>
+                      <property name="text">
+                       <string/>
+                      </property>
+                     </widget>
+                    </item>
+                    <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+                     <widget class="QLabel" name="Weather_Label">
+                      <property name="text">
+                       <string>Weather: Cloudy</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+                     <widget class="QLabel" name="Temperature_Label">
+                      <property name="text">
+                       <string>Temperature: 3000 degrees</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+                     <widget class="QLabel" name="Feels_Like_Label">
+                      <property name="text">
+                       <string>Feels Like: 3 million degrees</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
                   </widget>
                  </item>
                 </layout>
@@ -1535,7 +1584,7 @@ border-style:solid;}</string>
                     <enum>Qt::AutoText</enum>
                    </property>
                    <property name="alignment">
-                    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+                    <set>Qt::AlignCenter</set>
                    </property>
                    <property name="wordWrap">
                     <bool>true</bool>
