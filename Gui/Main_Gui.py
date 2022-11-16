@@ -364,7 +364,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_4.addWidget(self.Workouts_Title, 0, QtCore.Qt.AlignHCenter)
         self.Workouts_text_edit = QtWidgets.QTextEdit(self.Workouts_section)
         self.Workouts_text_edit.setStyleSheet("#Workouts_text_edit{border-color:rgb(250,176,5);\n"
-"border-width:1px;\n"
+"border-width:2px;\n"
 "border-style:solid;\n"
 "}\n"
 "")
@@ -411,7 +411,7 @@ class Ui_MainWindow(object):
         self.Notes_text_edit = QtWidgets.QTextEdit(self.Notes_Section)
         self.Notes_text_edit.setEnabled(True)
         self.Notes_text_edit.setStyleSheet("#Notes_text_edit{border-color:rgb(250,176,5);\n"
-"border-width:1px;\n"
+"border-width:2px;\n"
 "border-style:solid;}\n"
 "")
         self.Notes_text_edit.setFrameShape(QtWidgets.QFrame.NoFrame)
@@ -436,7 +436,7 @@ class Ui_MainWindow(object):
         self.DateTimeXmas_Labels = QtWidgets.QFrame(self.Time_Footer)
         self.DateTimeXmas_Labels.setStyleSheet("#DateTimeXmas_Labels\n"
 "{border-color:rgb(250,176,5);\n"
-"border-width:1px;\n"
+"border-width:2px;\n"
 "border-style:solid;\n"
 "border-radius:5px;\n"
 "padding: 1px}")
@@ -520,7 +520,7 @@ class Ui_MainWindow(object):
         self.Weather_Basic_Info.setMinimumSize(QtCore.QSize(191, 334))
         self.Weather_Basic_Info.setStyleSheet("#Weather_Basic_Info{font: 18pt \"Palatino Linotype\";\n"
 "border-color:rgb(250,176,5);\n"
-"border-width:1px;\n"
+"border-width:2px;\n"
 "border-style:solid;}")
         self.Weather_Basic_Info.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.Weather_Basic_Info.setFrameShadow(QtWidgets.QFrame.Raised)
@@ -564,7 +564,7 @@ class Ui_MainWindow(object):
         self.General_Consensus_Desc.setMinimumSize(QtCore.QSize(325, 325))
         self.General_Consensus_Desc.setStyleSheet("#General_Consensus_Desc{font: 18pt \"Palatino Linotype\";\n"
 "border-color:rgb(250,176,5);\n"
-"border-width:1px;\n"
+"border-width:2px;\n"
 "border-style:solid;}")
         self.General_Consensus_Desc.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.General_Consensus_Desc.setText("")

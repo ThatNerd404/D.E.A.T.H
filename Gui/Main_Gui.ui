@@ -1019,7 +1019,7 @@ QTextEdit{color: rgb(250,176,5);}
                      <widget class="QTextEdit" name="Workouts_text_edit">
                       <property name="styleSheet">
                        <string notr="true">#Workouts_text_edit{border-color:rgb(250,176,5);
-border-width:1px;
+border-width:2px;
 border-style:solid;
 }
 </string>
@@ -1168,7 +1168,7 @@ p, li { white-space: pre-wrap; }
                       </property>
                       <property name="styleSheet">
                        <string notr="true">#Notes_text_edit{border-color:rgb(250,176,5);
-border-width:1px;
+border-width:2px;
 border-style:solid;}
 </string>
                       </property>
@@ -1234,7 +1234,7 @@ border-style:solid;}
                    <property name="styleSheet">
                     <string notr="true">#DateTimeXmas_Labels
 {border-color:rgb(250,176,5);
-border-width:1px;
+border-width:2px;
 border-style:solid;
 border-radius:5px;
 padding: 1px}</string>
@@ -1446,7 +1446,7 @@ border-style:solid;}
                    <property name="styleSheet">
                     <string notr="true">#Weather_Basic_Info{font: 18pt &quot;Palatino Linotype&quot;;
 border-color:rgb(250,176,5);
-border-width:1px;
+border-width:2px;
 border-style:solid;}</string>
                    </property>
                    <property name="frameShape">
@@ -1571,7 +1571,7 @@ border-style:solid;}</string>
                    <property name="styleSheet">
                     <string notr="true">#General_Consensus_Desc{font: 18pt &quot;Palatino Linotype&quot;;
 border-color:rgb(250,176,5);
-border-width:1px;
+border-width:2px;
 border-style:solid;}</string>
                    </property>
                    <property name="frameShape">
