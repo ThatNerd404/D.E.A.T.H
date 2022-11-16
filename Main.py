@@ -2,9 +2,9 @@
 
 import sys
 
-from PyQt5 import QtCore
+from PyQt5 import QtCore 
 from PyQt5.QtGui import QIcon, QPixmap
-from PyQt5.QtWidgets import QApplication, QMainWindow
+from PyQt5.QtWidgets import QApplication, QMainWindow, QScrollBar
 
 from Automation_Functions.Chrono import Chrono
 from Automation_Functions.Sky import Sky
@@ -73,6 +73,12 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         self.ui.General_Consensus_Desc.setText(f"""Based on the weather you should: 
 {WeatherInfoDict[Weather_Text]['Consensus']} \nBased on the temperature you should:
 {Temp_Consensus} """)
+        
+        #* Setting a scroll bar because you can't use qt designer
+        # You have to create a scroll bar widget first to set another widget's scroll bar
+        Notes_text_edit_Scroll_Bar = QScrollBar(self)
+        Notes_text_edit_Scroll_Bar.setStyleSheet("background : rgb(250,176,5);")
+        self.ui.Notes_text_edit.setVerticalScrollBar(Notes_text_edit_Scroll_Bar)
         
         #? Setting buttons functions 
         self.ui.Home_Button.clicked.connect(lambda: self.ui.Pages.setCurrentWidget(self.ui.Home_Page))

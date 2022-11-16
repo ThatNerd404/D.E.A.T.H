@@ -574,7 +574,7 @@ QPushButton:hover{background-color:rgba(250,176,5,0.05)}</string>
           <string notr="true"/>
          </property>
          <property name="currentIndex">
-          <number>2</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="Home_Page">
           <property name="styleSheet">
