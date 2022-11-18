@@ -605,10 +605,78 @@ class Ui_MainWindow(object):
         self.Inspirations_Content = QtWidgets.QFrame(self.Inspirations_Page)
         self.Inspirations_Content.setStyleSheet("#Inspirations_Content{border-color:rgb(250,176,5);\n"
 "border-width:1px;\n"
-"border-style:solid;}")
+"border-style:solid;\n"
+"}\n"
+"QLabel{\n"
+"font: 14pt \"Palatino Linotype\";\n"
+"color:rgb(250,176,5);}")
         self.Inspirations_Content.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.Inspirations_Content.setFrameShadow(QtWidgets.QFrame.Raised)
         self.Inspirations_Content.setObjectName("Inspirations_Content")
+        self.verticalLayout_17 = QtWidgets.QVBoxLayout(self.Inspirations_Content)
+        self.verticalLayout_17.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_17.setSpacing(0)
+        self.verticalLayout_17.setObjectName("verticalLayout_17")
+        self.Quote_and_cover_pic = QtWidgets.QFrame(self.Inspirations_Content)
+        self.Quote_and_cover_pic.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.Quote_and_cover_pic.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.Quote_and_cover_pic.setObjectName("Quote_and_cover_pic")
+        self.verticalLayout_19 = QtWidgets.QVBoxLayout(self.Quote_and_cover_pic)
+        self.verticalLayout_19.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_19.setSpacing(0)
+        self.verticalLayout_19.setObjectName("verticalLayout_19")
+        self.label = QtWidgets.QLabel(self.Quote_and_cover_pic)
+        self.label.setMinimumSize(QtCore.QSize(0, 250))
+        self.label.setText("")
+        self.label.setObjectName("label")
+        self.verticalLayout_19.addWidget(self.label)
+        self.Quote_and_Author_Label = QtWidgets.QLabel(self.Quote_and_cover_pic)
+        self.Quote_and_Author_Label.setMinimumSize(QtCore.QSize(0, 30))
+        self.Quote_and_Author_Label.setStyleSheet("font: 10px;\n"
+"")
+        self.Quote_and_Author_Label.setWordWrap(False)
+        self.Quote_and_Author_Label.setObjectName("Quote_and_Author_Label")
+        self.verticalLayout_19.addWidget(self.Quote_and_Author_Label, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
+        self.verticalLayout_17.addWidget(self.Quote_and_cover_pic)
+        self.Song_Bar_and_Song_Title = QtWidgets.QFrame(self.Inspirations_Content)
+        self.Song_Bar_and_Song_Title.setMaximumSize(QtCore.QSize(16777215, 198))
+        self.Song_Bar_and_Song_Title.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.Song_Bar_and_Song_Title.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.Song_Bar_and_Song_Title.setObjectName("Song_Bar_and_Song_Title")
+        self.verticalLayout_18 = QtWidgets.QVBoxLayout(self.Song_Bar_and_Song_Title)
+        self.verticalLayout_18.setContentsMargins(0, 0, 0, 50)
+        self.verticalLayout_18.setSpacing(0)
+        self.verticalLayout_18.setObjectName("verticalLayout_18")
+        self.Song_Title_Label = QtWidgets.QLabel(self.Song_Bar_and_Song_Title)
+        self.Song_Title_Label.setStyleSheet("border-width: 2px;\n"
+"border-style: solid;\n"
+"border-color:rgb(250,176,5)")
+        self.Song_Title_Label.setObjectName("Song_Title_Label")
+        self.verticalLayout_18.addWidget(self.Song_Title_Label, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
+        self.Song_Progress_Bar = QtWidgets.QProgressBar(self.Song_Bar_and_Song_Title)
+        self.Song_Progress_Bar.setMinimumSize(QtCore.QSize(0, 4))
+        self.Song_Progress_Bar.setMaximumSize(QtCore.QSize(16777215, 4))
+        self.Song_Progress_Bar.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.Song_Progress_Bar.setStyleSheet("#Song_Progress_Bar{\n"
+"border-radius:2px;\n"
+"background-color:white;\n"
+"margin-left:10px;\n"
+"margin-right:10px;\n"
+"\n"
+"}\n"
+"#Song_Progress_Bar::chunk{\n"
+"border-radius:2px;\n"
+"background-color:rgb(250,176,5);\n"
+"}")
+        self.Song_Progress_Bar.setProperty("value", 25)
+        self.Song_Progress_Bar.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.Song_Progress_Bar.setOrientation(QtCore.Qt.Horizontal)
+        self.Song_Progress_Bar.setInvertedAppearance(False)
+        self.Song_Progress_Bar.setTextDirection(QtWidgets.QProgressBar.TopToBottom)
+        self.Song_Progress_Bar.setFormat("")
+        self.Song_Progress_Bar.setObjectName("Song_Progress_Bar")
+        self.verticalLayout_18.addWidget(self.Song_Progress_Bar)
+        self.verticalLayout_17.addWidget(self.Song_Bar_and_Song_Title)
         self.verticalLayout_16.addWidget(self.Inspirations_Content)
         self.Pages.addWidget(self.Inspirations_Page)
         self.horizontalLayout_4.addWidget(self.Pages)
@@ -660,3 +728,5 @@ class Ui_MainWindow(object):
         self.Feels_Like_Label.setText(_translate("MainWindow", "Feels Like: 3 million degrees"))
         self.General_Consensus_Title.setText(_translate("MainWindow", "General Consensus:"))
         self.Inspo_title.setText(_translate("MainWindow", "Inspirations"))
+        self.Quote_and_Author_Label.setText(_translate("MainWindow", "Quote goes Hereaodsifjaklsdjfalksdjflaksdjflaksdjflsadjflkadj"))
+        self.Song_Title_Label.setText(_translate("MainWindow", "Song title Here"))

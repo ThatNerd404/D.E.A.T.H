@@ -8,6 +8,7 @@ from PyQt5.QtWidgets import QApplication, QMainWindow, QScrollBar
 
 from Automation_Functions.Chrono import Chrono
 from Automation_Functions.Sky import Sky
+from Automation_Functions.Inspire import Inspire
 from Gui.Main_Gui import Ui_MainWindow
 
 #? The Starting window size
@@ -31,6 +32,9 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         S = Sky()
         Weather_Text, Temperature_Text, Feels_Like_Text = S.Fetch_Weather_Data()
         
+        Inspiration = Inspire()
+        Quote , Author = Inspiration.Fetch_Inspiration()
+       
         #? Putting data in correct data structures
         #TODO add an item for every type of weather
         WeatherInfoDict = {  'Clear': {'img':'Gui/icons8-sun-96.png', 'Consensus': "Where what you want the weather isn't a problem."},
@@ -74,6 +78,8 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
 {WeatherInfoDict[Weather_Text]['Consensus']} \nBased on the temperature you should:
 {Temp_Consensus} """)
         
+        self.ui.Quote_and_Author_Label.setText(f"{Author}: {Quote}")
+        
         #* Setting a scroll bar because you can't use qt designer
         # You have to create a scroll bar widget first to set another widget's scroll bar
         Notes_text_edit_Scroll_Bar = QScrollBar(self)
@@ -90,9 +96,6 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         self.ui.Minimize_Button.clicked.connect(lambda: self.showMinimized())
         self.ui.Workout_Save_Button.clicked.connect(lambda: self.Save_Gui_Input(self.ui.Workouts_text_edit,"Save_Folder/Workouts_Save_File.txt"))
         self.ui.Notes_Save_Button.clicked.connect(lambda: self.Save_Gui_Input(self.ui.Notes_text_edit,"Save_Folder/Notes_Save_File.txt"))
-
-        
-        
         
 
     #? Save all text from file to save_data variable
