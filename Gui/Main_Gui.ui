@@ -1732,7 +1732,7 @@ color:rgb(250,176,5);}</string>
                   <number>0</number>
                  </property>
                  <item>
-                  <widget class="QLabel" name="label">
+                  <widget class="QLabel" name="Cover_Pic">
                    <property name="minimumSize">
                     <size>
                      <width>0</width>
@@ -1742,13 +1742,22 @@ color:rgb(250,176,5);}</string>
                    <property name="text">
                     <string/>
                    </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
+                   </property>
                   </widget>
                  </item>
-                 <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+                 <item alignment="Qt::AlignHCenter|Qt::AlignBottom">
                   <widget class="QLabel" name="Quote_and_Author_Label">
                    <property name="minimumSize">
                     <size>
                      <width>0</width>
+                     <height>30</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
                      <height>30</height>
                     </size>
                    </property>
@@ -1772,7 +1781,7 @@ color:rgb(250,176,5);}</string>
                 <property name="maximumSize">
                  <size>
                   <width>16777215</width>
-                  <height>198</height>
+                  <height>114</height>
                  </size>
                 </property>
                 <property name="frameShape">
@@ -1799,6 +1808,18 @@ color:rgb(250,176,5);}</string>
                  </property>
                  <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
                   <widget class="QLabel" name="Song_Title_Label">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>30</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>30</height>
+                    </size>
+                   </property>
                    <property name="styleSheet">
                     <string notr="true">border-width: 2px;
 border-style: solid;
