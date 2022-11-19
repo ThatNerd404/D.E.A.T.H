@@ -1,10 +1,10 @@
 # Main.py - Handles the functionality to the gui and grabbing the information nessasary to display the gui fully and correctly
 
 import sys
-
 from PyQt5 import QtCore 
 from PyQt5.QtGui import QIcon, QPixmap
 from PyQt5.QtWidgets import QApplication, QMainWindow, QScrollBar
+from PyQt5.QtCore import QTimer
 
 from Automation_Functions.Chrono import Chrono
 from Automation_Functions.Sky import Sky
@@ -24,7 +24,7 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         #? Grabbing needed data from module to display on gui
         Cron = Chrono()
         
-        #* Using seperate functions to grab Datetime so I can make a thread to constantly check time
+       
         Date_Text = Cron.Get_Date()
         Time_Text = Cron.Get_Time()
         Xmas_Countdown_Text = Cron.Days_Till_Xmas()
@@ -64,9 +64,15 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         #? Setting text/pic for different labels 
         self.ui.Workouts_text_edit.setText(workouts_data)
         self.ui.Notes_text_edit.setText(notes_data)
-
         self.ui.Date_Label.setText(Date_Text)
-        self.ui.Time_Label.setText(Time_Text)
+        
+        #Works on a diffierent thread as so to not freeze gui
+        Time_timer = QTimer(self)
+        # adding action to timer
+        Time_timer.timeout.connect(lambda: self.ui.Time_Label.setText(Cron.Get_Time()))
+        # update the timer every second
+        # in milliseconds
+        Time_timer.start(1000)
         self.ui.Xmas_Countdown_Label.setText(f"{Xmas_Countdown_Text} Days 'Till Christmas!")
 
         self.ui.Weather_Label.setText(f"Weather: {Weather_Text}")
@@ -120,6 +126,7 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
             WINDOW_SIZE = 0 
             self.showNormal()
     
+   
 
 def app():
     app = QApplication(sys.argv)
