@@ -135,12 +135,13 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
             self.showNormal()
     
     def OnPlaybutton(self,Playlist):
+        song_title = random.choice(Playlist).rstrip(".wav").lstrip("Music_Folder/")
+        self.ui.Song_Title_Label.setText(song_title)
         #? Turn file into content it can read
-        url = QtCore.QUrl.fromLocalFile(random.choice(Playlist))
+        url = QtCore.QUrl.fromLocalFile(f"Music_Folder/{song_title}.wav")
         content = QtMultimedia.QMediaContent(url)
         self.playlist = QtMultimedia.QMediaPlaylist()
         self.playlist.addMedia(content)
-        
         self.player = QtMultimedia.QMediaPlayer()
         self.player.setPlaylist(self.playlist)
         
@@ -152,7 +153,7 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         else:
             self.player.play()
             self.ui.Play_Pause_Music_Button.setIcon(QIcon("Gui/icons8-pause-32.png"))
-
+           
 def app():
     app = QApplication(sys.argv)
     win = Mainwindow()
