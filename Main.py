@@ -135,9 +135,11 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
             self.showNormal()
     
     def OnPlaybutton(self,Playlist):
+        #? Make song title presentable
         song_title = random.choice(Playlist).rstrip(".wav").lstrip("Music_Folder/")
         self.ui.Song_Title_Label.setText(song_title)
-        #? Turn file into content it can read
+        
+        #? Turn title into file and file into content it can read
         url = QtCore.QUrl.fromLocalFile(f"Music_Folder/{song_title}.wav")
         content = QtMultimedia.QMediaContent(url)
         self.playlist = QtMultimedia.QMediaPlaylist()
