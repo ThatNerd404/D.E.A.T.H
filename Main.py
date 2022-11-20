@@ -112,7 +112,7 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         self.ui.Play_Pause_Music_Button.setCheckable(True)
         self.ui.Play_Pause_Music_Button.setChecked(True)
         self.ui.Play_Pause_Music_Button.clicked.connect(lambda: self.OnPlaybutton(Banger_Playlist))
-        self.OnPlaybutton.player.stateChanged.connect(lambda: self.OnPlaybutton(Banger_Playlist))
+        
     #? Save all text from file to save_data variable
     def Load_File_Text(self,file):
         with open(file,"r") as f:
