@@ -3,8 +3,7 @@
 import sys
 import random 
 
-from PyQt5 import QtCore , QtMultimedia 
-from PyQt5.QtMultimedia import QSound 
+from PyQt5 import QtCore , QtMultimedia  
 from PyQt5.QtGui import QIcon, QPixmap
 from PyQt5.QtWidgets import QApplication, QMainWindow, QScrollBar
 from PyQt5.QtCore import QTimer, QUrl
@@ -148,10 +147,11 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         #? If music is playing stop and change
         if self.ui.Play_Pause_Music_Button.isChecked() == True:
             self.player.stop()
+            self.ui.Play_Pause_Music_Button.setIcon(QIcon("Gui/icons8-play-32.png"))
             #self.ui.Play_Pause_Music_Button.se
         else:
             self.player.play()
-         
+            self.ui.Play_Pause_Music_Button.setIcon(QIcon("Gui/icons8-pause-32.png"))
 
 def app():
     app = QApplication(sys.argv)
