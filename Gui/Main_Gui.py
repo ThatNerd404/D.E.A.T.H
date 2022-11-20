@@ -609,7 +609,10 @@ class Ui_MainWindow(object):
 "}\n"
 "QLabel{\n"
 "font: 14pt \"Palatino Linotype\";\n"
-"color:rgb(250,176,5);}")
+"color:rgb(250,176,5);}\n"
+"QPushButton{border-radius:5px; background-color: rgb(15,15,15)}\n"
+"\n"
+"QPushButton:hover{background-color:rgba(250,176,5,0.05)}")
         self.Inspirations_Content.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.Inspirations_Content.setFrameShadow(QtWidgets.QFrame.Raised)
         self.Inspirations_Content.setObjectName("Inspirations_Content")
@@ -642,12 +645,13 @@ class Ui_MainWindow(object):
         self.verticalLayout_17.addWidget(self.Quote_and_cover_pic)
         self.Song_Bar_and_Song_Title = QtWidgets.QFrame(self.Inspirations_Content)
         self.Song_Bar_and_Song_Title.setMaximumSize(QtCore.QSize(16777215, 114))
+        self.Song_Bar_and_Song_Title.setStyleSheet("")
         self.Song_Bar_and_Song_Title.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.Song_Bar_and_Song_Title.setFrameShadow(QtWidgets.QFrame.Raised)
         self.Song_Bar_and_Song_Title.setObjectName("Song_Bar_and_Song_Title")
         self.verticalLayout_18 = QtWidgets.QVBoxLayout(self.Song_Bar_and_Song_Title)
-        self.verticalLayout_18.setContentsMargins(0, 0, 0, 50)
-        self.verticalLayout_18.setSpacing(0)
+        self.verticalLayout_18.setContentsMargins(0, 0, 0, 25)
+        self.verticalLayout_18.setSpacing(10)
         self.verticalLayout_18.setObjectName("verticalLayout_18")
         self.Song_Title_Label = QtWidgets.QLabel(self.Song_Bar_and_Song_Title)
         self.Song_Title_Label.setMinimumSize(QtCore.QSize(0, 30))
@@ -680,6 +684,19 @@ class Ui_MainWindow(object):
         self.Song_Progress_Bar.setFormat("")
         self.Song_Progress_Bar.setObjectName("Song_Progress_Bar")
         self.verticalLayout_18.addWidget(self.Song_Progress_Bar)
+        self.Play_Pause_Music_Button = QtWidgets.QPushButton(self.Song_Bar_and_Song_Title)
+        self.Play_Pause_Music_Button.setMinimumSize(QtCore.QSize(32, 32))
+        self.Play_Pause_Music_Button.setMaximumSize(QtCore.QSize(32, 32))
+        self.Play_Pause_Music_Button.setStyleSheet("")
+        self.Play_Pause_Music_Button.setText("")
+        icon9 = QtGui.QIcon()
+        icon9.addPixmap(QtGui.QPixmap("Gui\\icons8-play-32.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.Play_Pause_Music_Button.setIcon(icon9)
+        self.Play_Pause_Music_Button.setIconSize(QtCore.QSize(32, 32))
+        self.Play_Pause_Music_Button.setCheckable(True)
+        self.Play_Pause_Music_Button.setFlat(True)
+        self.Play_Pause_Music_Button.setObjectName("Play_Pause_Music_Button")
+        self.verticalLayout_18.addWidget(self.Play_Pause_Music_Button, 0, QtCore.Qt.AlignHCenter)
         self.verticalLayout_17.addWidget(self.Song_Bar_and_Song_Title)
         self.verticalLayout_16.addWidget(self.Inspirations_Content)
         self.Pages.addWidget(self.Inspirations_Page)

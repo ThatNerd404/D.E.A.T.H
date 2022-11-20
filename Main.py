@@ -1,10 +1,13 @@
 # Main.py - Handles the functionality to the gui and grabbing the information nessasary to display the gui fully and correctly
 
 import sys
-from PyQt5 import QtCore 
+import random 
+
+from PyQt5 import QtCore , QtMultimedia 
+from PyQt5.QtMultimedia import QSound 
 from PyQt5.QtGui import QIcon, QPixmap
 from PyQt5.QtWidgets import QApplication, QMainWindow, QScrollBar
-from PyQt5.QtCore import QTimer
+from PyQt5.QtCore import QTimer, QUrl
 
 from Automation_Functions.Chrono import Chrono
 from Automation_Functions.Sky import Sky
@@ -13,6 +16,9 @@ from Gui.Main_Gui import Ui_MainWindow
 
 #? The Starting window size
 WINDOW_SIZE = 0
+
+#? The starting state of the music
+MUSIC_IS_PLAYING = False
 
 class Mainwindow(QMainWindow,Ui_MainWindow):
     def __init__(self):
@@ -26,7 +32,7 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         
        
         Date_Text = Cron.Get_Date()
-        Time_Text = Cron.Get_Time()
+        #Time_Text = Cron.Get_Time()
         Xmas_Countdown_Text = Cron.Days_Till_Xmas()
 
         S = Sky()
@@ -36,10 +42,9 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         Quote , Author = Inspiration.Fetch_Inspiration()
        
         #? Putting data in correct data structures
-        #TODO add an item for every type of weather
         WeatherInfoDict = {  'Clear': {'img':'Gui/icons8-sun-96.png', 'Consensus': "Where what you want the weather isn't a problem."},
                             'Clouds': {'img':'Gui/icons8-clouds-96.png', 'Consensus': 'Pack a coat just in case the weather might turn for the worse.'}, 
-                            'Rain': {'img':'Gui/icons8-rainy-weather-96.png', 'Consensus': 'Wear a coat the weather is bad.'} }
+                            'Rain': {'img':'Gui/icons8-rainy-weather-96.png', 'Consensus': 'Wear a coat, the weather is bad.'} }
         
         #* The order of the elif statements matter. 
         # EX: if the <= 60 is first it will always return 60 even if its below 40
@@ -54,8 +59,11 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
 
         elif Temperature_Text <= 60:
             Temp_Consensus = "Wear heavier clothing, It's cold."
+        
         else:
             Temp_Consensus = "Wear what you want, The weather's fair."
+        
+        Banger_Playlist = ["Music_Folder/Through The Wire.wav","Music_Folder/All Falls Down.wav"]
         
         #? Grab text from save files
         workouts_data = self.Load_File_Text("Save_Folder/Workouts_Save_File.txt")
@@ -64,14 +72,13 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         #? Setting text/pic for different labels 
         self.ui.Workouts_text_edit.setText(workouts_data)
         self.ui.Notes_text_edit.setText(notes_data)
-        self.ui.Date_Label.setText(Date_Text)
         
-        #Works on a diffierent thread as so to not freeze gui
+        self.ui.Date_Label.setText(Date_Text)
+        #Works on a different thread as so to not freeze gui
         Time_timer = QTimer(self)
         # adding action to timer
         Time_timer.timeout.connect(lambda: self.ui.Time_Label.setText(Cron.Get_Time()))
-        # update the timer every second
-        # in milliseconds
+        # update the timer every second p.s its in milliseconds
         Time_timer.start(1000)
         self.ui.Xmas_Countdown_Label.setText(f"{Xmas_Countdown_Text} Days 'Till Christmas!")
 
@@ -102,8 +109,10 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         self.ui.Minimize_Button.clicked.connect(lambda: self.showMinimized())
         self.ui.Workout_Save_Button.clicked.connect(lambda: self.Save_Gui_Input(self.ui.Workouts_text_edit,"Save_Folder/Workouts_Save_File.txt"))
         self.ui.Notes_Save_Button.clicked.connect(lambda: self.Save_Gui_Input(self.ui.Notes_text_edit,"Save_Folder/Notes_Save_File.txt"))
-        
-
+        self.ui.Play_Pause_Music_Button.setCheckable(True)
+        self.ui.Play_Pause_Music_Button.setChecked(True)
+        self.ui.Play_Pause_Music_Button.clicked.connect(lambda: self.OnPlaybutton(Banger_Playlist))
+        self.OnPlaybutton.player.stateChanged.connect(lambda: self.OnPlaybutton(Banger_Playlist))
     #? Save all text from file to save_data variable
     def Load_File_Text(self,file):
         with open(file,"r") as f:
@@ -126,7 +135,23 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
             WINDOW_SIZE = 0 
             self.showNormal()
     
-   
+    def OnPlaybutton(self,Playlist):
+        #? Turn file into content it can read
+        url = QtCore.QUrl.fromLocalFile(random.choice(Playlist))
+        content = QtMultimedia.QMediaContent(url)
+        self.playlist = QtMultimedia.QMediaPlaylist()
+        self.playlist.addMedia(content)
+        
+        self.player = QtMultimedia.QMediaPlayer()
+        self.player.setPlaylist(self.playlist)
+        
+        #? If music is playing stop and change
+        if self.ui.Play_Pause_Music_Button.isChecked() == True:
+            self.player.stop()
+            #self.ui.Play_Pause_Music_Button.se
+        else:
+            self.player.play()
+         
 
 def app():
     app = QApplication(sys.argv)
@@ -137,7 +162,6 @@ def app():
     win.setWindowIcon(QIcon('Gui/icons8-headstone-100.png'))
     flags = QtCore.Qt.WindowFlags(QtCore.Qt.FramelessWindowHint)
     win.setWindowFlags(flags)
-    
     win.show()
     sys.exit(app.exec_())
 

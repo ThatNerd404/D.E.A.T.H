@@ -1683,7 +1683,10 @@ border-style:solid;
 }
 QLabel{
 font: 14pt &quot;Palatino Linotype&quot;;
-color:rgb(250,176,5);}</string>
+color:rgb(250,176,5);}
+QPushButton{border-radius:5px; background-color: rgb(15,15,15)}
+
+QPushButton:hover{background-color:rgba(250,176,5,0.05)}</string>
              </property>
              <property name="frameShape">
               <enum>QFrame::StyledPanel</enum>
@@ -1784,6 +1787,9 @@ color:rgb(250,176,5);}</string>
                   <height>114</height>
                  </size>
                 </property>
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
                 <property name="frameShape">
                  <enum>QFrame::StyledPanel</enum>
                 </property>
@@ -1792,7 +1798,7 @@ color:rgb(250,176,5);}</string>
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_18">
                  <property name="spacing">
-                  <number>0</number>
+                  <number>10</number>
                  </property>
                  <property name="leftMargin">
                   <number>0</number>
@@ -1804,7 +1810,7 @@ color:rgb(250,176,5);}</string>
                   <number>0</number>
                  </property>
                  <property name="bottomMargin">
-                  <number>50</number>
+                  <number>25</number>
                  </property>
                  <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
                   <widget class="QLabel" name="Song_Title_Label">
@@ -1877,6 +1883,44 @@ background-color:rgb(250,176,5);
                    </property>
                    <property name="format">
                     <string/>
+                   </property>
+                  </widget>
+                 </item>
+                 <item alignment="Qt::AlignHCenter">
+                  <widget class="QPushButton" name="Play_Pause_Music_Button">
+                   <property name="minimumSize">
+                    <size>
+                     <width>32</width>
+                     <height>32</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>32</width>
+                     <height>32</height>
+                    </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true"/>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                   <property name="icon">
+                    <iconset>
+                     <normaloff>icons8-play-32.png</normaloff>icons8-play-32.png</iconset>
+                   </property>
+                   <property name="iconSize">
+                    <size>
+                     <width>32</width>
+                     <height>32</height>
+                    </size>
+                   </property>
+                   <property name="checkable">
+                    <bool>true</bool>
+                   </property>
+                   <property name="flat">
+                    <bool>true</bool>
                    </property>
                   </widget>
                  </item>
