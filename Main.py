@@ -16,9 +16,6 @@ from Gui.Main_Gui import Ui_MainWindow
 #? The Starting window size
 WINDOW_SIZE = 0
 
-#? The starting state of the music
-MUSIC_IS_PLAYING = False
-
 class Mainwindow(QMainWindow,Ui_MainWindow):
     def __init__(self):
         super(Mainwindow,self).__init__()
@@ -28,24 +25,21 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         
         #? Grabbing needed data from module to display on gui
         Cron = Chrono()
-        
-       
         Date_Text = Cron.Get_Date()
-        #Time_Text = Cron.Get_Time()
         Xmas_Countdown_Text = Cron.Days_Till_Xmas()
 
         S = Sky()
         Weather_Text, Temperature_Text, Feels_Like_Text = S.Fetch_Weather_Data()
         
         Inspiration = Inspire()
-        Quote , Author = Inspiration.Fetch_Inspiration()
+        Quote, Author = Inspiration.Fetch_Inspiration()
        
         #? Putting data in correct data structures
-        WeatherInfoDict = {  'Clear': {'img':'Gui/icons8-sun-96.png', 'Consensus': "Where what you want the weather isn't a problem."},
+        WeatherInfoDict = { 'Clear': {'img':'Gui/icons8-sun-96.png', 'Consensus': "Where what you want the weather isn't a problem."},
                             'Clouds': {'img':'Gui/icons8-clouds-96.png', 'Consensus': 'Pack a coat just in case the weather might turn for the worse.'}, 
                             'Rain': {'img':'Gui/icons8-rainy-weather-96.png', 'Consensus': 'Wear a coat, the weather is bad.'} }
         
-        #* The order of the elif statements matter. 
+        #! The order of the elif statements matter. 
         # EX: if the <= 60 is first it will always return 60 even if its below 40
         if Temperature_Text >= 95:
             Temp_Consensus = "Wear VERY light clothing, the weathers sweltering."
@@ -62,22 +56,23 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         else:
             Temp_Consensus = "Wear what you want, The weather's fair."
         
+        #TODO: change this to use os to grab all files from the music folder and put them into a list 
         Banger_Playlist = ["Music_Folder/Through The Wire.wav","Music_Folder/All Falls Down.wav"]
         
         #? Grab text from save files
-        workouts_data = self.Load_File_Text("Save_Folder/Workouts_Save_File.txt")
-        notes_data = self.Load_File_Text("Save_Folder/Notes_Save_File.txt") 
+        workouts_text = self.Load_File_Text("Save_Folder/Workouts_Save_File.txt")
+        notes_text = self.Load_File_Text("Save_Folder/Notes_Save_File.txt") 
 
-        #? Setting text/pic for different labels 
-        self.ui.Workouts_text_edit.setText(workouts_data)
-        self.ui.Notes_text_edit.setText(notes_data)
+         
+        self.ui.Workouts_text_edit.setText(workouts_text)
+        self.ui.Notes_text_edit.setText(notes_text)
         
         self.ui.Date_Label.setText(Date_Text)
-        #Works on a different thread as so to not freeze gui
+        #?Works on a different thread to not freeze gui
         Time_timer = QTimer(self)
-        # adding action to timer
+        #? adding action to timer
         Time_timer.timeout.connect(lambda: self.ui.Time_Label.setText(Cron.Get_Time()))
-        # update the timer every second p.s its in milliseconds
+        #? update the timer every second p.s its in milliseconds
         Time_timer.start(1000)
         self.ui.Xmas_Countdown_Label.setText(f"{Xmas_Countdown_Text} Days 'Till Christmas!")
 
@@ -163,6 +158,7 @@ def app():
     win.setWindowIcon(QIcon('Gui/icons8-headstone-100.png'))
     flags = QtCore.Qt.WindowFlags(QtCore.Qt.FramelessWindowHint)
     win.setWindowFlags(flags)
+    
     win.show()
     sys.exit(app.exec_())
 
