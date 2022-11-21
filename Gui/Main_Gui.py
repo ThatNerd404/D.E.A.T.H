@@ -694,6 +694,7 @@ class Ui_MainWindow(object):
         self.Play_Pause_Music_Button.setIcon(icon9)
         self.Play_Pause_Music_Button.setIconSize(QtCore.QSize(32, 32))
         self.Play_Pause_Music_Button.setCheckable(True)
+        self.Play_Pause_Music_Button.setChecked(True)
         self.Play_Pause_Music_Button.setFlat(True)
         self.Play_Pause_Music_Button.setObjectName("Play_Pause_Music_Button")
         self.verticalLayout_18.addWidget(self.Play_Pause_Music_Button, 0, QtCore.Qt.AlignHCenter)

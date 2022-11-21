@@ -6,7 +6,7 @@ import random
 from PyQt5 import QtCore , QtMultimedia  
 from PyQt5.QtGui import QIcon, QPixmap
 from PyQt5.QtWidgets import QApplication, QMainWindow, QScrollBar
-from PyQt5.QtCore import QTimer, QUrl
+from PyQt5.QtCore import QTimer
 
 from Automation_Functions.Chrono import Chrono
 from Automation_Functions.Sky import Sky
@@ -108,8 +108,6 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         self.ui.Minimize_Button.clicked.connect(lambda: self.showMinimized())
         self.ui.Workout_Save_Button.clicked.connect(lambda: self.Save_Gui_Input(self.ui.Workouts_text_edit,"Save_Folder/Workouts_Save_File.txt"))
         self.ui.Notes_Save_Button.clicked.connect(lambda: self.Save_Gui_Input(self.ui.Notes_text_edit,"Save_Folder/Notes_Save_File.txt"))
-        self.ui.Play_Pause_Music_Button.setCheckable(True)
-        self.ui.Play_Pause_Music_Button.setChecked(True)
         self.ui.Play_Pause_Music_Button.clicked.connect(lambda: self.OnPlaybutton(Banger_Playlist))
         
     #? Save all text from file to save_data variable

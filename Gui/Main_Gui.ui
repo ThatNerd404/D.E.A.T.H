@@ -1919,6 +1919,9 @@ background-color:rgb(250,176,5);
                    <property name="checkable">
                     <bool>true</bool>
                    </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
                    <property name="flat">
                     <bool>true</bool>
                    </property>
