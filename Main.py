@@ -2,6 +2,7 @@
 
 import sys
 import random 
+import os
 
 from PyQt5 import QtCore , QtMultimedia  
 from PyQt5.QtGui import QIcon, QPixmap
@@ -56,8 +57,12 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         else:
             Temp_Consensus = "Wear what you want, The weather's fair."
         
-        #TODO: change this to use os to grab all files from the music folder and put them into a list 
-        Banger_Playlist = ["Music_Folder/Through The Wire.wav","Music_Folder/All Falls Down.wav"]
+        #? Fetching music and putting it in list
+        Music_Path = r'C:/Users/MyCom\Desktop/.vscode/Github_Projects\D_E_A_T_H/Music_Folder'
+        Banger_Playlist = []
+        for root, dirs, files in os.walk(Music_Path):
+            for file in files:
+                Banger_Playlist.append(os.path.join(root,file))
         
         #? Grab text from save files
         workouts_text = self.Load_File_Text("Save_Folder/Workouts_Save_File.txt")
@@ -163,7 +168,7 @@ def app():
     sys.exit(app.exec_())
 
 if __name__ == "__main__":
-    app()
+   app()
 
 
 
