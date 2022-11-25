@@ -3,8 +3,9 @@
 import sys
 import random 
 import os
+from pygame import mixer
 
-from PyQt5 import QtCore , QtMultimedia  
+from PyQt5 import QtCore 
 from PyQt5.QtGui import QIcon, QPixmap
 from PyQt5.QtWidgets import QApplication, QMainWindow, QScrollBar
 from PyQt5.QtCore import QTimer
@@ -16,6 +17,7 @@ from Gui.Main_Gui import Ui_MainWindow
 
 #? The Starting window size
 WINDOW_SIZE = 0
+
 
 class Mainwindow(QMainWindow,Ui_MainWindow):
     def __init__(self):
@@ -57,12 +59,14 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         else:
             Temp_Consensus = "Wear what you want, The weather's fair."
         
-        #? Fetching music and putting it in list
-        Music_Path = r'C:/Users/MyCom\Desktop/.vscode/Github_Projects\D_E_A_T_H/Music_Folder'
-        Banger_Playlist = []
+        #? Fetching music files and putting it in list
+        Music_Path = r'Music_Folder'
+        self.Banger_Playlist = []
         for root, dirs, files in os.walk(Music_Path):
             for file in files:
-                Banger_Playlist.append(os.path.join(root,file))
+                self.Banger_Playlist.append(os.path.join(root,file))
+        
+           
         
         #? Grab text from save files
         workouts_text = self.Load_File_Text("Save_Folder/Workouts_Save_File.txt")
@@ -108,7 +112,7 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         self.ui.Minimize_Button.clicked.connect(lambda: self.showMinimized())
         self.ui.Workout_Save_Button.clicked.connect(lambda: self.Save_Gui_Input(self.ui.Workouts_text_edit,"Save_Folder/Workouts_Save_File.txt"))
         self.ui.Notes_Save_Button.clicked.connect(lambda: self.Save_Gui_Input(self.ui.Notes_text_edit,"Save_Folder/Notes_Save_File.txt"))
-        self.ui.Play_Pause_Music_Button.clicked.connect(lambda: self.OnPlaybutton(Banger_Playlist))
+        self.ui.Play_Pause_Music_Button.clicked.connect(lambda: self.OnPlaybutton())
         
     #? Save all text from file to save_data variable
     def Load_File_Text(self,file):
@@ -132,29 +136,28 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
             WINDOW_SIZE = 0 
             self.showNormal()
     
-    def OnPlaybutton(self,Playlist):
-        #? Make song title presentable
-        song_title = random.choice(Playlist).rstrip(".wav").lstrip("Music_Folder/")
+    def OnPlaybutton(self):
+            
+        song = random.choice(self.Banger_Playlist)
+        song_title = song.rstrip(".wav").lstrip("Music_Folder\\")
         self.ui.Song_Title_Label.setText(song_title)
+        mixer.init()
+        mixer.music.load(song)
+        self.music()
         
-        #? Turn title into file and file into content it can read
-        url = QtCore.QUrl.fromLocalFile(f"Music_Folder/{song_title}.wav")
-        content = QtMultimedia.QMediaContent(url)
-        self.playlist = QtMultimedia.QMediaPlaylist()
-        self.playlist.addMedia(content)
-        self.player = QtMultimedia.QMediaPlayer()
-        self.player.setPlaylist(self.playlist)
-        
-        #? If music is playing stop and change
+        pass
+    def music(self):
         if self.ui.Play_Pause_Music_Button.isChecked() == True:
-            self.player.stop()
+            mixer.music.pause()
             self.ui.Play_Pause_Music_Button.setIcon(QIcon("Gui/icons8-play-32.png"))
-            #self.ui.Play_Pause_Music_Button.se
+            
         else:
-            self.player.play()
+            mixer.music.play(0)
             self.ui.Play_Pause_Music_Button.setIcon(QIcon("Gui/icons8-pause-32.png"))
-           
+            
+
 def app():
+    os.system('cls')
     app = QApplication(sys.argv)
     win = Mainwindow()
     
@@ -165,6 +168,7 @@ def app():
     win.setWindowFlags(flags)
     
     win.show()
+    
     sys.exit(app.exec_())
 
 if __name__ == "__main__":
