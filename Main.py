@@ -137,15 +137,14 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
             self.showNormal()
     
     def OnPlaybutton(self):
-            
         song = random.choice(self.Banger_Playlist)
         song_title = song.rstrip(".wav").lstrip("Music_Folder\\")
         self.ui.Song_Title_Label.setText(song_title)
         mixer.init()
         mixer.music.load(song)
         self.music()
-        
         pass
+        
     def music(self):
         if self.ui.Play_Pause_Music_Button.isChecked() == True:
             mixer.music.pause()

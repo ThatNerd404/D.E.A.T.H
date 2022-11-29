@@ -10,6 +10,7 @@ class Inspire:
     def Fetch_Inspiration(self):
         
         #? returns json data from api 
+        #TODO: Change api this one is down
         responce  = requests.get("https://motivational-quote-api.herokuapp.com/quotes/random")
         res_dict = responce.json()
 
