@@ -16,7 +16,7 @@ from Automation_Functions.Inspire import Inspire
 from Gui.Main_Gui import Ui_MainWindow
 
 #? The Starting window size
-WINDOW_SIZE = 0
+WINDOW_IS_MAXIMIZED = False
 
 
 class Mainwindow(QMainWindow,Ui_MainWindow):
@@ -127,13 +127,13 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
                 f.write(contents)
         
     def Restore_or_Maximized(self):
-        global WINDOW_SIZE
-        win_status = WINDOW_SIZE
-        if win_status == 0:
-            WINDOW_SIZE = 1
+        global WINDOW_IS_MAXIMIZED
+        win_status = WINDOW_IS_MAXIMIZED
+        if win_status == False:
+            WINDOW_IS_MAXIMIZED = True
             self.showMaximized()
         else:
-            WINDOW_SIZE = 0 
+            WINDOW_IS_MAXIMIZED = False
             self.showNormal()
     
     def OnPlaybutton(self):
@@ -151,9 +151,9 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
             self.ui.Play_Pause_Music_Button.setIcon(QIcon("Gui/icons8-play-32.png"))
             
         else:
-            mixer.music.play(0)
+            mixer.music.play()
             self.ui.Play_Pause_Music_Button.setIcon(QIcon("Gui/icons8-pause-32.png"))
-            
+             
 
 def app():
     os.system('cls')
