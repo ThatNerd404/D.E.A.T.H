@@ -3,6 +3,7 @@
 import sys
 import random 
 import os
+import pygame
 from pygame import mixer
 
 from PyQt5 import QtCore 
@@ -27,21 +28,16 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         self.ui.Pages.setCurrentWidget(self.ui.Home_Page)
         
         #? Grabbing needed data from module to display on gui
-        Cron = Chrono()
+        Cron = Chrono() # Time data
         Date_Text = Cron.Get_Date()
         Xmas_Countdown_Text = Cron.Days_Till_Xmas()
 
-        S = Sky()
+        S = Sky() # Weather data
         Weather_Text, Temperature_Text, Feels_Like_Text = S.Fetch_Weather_Data()
-        
-        Inspiration = Inspire()
-        Quote, Author = Inspiration.Fetch_Inspiration()
-       
-        #? Putting data in correct data structures
         WeatherInfoDict = { 'Clear': {'img':'Gui/icons8-sun-96.png', 'Consensus': "Where what you want the weather isn't a problem."},
                             'Clouds': {'img':'Gui/icons8-clouds-96.png', 'Consensus': 'Pack a coat just in case the weather might turn for the worse.'}, 
-                            'Rain': {'img':'Gui/icons8-rainy-weather-96.png', 'Consensus': 'Wear a coat, the weather is bad.'} }
-        
+                            'Rain': {'img':'Gui/icons8-rainy-weather-96.png', 'Consensus': 'Wear a coat, the weather is bad.'},
+                            'Mist':{'img':'Gui/icons8-haze-96.png', 'Consensus': 'Where whatever but prepare for the humidity.'}}
         #! The order of the elif statements matter. 
         # EX: if the <= 60 is first it will always return 60 even if its below 40
         if Temperature_Text >= 95:
@@ -59,7 +55,13 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         else:
             Temp_Consensus = "Wear what you want, The weather's fair."
         
+        Inspiration = Inspire() # Quote data
+        Quote, Author = Inspiration.Fetch_Inspiration()
+        
+        
         #? Fetching music files and putting it in list
+        #TODO: add the cover for each song possibly with a dictionary
+        #TODO: or a spinning gif of a disc when playing music
         Music_Path = r'Music_Folder'
         self.Banger_Playlist = []
         for root, dirs, files in os.walk(Music_Path):
@@ -68,21 +70,16 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         
            
         
-        #? Grab text from save files
+        #? Load text from save files
         workouts_text = self.Load_File_Text("Save_Folder/Workouts_Save_File.txt")
         notes_text = self.Load_File_Text("Save_Folder/Notes_Save_File.txt") 
 
-         
         self.ui.Workouts_text_edit.setText(workouts_text)
         self.ui.Notes_text_edit.setText(notes_text)
-        
-        self.ui.Date_Label.setText(Date_Text)
-        #?Works on a different thread to not freeze gui
-        Time_timer = QTimer(self)
-        #? adding action to timer
-        Time_timer.timeout.connect(lambda: self.ui.Time_Label.setText(Cron.Get_Time()))
-        #? update the timer every second p.s its in milliseconds
-        Time_timer.start(1000)
+        self.ui.Date_Label.setText(Date_Text) #?Works on a different thread to not freeze gui
+        Time_Text_Update = QTimer(self)
+        Time_Text_Update.timeout.connect(lambda: self.ui.Time_Label.setText(Cron.Get_Time()))
+        Time_Text_Update.start(1000)
         self.ui.Xmas_Countdown_Label.setText(f"{Xmas_Countdown_Text} Days 'Till Christmas!")
 
         self.ui.Weather_Label.setText(f"Weather: {Weather_Text}")
@@ -96,16 +93,16 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         
         self.ui.Quote_and_Author_Label.setText(f"{Author}: {Quote}")
         
-        #? Setting a scroll bar because you can't use qt designer
         # You have to create a scroll bar widget first to set another widget's scroll bar
         Notes_text_edit_Scroll_Bar = QScrollBar(self)
         Notes_text_edit_Scroll_Bar.setStyleSheet("background : rgb(250,176,5);")
         self.ui.Notes_text_edit.setVerticalScrollBar(Notes_text_edit_Scroll_Bar)
         
         #? Setting timer for Song function
-        self.Song_Bar_Timer = QTimer(self)
-        self.Song_Bar_Timer.timeout.connect(lambda: self.Play_Time())
-        #? Setting buttons functions 
+        self.Song_Bar_Update = QTimer(self)
+        self.Song_Bar_Update.timeout.connect(lambda: self.Play_Time())
+        
+        #? Setting functions for buttons
         self.ui.Home_Button.clicked.connect(lambda: self.ui.Pages.setCurrentWidget(self.ui.Home_Page))
         self.ui.Time_Button.clicked.connect(lambda: self.ui.Pages.setCurrentWidget(self.ui.Time_Reminders_Page))
         self.ui.Weather_Button.clicked.connect(lambda: self.ui.Pages.setCurrentWidget(self.ui.Weather_Page))
@@ -140,13 +137,15 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
             self.showNormal()
     
     def OnPlaybutton(self):
-        
         #TODO: Set endevent for music to be able to auto play 
+        pygame.init()
+        self.MUSIC_END = pygame.USEREVENT+1
+        
         if self.ui.Play_Pause_Music_Button.isChecked() == True:
             mixer.music.pause()
             self.ui.Play_Pause_Music_Button.setIcon(QIcon("Gui/icons8-play-32.png"))
-            self.Song_Bar_Timer.stop()
-            
+            self.Song_Bar_Update.stop()
+          
         else:
             song = random.choice(self.Banger_Playlist)
             song_title = song.rstrip(".wav").lstrip("Music_Folder\\")
@@ -154,14 +153,16 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
             mixer.init()
             mixer.music.load(song)
             mixer.music.play()
-            self.Song_Bar_Timer.start(1000)
+            self.Song_Bar_Update.start(1000)
             self.ui.Play_Pause_Music_Button.setIcon(QIcon("Gui/icons8-pause-32.png"))
             
     def Play_Time(self):
         #? grab time in seconds rounded
         current_time = round(mixer.music.get_pos() / 1000)
         self.ui.Song_Progress_Bar.setValue(current_time)
-        
+        for event in pygame.event.get():
+            if event.type == self.MUSIC_END:
+                lambda: self.OnPlaybutton()
 
 def app():
     os.system('cls')
