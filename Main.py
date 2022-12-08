@@ -15,7 +15,7 @@ from Automation_Functions.Sky import Sky
 from Automation_Functions.Inspire import Inspire
 from Gui.Main_Gui import Ui_MainWindow
 
-#? The Starting window size
+#? The Starting window state
 WINDOW_IS_MAXIMIZED = False
 
 
@@ -96,12 +96,15 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         
         self.ui.Quote_and_Author_Label.setText(f"{Author}: {Quote}")
         
-        #* Setting a scroll bar because you can't use qt designer
+        #? Setting a scroll bar because you can't use qt designer
         # You have to create a scroll bar widget first to set another widget's scroll bar
         Notes_text_edit_Scroll_Bar = QScrollBar(self)
         Notes_text_edit_Scroll_Bar.setStyleSheet("background : rgb(250,176,5);")
         self.ui.Notes_text_edit.setVerticalScrollBar(Notes_text_edit_Scroll_Bar)
         
+        #? Setting timer for Song function
+        self.Song_Bar_Timer = QTimer(self)
+        self.Song_Bar_Timer.timeout.connect(lambda: self.Play_Time())
         #? Setting buttons functions 
         self.ui.Home_Button.clicked.connect(lambda: self.ui.Pages.setCurrentWidget(self.ui.Home_Page))
         self.ui.Time_Button.clicked.connect(lambda: self.ui.Pages.setCurrentWidget(self.ui.Time_Reminders_Page))
@@ -137,23 +140,28 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
             self.showNormal()
     
     def OnPlaybutton(self):
-        song = random.choice(self.Banger_Playlist)
-        song_title = song.rstrip(".wav").lstrip("Music_Folder\\")
-        self.ui.Song_Title_Label.setText(song_title)
-        mixer.init()
-        mixer.music.load(song)
-        self.music()
-        pass
         
-    def music(self):
+        #TODO: Set endevent for music to be able to auto play 
         if self.ui.Play_Pause_Music_Button.isChecked() == True:
             mixer.music.pause()
             self.ui.Play_Pause_Music_Button.setIcon(QIcon("Gui/icons8-play-32.png"))
+            self.Song_Bar_Timer.stop()
             
         else:
+            song = random.choice(self.Banger_Playlist)
+            song_title = song.rstrip(".wav").lstrip("Music_Folder\\")
+            self.ui.Song_Title_Label.setText(song_title)
+            mixer.init()
+            mixer.music.load(song)
             mixer.music.play()
+            self.Song_Bar_Timer.start(1000)
             self.ui.Play_Pause_Music_Button.setIcon(QIcon("Gui/icons8-pause-32.png"))
-             
+            
+    def Play_Time(self):
+        #? grab time in seconds rounded
+        current_time = round(mixer.music.get_pos() / 1000)
+        self.ui.Song_Progress_Bar.setValue(current_time)
+        
 
 def app():
     os.system('cls')
