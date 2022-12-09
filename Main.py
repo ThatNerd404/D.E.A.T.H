@@ -5,6 +5,7 @@ import random
 import os
 import pygame
 from pygame import mixer
+from mutagen.mp3 import MP3
 
 from PyQt5 import QtCore 
 from PyQt5.QtGui import QIcon, QPixmap
@@ -139,15 +140,16 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
     def OnPlaybutton(self):
         #TODO: Set endevent for music to be able to auto play 
         pygame.init()
-        self.MUSIC_END = pygame.USEREVENT+1
-        
         if self.ui.Play_Pause_Music_Button.isChecked() == True:
             mixer.music.pause()
             self.ui.Play_Pause_Music_Button.setIcon(QIcon("Gui/icons8-play-32.png"))
             self.Song_Bar_Update.stop()
           
         else:
+            #TODO change all files to mp3 to grab length
             song = random.choice(self.Banger_Playlist)
+            song_mutation = MP3(song)
+            self.song_length = song_mutation.info.length
             song_title = song.rstrip(".wav").lstrip("Music_Folder\\")
             self.ui.Song_Title_Label.setText(song_title)
             mixer.init()
@@ -159,11 +161,9 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
     def Play_Time(self):
         #? grab time in seconds rounded
         current_time = round(mixer.music.get_pos() / 1000)
+        self.ui.Song_Progress_Bar.setMaximum(self.song_length)
         self.ui.Song_Progress_Bar.setValue(current_time)
-        for event in pygame.event.get():
-            if event.type == self.MUSIC_END:
-                lambda: self.OnPlaybutton()
-
+        
 def app():
     os.system('cls')
     app = QApplication(sys.argv)
