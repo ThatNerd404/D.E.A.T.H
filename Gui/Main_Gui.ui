@@ -1867,7 +1867,7 @@ background-color:rgb(250,176,5);
 }</string>
                    </property>
                    <property name="value">
-                    <number>25</number>
+                    <number>0</number>
                    </property>
                    <property name="alignment">
                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>

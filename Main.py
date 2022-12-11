@@ -149,8 +149,9 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
             #TODO change all files to mp3 to grab length
             song = random.choice(self.Banger_Playlist)
             song_mutation = MP3(song)
-            self.song_length = song_mutation.info.length
-            song_title = song.rstrip(".wav").lstrip("Music_Folder\\")
+            self.song_length = round(song_mutation.info.length)
+            self.ui.Song_Progress_Bar.setMaximum(self.song_length)
+            song_title = song.rstrip(".mp3").lstrip("Music_Folder\\")
             self.ui.Song_Title_Label.setText(song_title)
             mixer.init()
             mixer.music.load(song)
@@ -161,7 +162,7 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
     def Play_Time(self):
         #? grab time in seconds rounded
         current_time = round(mixer.music.get_pos() / 1000)
-        self.ui.Song_Progress_Bar.setMaximum(self.song_length)
+        print(current_time)
         self.ui.Song_Progress_Bar.setValue(current_time)
         
 def app():
