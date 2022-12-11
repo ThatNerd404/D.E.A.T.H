@@ -113,7 +113,8 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         self.ui.Minimize_Button.clicked.connect(lambda: self.showMinimized())
         self.ui.Workout_Save_Button.clicked.connect(lambda: self.Save_Gui_Input(self.ui.Workouts_text_edit,"Save_Folder/Workouts_Save_File.txt"))
         self.ui.Notes_Save_Button.clicked.connect(lambda: self.Save_Gui_Input(self.ui.Notes_text_edit,"Save_Folder/Notes_Save_File.txt"))
-        self.ui.Play_Pause_Music_Button.clicked.connect(lambda: self.OnPlaybutton())
+        self.ui.Play_Button.clicked.connect(lambda: self.Play_Song())
+        self.ui.Pause_Button.clicked.connect(lambda: self.Pause_Song())
         
     #? Save all text from file to save_data variable
     def Load_File_Text(self,file):
@@ -137,16 +138,9 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
             WINDOW_IS_MAXIMIZED = False
             self.showNormal()
     
-    def OnPlaybutton(self):
+    def Play_Song(self):
         #TODO: Set endevent for music to be able to auto play 
-        pygame.init()
-        if self.ui.Play_Pause_Music_Button.isChecked() == True:
-            mixer.music.pause()
-            self.ui.Play_Pause_Music_Button.setIcon(QIcon("Gui/icons8-play-32.png"))
-            self.Song_Bar_Update.stop()
-          
-        else:
-            #TODO change all files to mp3 to grab length
+            pygame.init()
             song = random.choice(self.Banger_Playlist)
             song_mutation = MP3(song)
             self.song_length = round(song_mutation.info.length)
@@ -157,14 +151,20 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
             mixer.music.load(song)
             mixer.music.play()
             self.Song_Bar_Update.start(1000)
-            self.ui.Play_Pause_Music_Button.setIcon(QIcon("Gui/icons8-pause-32.png"))
             
     def Play_Time(self):
         #? grab time in seconds rounded
         current_time = round(mixer.music.get_pos() / 1000)
-        print(current_time)
         self.ui.Song_Progress_Bar.setValue(current_time)
-        
+    
+    def Pause_Song(self):
+        if self.ui.Pause_Button.isChecked() == True:
+            mixer.music.pause()
+            self.Song_Bar_Update.stop()
+        else:
+            mixer.music.unpause()
+            self.Song_Bar_Update.start(1000)
+    
 def app():
     os.system('cls')
     app = QApplication(sys.argv)
