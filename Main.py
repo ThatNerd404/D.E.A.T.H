@@ -38,7 +38,8 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         WeatherInfoDict = { 'Clear': {'img':'Gui/icons8-sun-96.png', 'Consensus': "Where what you want the weather isn't a problem."},
                             'Clouds': {'img':'Gui/icons8-clouds-96.png', 'Consensus': 'Pack a coat just in case the weather might turn for the worse.'}, 
                             'Rain': {'img':'Gui/icons8-rainy-weather-96.png', 'Consensus': 'Wear a coat, the weather is bad.'},
-                            'Mist':{'img':'Gui/icons8-haze-96.png', 'Consensus': 'Where whatever but prepare for the humidity.'}}
+                            'Mist':{'img':'Gui/icons8-haze-96.png', 'Consensus': 'Where whatever but prepare for the humidity.'},
+                            'Haze':{'img':'Gui/icons8-haze-96.png', 'Consensus': 'Where whatever but prepare for the humidity.'}}
         #! The order of the elif statements matter. 
         # EX: if the <= 60 is first it will always return 60 even if its below 40
         if Temperature_Text >= 95:
@@ -139,8 +140,8 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
             self.showNormal()
     
     def Play_Song(self):
-        #TODO: Set endevent for music to be able to auto play 
             pygame.init()
+            pygame.mixer.music.set_endevent(pygame.USEREVENT)
             song = random.choice(self.Banger_Playlist)
             song_mutation = MP3(song)
             self.song_length = round(song_mutation.info.length)
@@ -156,9 +157,16 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         #? grab time in seconds rounded
         current_time = round(mixer.music.get_pos() / 1000)
         self.ui.Song_Progress_Bar.setValue(current_time)
-    
+        #TODO: Change pause and play button to just play button and use this page with checking if it is initialised and uninitializing when needed 
+        # https://brandiscrafts.com/pygame-mixer-music-set_endevent-10-most-correct-answers/
+        for event in pygame.event.get():
+            if event.type == pygame.USEREVENT:
+                self.Song_Bar_Update.stop()
+                self.Play_Song()
+                self.Song_Bar_Update.start(1000)
+                print("next song playing")
     def Pause_Song(self):
-        if self.ui.Pause_Button.isChecked() == True:
+        if self.ui.Pause_Button.isChecked() == False:
             mixer.music.pause()
             self.Song_Bar_Update.stop()
         else:
