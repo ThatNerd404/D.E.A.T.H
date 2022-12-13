@@ -115,7 +115,7 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         self.ui.Workout_Save_Button.clicked.connect(lambda: self.Save_Gui_Input(self.ui.Workouts_text_edit,"Save_Folder/Workouts_Save_File.txt"))
         self.ui.Notes_Save_Button.clicked.connect(lambda: self.Save_Gui_Input(self.ui.Notes_text_edit,"Save_Folder/Notes_Save_File.txt"))
         self.ui.Play_Button.clicked.connect(lambda: self.Play_Song())
-        self.ui.Pause_Button.clicked.connect(lambda: self.Pause_Song())
+       
         
     #? Save all text from file to save_data variable
     def Load_File_Text(self,file):
@@ -140,6 +140,18 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
             self.showNormal()
     
     def Play_Song(self):
+        if pygame.mixer.get_init():
+            if self.ui.Play_Button.isChecked() == False:
+                mixer.music.pause()
+                self.Song_Bar_Update.stop()
+                self.ui.Play_Button.setIcon(QIcon("Gui/icons8-play-32.png"))
+                
+            elif self.ui.Play_Button.isChecked() == True:
+                mixer.music.unpause()
+                self.Song_Bar_Update.start(1000)
+                self.ui.Play_Button.setIcon(QIcon("Gui/icons8-pause-32.png"))
+                
+        else:
             pygame.init()
             pygame.mixer.music.set_endevent(pygame.USEREVENT)
             song = random.choice(self.Banger_Playlist)
@@ -152,26 +164,19 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
             mixer.music.load(song)
             mixer.music.play()
             self.Song_Bar_Update.start(1000)
+            self.ui.Play_Button.setIcon(QIcon("Gui/icons8-pause-32.png"))
             
     def Play_Time(self):
         #? grab time in seconds rounded
         current_time = round(mixer.music.get_pos() / 1000)
         self.ui.Song_Progress_Bar.setValue(current_time)
-        #TODO: Change pause and play button to just play button and use this page with checking if it is initialised and uninitializing when needed 
-        # https://brandiscrafts.com/pygame-mixer-music-set_endevent-10-most-correct-answers/
+        #? Check for music ending event and queue another song in responce 
         for event in pygame.event.get():
             if event.type == pygame.USEREVENT:
                 self.Song_Bar_Update.stop()
+                pygame.mixer.quit()
                 self.Play_Song()
                 self.Song_Bar_Update.start(1000)
-                print("next song playing")
-    def Pause_Song(self):
-        if self.ui.Pause_Button.isChecked() == False:
-            mixer.music.pause()
-            self.Song_Bar_Update.stop()
-        else:
-            mixer.music.unpause()
-            self.Song_Bar_Update.start(1000)
     
 def app():
     os.system('cls')
