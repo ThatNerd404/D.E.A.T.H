@@ -59,11 +59,9 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         
         Inspiration = Inspire() # Quote data
         Quote, Author = Inspiration.Fetch_Inspiration()
-        
+
         
         #? Fetching music files and putting it in list
-        #TODO: add the cover for each song possibly with a dictionary
-        #TODO: or a spinning gif of a disc when playing music
         Music_Path = r'Music_Folder'
         self.Banger_Playlist = []
         for root, dirs, files in os.walk(Music_Path):
