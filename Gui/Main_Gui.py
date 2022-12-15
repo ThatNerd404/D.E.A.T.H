@@ -701,12 +701,49 @@ class Ui_MainWindow(object):
         self.verticalLayout_17.addWidget(self.Song_Bar_and_Song_Title)
         self.verticalLayout_16.addWidget(self.Inspirations_Content)
         self.Pages.addWidget(self.Inspirations_Page)
+        self.System_Stats_Page = QtWidgets.QWidget()
+        self.System_Stats_Page.setStyleSheet("background-color: rgb(15,15,15)")
+        self.System_Stats_Page.setObjectName("System_Stats_Page")
+        self.verticalLayout_20 = QtWidgets.QVBoxLayout(self.System_Stats_Page)
+        self.verticalLayout_20.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_20.setSpacing(0)
+        self.verticalLayout_20.setObjectName("verticalLayout_20")
+        self.System_Stats_Title = QtWidgets.QFrame(self.System_Stats_Page)
+        self.System_Stats_Title.setMaximumSize(QtCore.QSize(16777215, 52))
+        self.System_Stats_Title.setStyleSheet("#System_Stats_Title{border-color:rgb(250,176,5);\n"
+"border-width:1px;\n"
+"border-style:solid;}")
+        self.System_Stats_Title.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.System_Stats_Title.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.System_Stats_Title.setObjectName("System_Stats_Title")
+        self.verticalLayout_21 = QtWidgets.QVBoxLayout(self.System_Stats_Title)
+        self.verticalLayout_21.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_21.setSpacing(0)
+        self.verticalLayout_21.setObjectName("verticalLayout_21")
+        self.Sys_Title = QtWidgets.QLabel(self.System_Stats_Title)
+        self.Sys_Title.setMinimumSize(QtCore.QSize(0, 0))
+        self.Sys_Title.setStyleSheet("color:rgb(250,176,5);\n"
+"font: 28pt \"Palatino Linotype\";")
+        self.Sys_Title.setObjectName("Sys_Title")
+        self.verticalLayout_21.addWidget(self.Sys_Title, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
+        self.verticalLayout_20.addWidget(self.System_Stats_Title)
+        self.System_Stats_Content = QtWidgets.QFrame(self.System_Stats_Page)
+        self.System_Stats_Content.setStyleSheet("#System_Stats_Content{border-color:rgb(250,176,5);\n"
+"border-width:1px;\n"
+"border-style:solid;\n"
+"}\n"
+"")
+        self.System_Stats_Content.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.System_Stats_Content.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.System_Stats_Content.setObjectName("System_Stats_Content")
+        self.verticalLayout_20.addWidget(self.System_Stats_Content)
+        self.Pages.addWidget(self.System_Stats_Page)
         self.horizontalLayout_4.addWidget(self.Pages)
         self.verticalLayout_5.addWidget(self.Main_Content)
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.Pages.setCurrentIndex(3)
+        self.Pages.setCurrentIndex(4)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -752,3 +789,4 @@ class Ui_MainWindow(object):
         self.Inspo_title.setText(_translate("MainWindow", "Inspirations"))
         self.Quote_and_Author_Label.setText(_translate("MainWindow", "Quote goes Hereaodsifjaklsdjfalksdjflaksdjflaksdjflsadjflkadj"))
         self.Song_Title_Label.setText(_translate("MainWindow", "Song title Here"))
+        self.Sys_Title.setText(_translate("MainWindow", "System Stats"))

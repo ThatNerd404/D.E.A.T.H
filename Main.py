@@ -34,6 +34,7 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         Date_Text = Cron.Get_Date()
         Xmas_Countdown_Text = Cron.Days_Till_Xmas()
 
+
         S = Sky() # Weather data
         Weather_Text, Temperature_Text, Feels_Like_Text = S.Fetch_Weather_Data()
         WeatherInfoDict = { 'Clear': {'img':'Gui/icons8-sun-96.png', 'Consensus': "Where what you want the weather isn't a problem."},
