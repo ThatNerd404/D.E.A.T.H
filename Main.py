@@ -15,6 +15,7 @@ from PyQt5.QtCore import QTimer
 from Automation_Functions.Chrono import Chrono
 from Automation_Functions.Sky import Sky
 from Automation_Functions.Inspire import Inspire
+from Automation_Functions.Stats import Stats
 from Gui.Main_Gui import Ui_MainWindow
 
 #? The Starting window state
@@ -68,7 +69,10 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
             for file in files:
                 self.Banger_Playlist.append(os.path.join(root,file))
         
-           
+        
+        Stats = Stats() # System data
+        System_Info, Frequency, Battery, Total_Usage, Cpu_Usage = Stats.Check_System_Info()
+        
         
         #? Load text from save files
         workouts_text = self.Load_File_Text("Save_Folder/Workouts_Save_File.txt")
@@ -177,6 +181,7 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
                 self.Song_Bar_Update.start(1000)
     
 def app():
+    #TODO: Work on the system data page
     os.system('cls')
     app = QApplication(sys.argv)
     win = Mainwindow()

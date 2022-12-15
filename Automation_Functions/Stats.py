@@ -35,22 +35,22 @@ class Stats:
         Frequency = {"max_freq":maxfreqMhz,"min_freq":minfreqMhz,"current_freq": currentfreqMhz}
         
         #? Storing CPU usage in list
-        cpu_usage = []
+        Cpu_Usage = []
         for  _ , percentage in enumerate(psutil.cpu_percent(percpu=True, interval=1)):
-            cpu_usage.append(percentage)
-        total_usage = f"{psutil.cpu_percent()}%"
+            Cpu_Usage.append(percentage)
+        Total_Usage = f"{psutil.cpu_percent()}%"
 
-        #? Storing battery information in dict
+        #? Storing Battery information in dict
         bat = psutil.sensors_battery()
         battery_left = bat.percent
         battery_plugged = bat.power_plugged
-        battery = {"battery_left":battery_left,"battery_plugged":battery_plugged}
+        Battery = {"battery_left":battery_left,"battery_plugged":battery_plugged}
         
-        return System_Info, Frequency, battery, total_usage, cpu_usage
+        return System_Info, Frequency, Battery, Total_Usage, Cpu_Usage
        
 if __name__ == '__main__':
     S = Stats()
-    System_Info, Frequency, battery, total_usage, cpu_usage = S.Check_System_Info()
+    System_Info, Frequency, Battery, Total_Usage, Cpu_Usage = S.Check_System_Info()
     print(f"System: {System_Info['System']}")
     print(f"Node Name: {System_Info['Node']}")
     print(f"Relase: {System_Info['Release']}")
@@ -62,9 +62,9 @@ if __name__ == '__main__':
     print(f"Max Frequency: {Frequency['max_freq']}")
     print(f"Minimum Frequency: {Frequency['min_freq']}")
     print(f"Current Frequency: {Frequency['current_freq']}")
-    for i in range(0,len(cpu_usage)):
-        print(f"Core {i + 1} usage: {cpu_usage[i]}%")
-    print(f"Total core usage: {total_usage}")
-    print(f"Battery left: {battery['battery_left']}%")
-    print(f"Battery plugged in: {battery['battery_plugged']}")
+    for i in range(0,len(Cpu_Usage)):
+        print(f"Core {i + 1} usage: {Cpu_Usage[i]}%")
+    print(f"Total core usage: {Total_Usage}")
+    print(f"Battery left: {Battery['battery_left']}%")
+    print(f"Battery plugged in: {Battery['battery_plugged']}")
     
