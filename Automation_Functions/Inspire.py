@@ -3,6 +3,7 @@
 
 import requests
 import random
+
 class Inspire:
     def __init__(self):
         pass

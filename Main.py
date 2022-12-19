@@ -4,13 +4,16 @@ import sys
 import random 
 import os
 import pygame
+
+
 from pygame import mixer
 from mutagen.mp3 import MP3
 
-from PyQt5 import QtCore 
+from PyQt5 import QtCore
 from PyQt5.QtGui import QIcon, QPixmap
-from PyQt5.QtWidgets import QApplication, QMainWindow, QScrollBar
+from PyQt5.QtWidgets import QApplication, QMainWindow, QScrollBar, QGridLayout
 from PyQt5.QtCore import QTimer
+from pyqtgraph import PlotWidget, plot
 
 from Automation_Functions.Chrono import Chrono
 from Automation_Functions.Sky import Sky
@@ -71,8 +74,8 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
                 self.Banger_Playlist.append(os.path.join(root,file))
         
         
-        Stats = Stats() # System data
-        System_Info, Frequency, Battery, Total_Usage, Cpu_Usage = Stats.Check_System_Info()
+        Stat = Stats() # System data
+        System_Info, Frequency, Battery, Total_Usage, Cpu_Usage = Stat.Check_System_Info()
         
         
         #? Load text from save files
@@ -98,10 +101,16 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         
         self.ui.Quote_and_Author_Label.setText(f"{Author}: {Quote}")
         
-        # You have to create a scroll bar widget first to set another widget's scroll bar
+        #? Creating custom widgets that can't be made in qt designer
         Notes_text_edit_Scroll_Bar = QScrollBar(self)
         Notes_text_edit_Scroll_Bar.setStyleSheet("background : rgb(250,176,5);")
         self.ui.Notes_text_edit.setVerticalScrollBar(Notes_text_edit_Scroll_Bar)
+        
+        graphWidget = PlotWidget()
+        grid = QGridLayout()
+        grid.addWidget(graphWidget)
+        self.ui.System_Stats_Content.setLayout(grid)
+        
         
         #? Setting timer for Song function
         self.Song_Bar_Update = QTimer(self)
@@ -112,12 +121,14 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         self.ui.Time_Button.clicked.connect(lambda: self.ui.Pages.setCurrentWidget(self.ui.Time_Reminders_Page))
         self.ui.Weather_Button.clicked.connect(lambda: self.ui.Pages.setCurrentWidget(self.ui.Weather_Page))
         self.ui.Inspirations_Button.clicked.connect(lambda: self.ui.Pages.setCurrentWidget(self.ui.Inspirations_Page))
+        self.ui.System_Button.clicked.connect(lambda: self.ui.Pages.setCurrentWidget(self.ui.System_Stats_Page))
         self.ui.Close_Button.clicked.connect(lambda: self.close())
         self.ui.Maximize_Button.clicked.connect(lambda: self.Restore_or_Maximized())
         self.ui.Minimize_Button.clicked.connect(lambda: self.showMinimized())
         self.ui.Workout_Save_Button.clicked.connect(lambda: self.Save_Gui_Input(self.ui.Workouts_text_edit,"Save_Folder/Workouts_Save_File.txt"))
         self.ui.Notes_Save_Button.clicked.connect(lambda: self.Save_Gui_Input(self.ui.Notes_text_edit,"Save_Folder/Notes_Save_File.txt"))
         self.ui.Play_Button.clicked.connect(lambda: self.Play_Song())
+       
        
         
     #? Save all text from file to save_data variable
