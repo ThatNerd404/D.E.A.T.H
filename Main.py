@@ -4,7 +4,7 @@ import sys
 import random 
 import os
 import pygame
-
+import numpy as np
 
 from pygame import mixer
 from mutagen.mp3 import MP3
@@ -101,17 +101,37 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         
         self.ui.Quote_and_Author_Label.setText(f"{Author}: {Quote}")
         
-        #? Creating custom widgets that can't be made in qt designer
+        #? Manully adding widgets that can't be added with QT designer
         Notes_text_edit_Scroll_Bar = QScrollBar(self)
         Notes_text_edit_Scroll_Bar.setStyleSheet("background : rgb(250,176,5);")
         self.ui.Notes_text_edit.setVerticalScrollBar(Notes_text_edit_Scroll_Bar)
         
         graphWidget = PlotWidget()
-        grid = QGridLayout()
-        grid.addWidget(graphWidget)
-        self.ui.System_Stats_Content.setLayout(grid)
-        
-        
+        # Define positions of nodes
+        pos = np.array([
+            [0, 0],
+            [10, 0],
+            [0, 10],
+            [10, 10],
+            [5, 5],
+            [15, 5]
+        ])
+
+# Define the set of connections in the graph
+        adj = np.array([
+            [0, 1],
+            [1, 3],
+            [3, 2],
+            [2, 0],
+            [1, 5],
+            [3, 5],
+        ])
+        graphWidget.setData(pos,adj,False)
+        Grid_Layout = QGridLayout() 
+        Grid_Layout.addWidget(graphWidget)
+        self.ui.System_Stats_Content.setLayout(Grid_Layout)
+     
+         
         #? Setting timer for Song function
         self.Song_Bar_Update = QTimer(self)
         self.Song_Bar_Update.timeout.connect(lambda: self.Play_Time())
@@ -194,6 +214,8 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
     
 def app():
     #TODO: Work on the system data page
+    #TODO: Learn arrays
+    #TODO: Learn numpy to help organize sys data to be put on graphs
     os.system('cls')
     app = QApplication(sys.argv)
     win = Mainwindow()
