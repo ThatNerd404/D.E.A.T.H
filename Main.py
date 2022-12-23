@@ -195,8 +195,9 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
     
 def app():
     #TODO: Work on the system data page
-    #TODO: Learn arrays
-    #TODO: Learn numpy to help organize sys data to be put on graphs
+    #TODO: pump the brakes on numpy and focus on learning to use the plot widget in general numpy and arrays may not be necessary 
+    #still learn them tho
+    #TODO: Learn numpy (specfically arrays) to help organize sys data to be put on graphs
     os.system('cls')
     app = QApplication(sys.argv)
     win = Mainwindow()
