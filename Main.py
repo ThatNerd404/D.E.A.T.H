@@ -13,7 +13,7 @@ from PyQt5 import QtCore
 from PyQt5.QtGui import QIcon, QPixmap
 from PyQt5.QtWidgets import QApplication, QMainWindow, QScrollBar, QGridLayout
 from PyQt5.QtCore import QTimer
-from pyqtgraph import PlotWidget, plot
+from pyqtgraph import PlotWidget, plot, GraphicsLayout
 
 from Automation_Functions.Chrono import Chrono
 from Automation_Functions.Sky import Sky
@@ -40,11 +40,12 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
 
         S = Sky() # Weather data
         Weather_Text, Temperature_Text, Feels_Like_Text = S.Fetch_Weather_Data()
-        WeatherInfoDict = { 'Clear': {'img':'Gui/icons8-sun-96.png', 'Consensus': "Where what you want the weather isn't a problem."},
+        WeatherInfoDict = { 'Clear': {'img':'Gui/icons8-sun-96.png', 'Consensus': "Wear what you want the weather isn't a problem."},
                             'Clouds': {'img':'Gui/icons8-clouds-96.png', 'Consensus': 'Pack a coat just in case the weather might turn for the worse.'}, 
                             'Rain': {'img':'Gui/icons8-rainy-weather-96.png', 'Consensus': 'Wear a coat, the weather is bad.'},
-                            'Mist':{'img':'Gui/icons8-haze-96.png', 'Consensus': 'Where whatever but prepare for the humidity.'},
-                            'Haze':{'img':'Gui/icons8-haze-96.png', 'Consensus': 'Where whatever but prepare for the humidity.'}}
+                            'Mist':{'img':'Gui/icons8-haze-96.png', 'Consensus': 'Wear whatever but prepare for the humidity.'},
+                            'Haze':{'img':'Gui/icons8-haze-96.png', 'Consensus': 'Wear whatever but prepare for the humidity.'},
+                            'Snow':{'img':'Gui/icons8-snow-96.png', 'Consensus':'Wear a big coat it is freezing!'}}
         #! The order of the elif statements matter. 
         # EX: if the <= 60 is first it will always return 60 even if its below 40
         if Temperature_Text >= 95:
@@ -107,26 +108,6 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         self.ui.Notes_text_edit.setVerticalScrollBar(Notes_text_edit_Scroll_Bar)
         
         graphWidget = PlotWidget()
-        # Define positions of nodes
-        pos = np.array([
-            [0, 0],
-            [10, 0],
-            [0, 10],
-            [10, 10],
-            [5, 5],
-            [15, 5]
-        ])
-
-# Define the set of connections in the graph
-        adj = np.array([
-            [0, 1],
-            [1, 3],
-            [3, 2],
-            [2, 0],
-            [1, 5],
-            [3, 5],
-        ])
-        graphWidget.setData(pos,adj,False)
         Grid_Layout = QGridLayout() 
         Grid_Layout.addWidget(graphWidget)
         self.ui.System_Stats_Content.setLayout(Grid_Layout)
