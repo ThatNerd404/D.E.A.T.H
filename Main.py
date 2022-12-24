@@ -11,9 +11,9 @@ from mutagen.mp3 import MP3
 
 from PyQt5 import QtCore
 from PyQt5.QtGui import QIcon, QPixmap
-from PyQt5.QtWidgets import QApplication, QMainWindow, QScrollBar, QGridLayout
+from PyQt5.QtWidgets import QApplication, QMainWindow, QScrollBar, QHBoxLayout
 from PyQt5.QtCore import QTimer
-from pyqtgraph import PlotWidget, plot, ScatterPlotItem, GraphItem, mkBrush
+from pyqtgraph import BarGraphItem, plot, ScatterPlotItem, mkBrush
 
 from Automation_Functions.Chrono import Chrono
 from Automation_Functions.Sky import Sky
@@ -115,10 +115,12 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         x_data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 1]
         y_data = [5, 4, 6, 4, 3, 5, 6, 6, 7, 8]
         scatter.setData(x_data,y_data)
+        #BarGraph = BarGraphItem(x = x_data,width=0.5,y = y_data, height=0) 
+        # Change the data it is not suited for bargraph 
         GraphWidget.addItem(scatter)
-        Grid_Layout = QGridLayout() 
-        Grid_Layout.addWidget(GraphWidget)
-        self.ui.System_Stats_Content.setLayout(Grid_Layout)
+        HorizontalLayout = QHBoxLayout() 
+        HorizontalLayout.addWidget(GraphWidget)
+        self.ui.System_Stats_Plots.setLayout(HorizontalLayout)
      
          
         #? Setting timer for Song function
@@ -203,6 +205,7 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
     
 def app():
     #TODO: Work on the system data page
+    #TODO: Figure out which pieces of data will be shown with either a label or a graph
     #TODO: pump the brakes on numpy and focus on learning to use the plot widget in general numpy and arrays may not be necessary 
     #still learn them tho
     #TODO: Learn numpy (specfically arrays) to help organize sys data to be put on graphs
