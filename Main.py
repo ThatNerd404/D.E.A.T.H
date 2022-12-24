@@ -13,7 +13,7 @@ from PyQt5 import QtCore
 from PyQt5.QtGui import QIcon, QPixmap
 from PyQt5.QtWidgets import QApplication, QMainWindow, QScrollBar, QGridLayout
 from PyQt5.QtCore import QTimer
-from pyqtgraph import PlotWidget, plot, GraphicsLayout
+from pyqtgraph import PlotWidget, plot, ScatterPlotItem, GraphItem, mkBrush
 
 from Automation_Functions.Chrono import Chrono
 from Automation_Functions.Sky import Sky
@@ -107,9 +107,17 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         Notes_text_edit_Scroll_Bar.setStyleSheet("background : rgb(250,176,5);")
         self.ui.Notes_text_edit.setVerticalScrollBar(Notes_text_edit_Scroll_Bar)
         
-        graphWidget = PlotWidget()
+        GraphWidget = plot()
+        scatter = ScatterPlotItem(
+            size=10, brush=mkBrush(30, 255, 35, 255))
+        #LineDataItem = GraphItem()
+        
+        x_data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 1]
+        y_data = [5, 4, 6, 4, 3, 5, 6, 6, 7, 8]
+        scatter.setData(x_data,y_data)
+        GraphWidget.addItem(scatter)
         Grid_Layout = QGridLayout() 
-        Grid_Layout.addWidget(graphWidget)
+        Grid_Layout.addWidget(GraphWidget)
         self.ui.System_Stats_Content.setLayout(Grid_Layout)
      
          
