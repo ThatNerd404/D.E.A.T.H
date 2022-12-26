@@ -4,7 +4,7 @@ import sys
 import random 
 import os
 import pygame
-import numpy as np
+import numpy 
 
 from pygame import mixer
 from mutagen.mp3 import MP3
@@ -98,10 +98,22 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         self.ui.Weather_Status_Pic.setPixmap(QPixmap(WeatherInfoDict[Weather_Text]['img']))
         self.ui.General_Consensus_Desc.setText(f"""Based on the weather you should: 
 {WeatherInfoDict[Weather_Text]['Consensus']} \nBased on the temperature you should:
-{Temp_Consensus} """)
-        
+{Temp_Consensus} """) 
         self.ui.Quote_and_Author_Label.setText(f"{Author}: {Quote}")
         
+        self.ui.System_Label.setText(f"System: {System_Info['System']}")
+        self.ui.Node_Label.setText(f"Node Name: {System_Info['Node']}")
+        self.ui.Release_Label.setText(f"Relase: {System_Info['Release']}")
+        self.ui.Machine_Label.setText(f"Machine: {System_Info['Machine']}")
+        self.ui.Processor_Label.setText(f"Processor: {System_Info['Processor']}")
+        self.ui.Physical_Cores_Label.setText(f"Physical Cores: {System_Info['Physical_Cores']}")
+        self.ui.Total_Cores_Label.setText(f"Total Cores: {System_Info['Total_Cores']}")
+        self.ui.Max_Freq_Label.setText(f"Max Frequency: {Frequency['max_freq']}")
+        self.ui.Min_Freq_Label.setText(f"Minimum Frequency: {Frequency['min_freq']}")
+        self.ui.Current_Freq_Label.setText(f"Current Frequency: {Frequency['current_freq']}")
+        self.ui.Battery_Left_Label.setText(f"Battery left: {Battery['battery_left']}%")
+        self.ui.Battery_Plugged_In_Label.setText(f"Battery plugged in: {Battery['battery_plugged']}")
+    
         #? Manully adding widgets that can't be added with QT designer
         Notes_text_edit_Scroll_Bar = QScrollBar(self)
         Notes_text_edit_Scroll_Bar.setStyleSheet("background : rgb(250,176,5);")
@@ -116,7 +128,7 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         y_data = [5, 4, 6, 4, 3, 5, 6, 6, 7, 8]
         scatter.setData(x_data,y_data)
         #BarGraph = BarGraphItem(x = x_data,width=0.5,y = y_data, height=0) 
-        # Change the data it is not suited for bargraph 
+        #! Change the data it is not suited for bargraph 
         GraphWidget.addItem(scatter)
         HorizontalLayout = QHBoxLayout() 
         HorizontalLayout.addWidget(GraphWidget)
@@ -205,7 +217,9 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
     
 def app():
     #TODO: Work on the system data page
-    #TODO: Figure out which pieces of data will be shown with either a label or a graph
+    #* TODO: Figure out which pieces of data will be shown with either a label or a graph 
+    # aka stop being a dunce and do the easy stuff first
+    #TODO: make cpu usage be bar graph everything else is plain text
     #TODO: pump the brakes on numpy and focus on learning to use the plot widget in general numpy and arrays may not be necessary 
     #still learn them tho
     #TODO: Learn numpy (specfically arrays) to help organize sys data to be put on graphs

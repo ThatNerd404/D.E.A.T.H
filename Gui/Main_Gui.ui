@@ -1940,7 +1940,8 @@ background-color:rgb(250,176,5);
          </widget>
          <widget class="QWidget" name="System_Stats_Page">
           <property name="styleSheet">
-           <string notr="true">background-color: rgb(15,15,15)</string>
+           <string notr="true">color:rgb(250,176,5);
+background-color: rgb(15,15,15)</string>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_20">
            <property name="spacing">
@@ -2068,6 +2069,176 @@ border-style:solid;
                 <property name="frameShadow">
                  <enum>QFrame::Raised</enum>
                 </property>
+                <layout class="QVBoxLayout" name="verticalLayout_23">
+                 <property name="spacing">
+                  <number>0</number>
+                 </property>
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+                  <widget class="QFrame" name="System_General_Info_Title">
+                   <property name="styleSheet">
+                    <string notr="true">#System_General_Info_Title{border-color:rgb(250,176,5);
+border-width:2px;
+border-style:solid;}</string>
+                   </property>
+                   <property name="frameShape">
+                    <enum>QFrame::StyledPanel</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                   <layout class="QHBoxLayout" name="horizontalLayout_13">
+                    <property name="spacing">
+                     <number>0</number>
+                    </property>
+                    <property name="leftMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>0</number>
+                    </property>
+                    <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+                     <widget class="QLabel" name="System_General_Info_Label">
+                      <property name="styleSheet">
+                       <string notr="true">font: 12pt &quot;Palatino Linotype&quot;;</string>
+                      </property>
+                      <property name="text">
+                       <string>General System Info</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QFrame" name="System_General_Info_Content">
+                   <property name="frameShape">
+                    <enum>QFrame::StyledPanel</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                   <layout class="QGridLayout" name="gridLayout">
+                    <property name="leftMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="spacing">
+                     <number>0</number>
+                    </property>
+                    <item row="3" column="1" alignment="Qt::AlignHCenter">
+                     <widget class="QLabel" name="Physical_Cores_Label">
+                      <property name="text">
+                       <string>TextLabel</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="3" column="0" alignment="Qt::AlignHCenter">
+                     <widget class="QLabel" name="Node_Label">
+                      <property name="text">
+                       <string>TextLabel</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="4" column="0" alignment="Qt::AlignHCenter">
+                     <widget class="QLabel" name="Release_Label">
+                      <property name="text">
+                       <string>TextLabel</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="5" column="0" alignment="Qt::AlignHCenter">
+                     <widget class="QLabel" name="Machine_Label">
+                      <property name="text">
+                       <string>TextLabel</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="2" column="0" alignment="Qt::AlignHCenter">
+                     <widget class="QLabel" name="System_Label">
+                      <property name="text">
+                       <string>TextLabel</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="4" column="1" alignment="Qt::AlignHCenter">
+                     <widget class="QLabel" name="Total_Cores_Label">
+                      <property name="text">
+                       <string>TextLabel</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="5" column="1" alignment="Qt::AlignHCenter">
+                     <widget class="QLabel" name="Max_Freq_Label">
+                      <property name="text">
+                       <string>TextLabel</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="2" column="1" alignment="Qt::AlignHCenter">
+                     <widget class="QLabel" name="Processor_Label">
+                      <property name="text">
+                       <string>TextLabel</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="2" column="2" alignment="Qt::AlignHCenter">
+                     <widget class="QLabel" name="Min_Freq_Label">
+                      <property name="text">
+                       <string>TextLabel</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="3" column="2" alignment="Qt::AlignHCenter">
+                     <widget class="QLabel" name="Current_Freq_Label">
+                      <property name="text">
+                       <string>TextLabel</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="4" column="2" alignment="Qt::AlignHCenter">
+                     <widget class="QLabel" name="Battery_Left_Label">
+                      <property name="text">
+                       <string>TextLabel</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="5" column="2" alignment="Qt::AlignHCenter">
+                     <widget class="QLabel" name="Battery_Plugged_In_Label">
+                      <property name="text">
+                       <string>TextLabel</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                </layout>
                </widget>
               </item>
              </layout>
