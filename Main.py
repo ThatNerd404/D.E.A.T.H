@@ -10,9 +10,9 @@ from pygame import mixer
 from mutagen.mp3 import MP3
 
 from PyQt5 import QtCore
-from PyQt5.QtGui import QIcon, QPixmap
-from PyQt5.QtWidgets import QApplication, QMainWindow, QScrollBar, QHBoxLayout
-from PyQt5.QtCore import QTimer
+from PyQt5.QtGui import *
+from PyQt5.QtWidgets import QApplication, QMainWindow, QScrollBar, QVBoxLayout
+from PyQt5.QtCore import QTimer, Qt
 from pyqtgraph import BarGraphItem, plot, ScatterPlotItem, mkBrush
 
 from Automation_Functions.Chrono import Chrono
@@ -41,7 +41,8 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         S = Sky() # Weather data
         Weather_Text, Temperature_Text, Feels_Like_Text = S.Fetch_Weather_Data()
         WeatherInfoDict = { 'Clear': {'img':'Gui/icons8-sun-96.png', 'Consensus': "Wear what you want the weather isn't a problem."},
-                            'Clouds': {'img':'Gui/icons8-clouds-96.png', 'Consensus': 'Pack a coat just in case the weather might turn for the worse.'}, 
+                            'Clouds': {'img':'Gui/icons8-clouds-96.png', 'Consensus': 'Pack a coat just in case the weather might turn for the worse.'},
+                            'Drizzle': {'img':'Gui/icons8-rainy-weather-96.png', 'Consensus': 'Pack a coat just in case the weather might turn for the worse.'}, 
                             'Rain': {'img':'Gui/icons8-rainy-weather-96.png', 'Consensus': 'Wear a coat, the weather is bad.'},
                             'Mist':{'img':'Gui/icons8-haze-96.png', 'Consensus': 'Wear whatever but prepare for the humidity.'},
                             'Haze':{'img':'Gui/icons8-haze-96.png', 'Consensus': 'Wear whatever but prepare for the humidity.'},
@@ -120,20 +121,20 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         self.ui.Notes_text_edit.setVerticalScrollBar(Notes_text_edit_Scroll_Bar)
         
         GraphWidget = plot()
-        scatter = ScatterPlotItem(
-            size=10, brush=mkBrush(30, 255, 35, 255))
-        #LineDataItem = GraphItem()
-        
-        x_data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 1]
-        y_data = [5, 4, 6, 4, 3, 5, 6, 6, 7, 8]
-        scatter.setData(x_data,y_data)
-        #BarGraph = BarGraphItem(x = x_data,width=0.5,y = y_data, height=0) 
-        #! Change the data it is not suited for bargraph 
-        GraphWidget.addItem(scatter)
-        HorizontalLayout = QHBoxLayout() 
+        x = [1, 2, 3, 4, 5, 6, 7, 8]
+        Rounded_Cpu_Usage = []
+        for item in Cpu_Usage:
+            Rounded_Cpu_Usage.append(round(item))
+        y1 = Rounded_Cpu_Usage
+        BarGraph = BarGraphItem(x = x, height = y1, width = 0.5, brush = mkBrush(250,176,5))
+        GraphWidget.setYRange(0,100)
+        GraphWidget.setBackground(None)
+        GraphWidget.addItem(BarGraph)
+        HorizontalLayout = QVBoxLayout() 
+        HorizontalLayout.addWidget(self.ui.System_Stats_Plots_Title)
         HorizontalLayout.addWidget(GraphWidget)
         self.ui.System_Stats_Plots.setLayout(HorizontalLayout)
-     
+        self.ui.System_Stats_Plots_Title.setAlignment(Qt.AlignVCenter)
          
         #? Setting timer for Song function
         self.Song_Bar_Update = QTimer(self)
@@ -217,8 +218,6 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
     
 def app():
     #TODO: Work on the system data page
-    #* TODO: Figure out which pieces of data will be shown with either a label or a graph 
-    # aka stop being a dunce and do the easy stuff first
     #TODO: make cpu usage be bar graph everything else is plain text
     #TODO: pump the brakes on numpy and focus on learning to use the plot widget in general numpy and arrays may not be necessary 
     #still learn them tho

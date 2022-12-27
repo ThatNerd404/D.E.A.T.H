@@ -745,6 +745,15 @@ class Ui_MainWindow(object):
         self.System_Stats_Plots.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.System_Stats_Plots.setFrameShadow(QtWidgets.QFrame.Raised)
         self.System_Stats_Plots.setObjectName("System_Stats_Plots")
+        self.System_Stats_Plots_Title = QtWidgets.QLabel(self.System_Stats_Plots)
+        self.System_Stats_Plots_Title.setGeometry(QtCore.QRect(240, 10, 188, 20))
+        self.System_Stats_Plots_Title.setMinimumSize(QtCore.QSize(188, 20))
+        self.System_Stats_Plots_Title.setMaximumSize(QtCore.QSize(188, 20))
+        self.System_Stats_Plots_Title.setStyleSheet("#System_Stats_Plots_Title{border-color:rgb(250,176,5);\n"
+"border-width:2px;\n"
+"border-style:solid;\n"
+"font: 12pt \"Palatino Linotype\";}")
+        self.System_Stats_Plots_Title.setObjectName("System_Stats_Plots_Title")
         self.verticalLayout_22.addWidget(self.System_Stats_Plots)
         self.System_Stats_Text_Data = QtWidgets.QFrame(self.System_Stats_Content)
         self.System_Stats_Text_Data.setMinimumSize(QtCore.QSize(0, 198))
@@ -871,6 +880,7 @@ class Ui_MainWindow(object):
         self.Quote_and_Author_Label.setText(_translate("MainWindow", "Quote goes Hereaodsifjaklsdjfalksdjflaksdjflaksdjflsadjflkadj"))
         self.Song_Title_Label.setText(_translate("MainWindow", "Song title Here"))
         self.Sys_Title.setText(_translate("MainWindow", "System Stats"))
+        self.System_Stats_Plots_Title.setText(_translate("MainWindow", "Percentage of CPU Usage"))
         self.System_General_Info_Label.setText(_translate("MainWindow", "General System Info"))
         self.Physical_Cores_Label.setText(_translate("MainWindow", "TextLabel"))
         self.Node_Label.setText(_translate("MainWindow", "TextLabel"))

@@ -2053,6 +2053,37 @@ border-style:solid;
                 <property name="frameShadow">
                  <enum>QFrame::Raised</enum>
                 </property>
+                <widget class="QLabel" name="System_Stats_Plots_Title">
+                 <property name="geometry">
+                  <rect>
+                   <x>240</x>
+                   <y>10</y>
+                   <width>188</width>
+                   <height>20</height>
+                  </rect>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>188</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>188</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">#System_Stats_Plots_Title{border-color:rgb(250,176,5);
+border-width:2px;
+border-style:solid;
+font: 12pt &quot;Palatino Linotype&quot;;}</string>
+                 </property>
+                 <property name="text">
+                  <string>Percentage of CPU Usage</string>
+                 </property>
+                </widget>
                </widget>
               </item>
               <item>
