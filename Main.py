@@ -45,8 +45,10 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
                             'Drizzle': {'img':'Gui/icons8-rainy-weather-96.png', 'Consensus': 'Pack a coat just in case the weather might turn for the worse.'}, 
                             'Rain': {'img':'Gui/icons8-rainy-weather-96.png', 'Consensus': 'Wear a coat, the weather is bad.'},
                             'Mist':{'img':'Gui/icons8-haze-96.png', 'Consensus': 'Wear whatever but prepare for the humidity.'},
+                            'Fog':{'img':'Gui/icons8-haze-96.png', 'Consensus': 'Wear whatever but prepare for the humidity.'},
                             'Haze':{'img':'Gui/icons8-haze-96.png', 'Consensus': 'Wear whatever but prepare for the humidity.'},
                             'Snow':{'img':'Gui/icons8-snow-96.png', 'Consensus':'Wear a big coat it is freezing!'}}
+        
         #! The order of the elif statements matter. 
         # EX: if the <= 60 is first it will always return 60 even if its below 40
         if Temperature_Text >= 95:
@@ -146,14 +148,14 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         self.ui.Weather_Button.clicked.connect(lambda: self.ui.Pages.setCurrentWidget(self.ui.Weather_Page))
         self.ui.Inspirations_Button.clicked.connect(lambda: self.ui.Pages.setCurrentWidget(self.ui.Inspirations_Page))
         self.ui.System_Button.clicked.connect(lambda: self.ui.Pages.setCurrentWidget(self.ui.System_Stats_Page))
+        self.ui.Email_Button.clicked.connect(lambda: self.ui.Pages.setCurrentWidget(self.ui.Email_Page))
         self.ui.Close_Button.clicked.connect(lambda: self.close())
         self.ui.Maximize_Button.clicked.connect(lambda: self.Restore_or_Maximized())
         self.ui.Minimize_Button.clicked.connect(lambda: self.showMinimized())
         self.ui.Workout_Save_Button.clicked.connect(lambda: self.Save_Gui_Input(self.ui.Workouts_text_edit,"Save_Folder/Workouts_Save_File.txt"))
         self.ui.Notes_Save_Button.clicked.connect(lambda: self.Save_Gui_Input(self.ui.Notes_text_edit,"Save_Folder/Notes_Save_File.txt"))
         self.ui.Play_Button.clicked.connect(lambda: self.Play_Song())
-       
-       
+        
         
     #? Save all text from file to save_data variable
     def Load_File_Text(self,file):
@@ -217,11 +219,6 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
                 self.Song_Bar_Update.start(1000)
     
 def app():
-    #TODO: Work on the system data page
-    #TODO: make cpu usage be bar graph everything else is plain text
-    #TODO: pump the brakes on numpy and focus on learning to use the plot widget in general numpy and arrays may not be necessary 
-    #still learn them tho
-    #TODO: Learn numpy (specfically arrays) to help organize sys data to be put on graphs
     os.system('cls')
     app = QApplication(sys.argv)
     win = Mainwindow()

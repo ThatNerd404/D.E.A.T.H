@@ -828,12 +828,42 @@ class Ui_MainWindow(object):
         self.verticalLayout_22.addWidget(self.System_Stats_Text_Data)
         self.verticalLayout_20.addWidget(self.System_Stats_Content)
         self.Pages.addWidget(self.System_Stats_Page)
+        self.Email_Page = QtWidgets.QWidget()
+        self.Email_Page.setStyleSheet("color:rgb(250,176,5);\n"
+"background-color: rgb(15,15,15)")
+        self.Email_Page.setObjectName("Email_Page")
+        self.verticalLayout_24 = QtWidgets.QVBoxLayout(self.Email_Page)
+        self.verticalLayout_24.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_24.setSpacing(0)
+        self.verticalLayout_24.setObjectName("verticalLayout_24")
+        self.Email_Title = QtWidgets.QFrame(self.Email_Page)
+        self.Email_Title.setMaximumSize(QtCore.QSize(16777215, 52))
+        self.Email_Title.setStyleSheet("#Email_Title{border-color:rgb(250,176,5);\n"
+"border-width:1px;\n"
+"border-style:solid;}")
+        self.Email_Title.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.Email_Title.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.Email_Title.setObjectName("Email_Title")
+        self.verticalLayout_25 = QtWidgets.QVBoxLayout(self.Email_Title)
+        self.verticalLayout_25.setObjectName("verticalLayout_25")
+        self.Email_Label = QtWidgets.QLabel(self.Email_Title)
+        self.Email_Label.setStyleSheet("color:rgb(250,176,5);\n"
+"font: 28pt \"Palatino Linotype\";")
+        self.Email_Label.setObjectName("Email_Label")
+        self.verticalLayout_25.addWidget(self.Email_Label, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
+        self.verticalLayout_24.addWidget(self.Email_Title)
+        self.frame = QtWidgets.QFrame(self.Email_Page)
+        self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame.setObjectName("frame")
+        self.verticalLayout_24.addWidget(self.frame)
+        self.Pages.addWidget(self.Email_Page)
         self.horizontalLayout_4.addWidget(self.Pages)
         self.verticalLayout_5.addWidget(self.Main_Content)
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.Pages.setCurrentIndex(4)
+        self.Pages.setCurrentIndex(5)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -894,3 +924,4 @@ class Ui_MainWindow(object):
         self.Current_Freq_Label.setText(_translate("MainWindow", "TextLabel"))
         self.Battery_Left_Label.setText(_translate("MainWindow", "TextLabel"))
         self.Battery_Plugged_In_Label.setText(_translate("MainWindow", "TextLabel"))
+        self.Email_Label.setText(_translate("MainWindow", "Email"))

@@ -574,7 +574,7 @@ QPushButton:hover{background-color:rgba(250,176,5,0.05)}</string>
           <string notr="true"/>
          </property>
          <property name="currentIndex">
-          <number>4</number>
+          <number>5</number>
          </property>
          <widget class="QWidget" name="Home_Page">
           <property name="styleSheet">
@@ -2273,6 +2273,73 @@ border-style:solid;}</string>
                </widget>
               </item>
              </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="Email_Page">
+          <property name="styleSheet">
+           <string notr="true">color:rgb(250,176,5);
+background-color: rgb(15,15,15)</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_24">
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QFrame" name="Email_Title">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>52</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">#Email_Title{border-color:rgb(250,176,5);
+border-width:1px;
+border-style:solid;}</string>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_25">
+              <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+               <widget class="QLabel" name="Email_Label">
+                <property name="styleSheet">
+                 <string notr="true">color:rgb(250,176,5);
+font: 28pt &quot;Palatino Linotype&quot;;</string>
+                </property>
+                <property name="text">
+                 <string>Email</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="frame">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
             </widget>
            </item>
           </layout>
