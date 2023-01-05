@@ -19,7 +19,9 @@ from Automation_Functions.Chrono import Chrono
 from Automation_Functions.Sky import Sky
 from Automation_Functions.Inspire import Inspire
 from Automation_Functions.Stats import Stats
+from Automation_Functions.Notify import Notify
 from Gui.Main_Gui import Ui_MainWindow
+
 
 #? The Starting window state
 WINDOW_IS_MAXIMIZED = False
@@ -80,6 +82,10 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         
         Stat = Stats() # System data
         System_Info, Frequency, Battery, Total_Usage, Cpu_Usage = Stat.Check_System_Info()
+        
+        Notif = Notify()
+        #email_data, num_emails = Notify.Fetch_Inbox()
+        # Using this will check all emails as read meaning wait until you know you are done 
         
         
         #? Load text from save files

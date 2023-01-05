@@ -2333,7 +2333,12 @@ font: 28pt &quot;Palatino Linotype&quot;;</string>
             </widget>
            </item>
            <item>
-            <widget class="QFrame" name="frame">
+            <widget class="QFrame" name="Email_Content">
+             <property name="styleSheet">
+              <string notr="true">#Email_Content{border-color:rgb(250,176,5);
+border-width:1px;
+border-style:solid;}</string>
+             </property>
              <property name="frameShape">
               <enum>QFrame::StyledPanel</enum>
              </property>
