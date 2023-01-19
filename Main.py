@@ -84,7 +84,7 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         System_Info, Frequency, Battery, Total_Usage, Cpu_Usage = Stat.Check_System_Info()
         
         Notif = Notify()
-        #email_data, num_emails = Notify.Fetch_Inbox()
+        email_data, num_emails = Notif.Fetch_Inbox()
         # Using this will check all emails as read meaning wait until you know you are done 
         
         
@@ -122,7 +122,29 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         self.ui.Current_Freq_Label.setText(f"Current Frequency: {Frequency['current_freq']}")
         self.ui.Battery_Left_Label.setText(f"Battery left: {Battery['battery_left']}%")
         self.ui.Battery_Plugged_In_Label.setText(f"Battery plugged in: {Battery['battery_plugged']}")
-    
+        
+        self.ui.Email_1_From.setText(f"From: {email_data[0]['From']}")
+        self.ui.Email_2_From.setText(f"From: {email_data[1]['From']}")
+        self.ui.Email_3_From.setText(f"From: {email_data[2]['From']}")
+        self.ui.Email_4_From.setText(f"From: {email_data[3]['From']}")
+        self.ui.Email_5_From.setText(f"From: {email_data[4]['From']}")
+        self.ui.Email_1_Date.setText(f"Date: {email_data[0]['Date']}")
+        self.ui.Email_2_Date.setText(f"Date: {email_data[1]['Date']}")
+        self.ui.Email_3_Date.setText(f"Date: {email_data[2]['Date']}")
+        self.ui.Email_4_Date.setText(f"Date: {email_data[3]['Date']}")
+        self.ui.Email_5_Date.setText(f"Date: {email_data[4]['Date']}")
+        self.ui.Email_1_Subject.setText(f"Subject: {email_data[0]['Subject']}")
+        self.ui.Email_2_Subject.setText(f"Subject: {email_data[1]['Subject']}")
+        self.ui.Email_3_Subject.setText(f"Subject: {email_data[2]['Subject']}")
+        self.ui.Email_4_Subject.setText(f"Subject: {email_data[3]['Subject']}")
+        self.ui.Email_5_Subject.setText(f"Subject: {email_data[4]['Subject']}")
+        self.ui.Email_1_Msg.setText(f"Message: {email_data[0]['Message']}")
+        self.ui.Email_2_Msg.setText(f"Message: {email_data[1]['Message']}")
+        self.ui.Email_3_Msg.setText(f"Message: {email_data[2]['Message']}")
+        self.ui.Email_4_Msg.setText(f"Message: {email_data[3]['Message']}")
+        self.ui.Email_5_Msg.setText(f"Message: {email_data[4]['Message']}")
+        
+            
         #? Manully adding widgets that can't be added with QT designer
         Notes_text_edit_Scroll_Bar = QScrollBar(self)
         Notes_text_edit_Scroll_Bar.setStyleSheet("background : rgb(250,176,5);")

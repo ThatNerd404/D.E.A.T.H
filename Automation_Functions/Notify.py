@@ -82,10 +82,11 @@ class Notify:
 if __name__ == '__main__': 
     #? sets where I want the message to go and creates notify object
     Me = Notify()
-    #EX: Notify.Send_Email(Recevier, Subject , Message) 
+    for i in range(5):
+        Me.Send_Email("bcotterman06@gmail.com", "Hewwo" , "You gotta big fat ass") 
     
     #? changes tuple to useable values and bring values into use for main code 
-    email_data , num_emails  = Me.Fetch_Inbox() 
+    """email_data , num_emails  = Me.Fetch_Inbox() 
     #? |
     #?\_/ Loop to print all new emails and all the stuff in it 
     if num_emails == 0:
@@ -93,6 +94,6 @@ if __name__ == '__main__':
     else:
         for i in range(0,num_emails):
             print(f"{email_data[i]['From']} {email_data[i]['To']}\n{email_data[i]['Date']}\n{email_data[i]['Subject']}\n")
-            i += 1
+            i += 1"""
     
 
