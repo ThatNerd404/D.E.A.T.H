@@ -83,7 +83,7 @@ if __name__ == '__main__':
     #? sets where I want the message to go and creates notify object
     Me = Notify()
     for i in range(5):
-        Me.Send_Email("bcotterman06@gmail.com", "Hewwo" , "You gotta big fat ass") 
+        Me.Send_Email("bcotterman06@gmail.com", "Hello" , "Test email") 
     
     #? changes tuple to useable values and bring values into use for main code 
     """email_data , num_emails  = Me.Fetch_Inbox() 
