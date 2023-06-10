@@ -87,10 +87,11 @@ class Mainwindow(QMainWindow,Ui_MainWindow):
         email_data, num_emails = Notif.Fetch_Inbox()
         # Using this will check all emails as read meaning wait until you know you are done 
         
-        
+        workout_file = r'Save_Folder\Workouts_Save_File.txt'
+        note_file = r'Save_Folder\Notes_Save_File.txt'
         #? Load text from save files
-        workouts_text = self.Load_File_Text("Save_Folder/Workouts_Save_File.txt")
-        notes_text = self.Load_File_Text("Save_Folder/Notes_Save_File.txt") 
+        workouts_text = self.Load_File_Text(workout_file)
+        notes_text = self.Load_File_Text(note_file) 
 
         self.ui.Workouts_text_edit.setText(workouts_text)
         self.ui.Notes_text_edit.setText(notes_text)
